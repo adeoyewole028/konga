@@ -1,0 +1,25 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+body,
+html {
+  font-family: Helvetica Neue, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+.drop-right:hover ~ .drop-right-content {
+  display: flex;
+}
+

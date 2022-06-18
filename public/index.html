@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main.css" />
+    <title>Konga</title>
+  </head>
+  <body>
+    <header class="flex bg-slate-100">
+      <ul class="flex ml-auto mr-auto space-x-10 py-3">
+        <li class="w-24 h-">
+          <a href=""><img src="./images/k_travels2.png" alt="" /></a>
+        </li>
+        <li class="w-24 h-">
+          <a href=""><img src="./images/kongafood.png" alt="" /></a>
+        </li>
+        <li class="w-24 h-">
+          <a href=""><img src="./images/konga_pay.png" alt="" /></a>
+        </li>
+        <li class="w-24 h-">
+          <a href=""><img src="./images/new_konga_drinks.png" alt="" /></a>
+        </li>
+        <li class="w-24 h-">
+          <a href=""><img src="./images/konga_health.png" alt="" /></a>
+        </li>
+        <li class="w-24 h-">
+          <a href=""><img src="./images/k_express2.png" alt="" /></a>
+        </li>
+        <li class="w-24 h-">
+          <a href=""><img src="./images/new_konga_groceries.png" alt="" /></a>
+        </li>
+      </ul>
+    </header>
+    <nav class="text-xs">
+      <ul
+        style="background-color: #ed017f"
+        class="text-white flex justify-center items-center px-8"
+      >
+        <li class="w-32 mr-16">
+          <a href=""><img src="./images/logo.png" alt="" /></a>
+        </li>
+        <li
+          class="px-4 w-32 py-4 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+        >
+          <a href=""> Store Locator</a>
+        </li>
+        <li
+          class="px-4 w-32 py-4 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+        >
+          <a href="">Sell on Konga</a>
+        </li>
+        <form action="" class="flex items-center justify-center">
+          <input
+            style="width: 500px"
+            class="text-black outline-none rounded-l-md h-8 p-2"
+            type="text"
+            name=""
+            id=""
+            placeholder="Search for products, brands and categories..."
+          />
+          <button class="bg-amber-500 w-10 h-8 rounded-r-md">
+            <span
+              class="iconify mr-auto ml-auto"
+              data-icon="ant-design:search-outlined"
+            ></span>
+          </button>
+        </form>
+        <li
+          id="1"
+          class="dropdown relative px-4 py-4 w-32 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+        >
+          <span class="flex items-center"
+            ><span
+              class="iconify mr-1.5 font-black text-xl bg-stone-300 rounded-full"
+              data-icon="bi:question"
+            ></span>
+            <span>Help</span
+            ><span
+              class="iconify text-lg ml-1.5"
+              data-icon="ep:arrow-down"
+            ></span>
+          </span>
+          <ul
+            id="01"
+            class="dropdown-content hidden flex-col absolute left-0 top-12 w-48 bg-white transition hover:delay-0 duration-300 ease-in-out"
+          >
+            <li
+              class="px-5 py-3 text-black hover:text-red-700 hover:bg-slate-200"
+            >
+              <a href="">FAQs</a>
+            </li>
+            <li
+              class="px-5 py-3 text-black hover:text-red-700 hover:bg-slate-200"
+            >
+              <a href="">Contact Us</a>
+            </li>
+            <li
+              class="px-5 py-3 text-black hover:text-red-700 hover:bg-slate-200"
+            >
+              <a href="">Track My Order</a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="px-4 py-4 mr-2 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+        >
+          <a href="">Login/Signup</a>
+        </li>
+        <a
+          href=""
+          class="flex items-center rounded-sm bg-emerald-500 hover:bg-green-600 h-10 px-5 py-4 transition hover:delay-0 duration-300 ease-in-out"
+          ><span
+            class="iconify mr-1.5 text-3xl fw-bold"
+            data-icon="jam:shopping-cart"
+          ></span>
+          <span class="text-xs">My Cart</span>
+          <span class="bg-white rounded-sm text-black px-2 ml-2">0</span>
+        </a>
+      </ul>
+      <ul class="text-white flex justify-center bg-rose-900">
+        <div
+          id="2"
+          class="dropdown relative px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out"
+        >
+          <span class="flex items-center cursor-pointer">
+            <span class="font-extrabold">All Categories</span>
+            <span
+              class="iconify ml-2 text-xl"
+              data-icon="charm:menu-hamburger"
+            ></span>
+          </span>
+          <!-- All categories menu in 2 column flex -->
+          <div class="dropdown-content hidden flex absolute left-0 top-11">
+            <!-- Menu list -->
+            <div
+              style="width: 290px; height: calc(100vh - 10.9375rem)"
+              class="text-black bg-rose-50 overflow-y-auto"
+            >
+              <ul class="">
+                <li
+                  class="drop-right px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+                >
+                  <a href="">Computer and Accessories</a>
+                </li>
+                <li
+                  class="drop-right px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+                >
+                  <a href="">Phone and Tablets</a>
+                </li>
+                <li
+                  class="drop-right px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+                >
+                  <a href="">Electronics</a>
+                </li>
+                <li
+                  class="drop-right px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+                >
+                  <a href="">Konga Fashion</a>
+                </li>
+                <li
+                  class="drop-right px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+                >
+                  <a href="">Home and Kitchen</a>
+                </li>
+                <li
+                  class="drop-right px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+                >
+                  <a href="">Baby, Kids and Toys</a>
+                </li>
+                <li
+                  class="drop-right px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+                >
+                  <a href="">Other Categories</a>
+                </li>
+              </ul>
+            </div>
+            <!-- Each Menu content appears here -->
+            <!-- Computer and accessories menu -->
+            <div
+              style="
+                height: calc(100vh - 10.9375rem);
+                width: calc(100vw - 310px);
+              "
+              class="drop-right-content hidden flex bg-white text-black p-7 overflow-y-auto space-x-10"
+            >
+              <div class="flex flex-col">
+                <div>
+                  <h1 class="text-lg py-2">Laptops</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">Mini Laptops and Notebooks</a></li>
+                    <li><a href="">Notebooks</a></li>
+                    <li><a href="">Ultrabooks</a></li>
+                    <li><a href="">Hybrid PCs</a></li>
+                    <li><a href="">Macbooks</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h1 class="text-lg py-2">Printers, Scanners & Accessories</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">Printer</a></li>
+                    <li><a href="">Scanners</a></li>
+                    <li><a href="">Inks, Toners & Cartridges</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h1 class="text-lg py-2">Software</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">Office & Business</a></li>
+                    <li><a href="">Operating Systems</a></li>
+                    <li><a href="">Security & Utilities</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="flex flex-col w-72">
+                <div>
+                  <h1 class="text-lg py-2">Desktop and Monitors</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">CPUs</a></li>
+                    <li><a href="">all in Ones</a></li>
+                    <li><a href="">Monitors</a></li>
+                    <li><a href="">UPS</a></li>
+                    <li><a href="">Servers</a></li>
+                    <li><a href="">Desktop Bundles</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h1 class="text-lg py-2">Wifi & Networking</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">Switches</a></li>
+                    <li><a href="">Routers</a></li>
+                    <li><a href="">Modems</a></li>
+                    <li><a href="">Networking Peripherals</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h1 class="text-lg py-2">Projectors</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">Office & Business</a></li>
+                    <li><a href="">Operating Systems</a></li>
+                    <li><a href="">Security & Utilities</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="flex flex-col w-72">
+                <div>
+                  <h1 class="text-lg py-2">Computing Accessories</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">Computer Peripherals</a></li>
+                    <li><a href="">Bags, Cases, Covers & Sleeves</a></li>
+                    <li><a href="">Laptop & Desktop Accessories</a></li>
+                    <li><a href="">Storage Devices</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h1 class="text-lg py-2">PC Gaming</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">PC Games</a></li>
+                    <li><a href="">PC Gaming Accessories</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- empty space div -->
+              <div class="w-20"></div>
+              <!-- computer and accessories image -->
+              <div class="">
+                <img
+                  class="w-64 h-full"
+                  src="./images/comp-acce.png"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+            </div>
+            <!-- Phone and tables  menus -->
+
+            <div
+              style="
+                height: calc(100vh - 10.9375rem);
+                width: calc(100vw - 310px);
+              "
+              class="drop-right-content hidden flex bg-black text-black p-7 overflow-y-auto space-x-10"
+            >
+              <div class="flex flex-col">
+                <div>
+                  <h1 class="text-lg py-2">Laptops</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">Mini Laptops and Notebooks</a></li>
+                    <li><a href="">Notebooks</a></li>
+                    <li><a href="">Ultrabooks</a></li>
+                    <li><a href="">Hybrid PCs</a></li>
+                    <li><a href="">Macbooks</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h1 class="text-lg py-2">Printers, Scanners & Accessories</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">Printer</a></li>
+                    <li><a href="">Scanners</a></li>
+                    <li><a href="">Inks, Toners & Cartridges</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h1 class="text-lg py-2">Software</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">Office & Business</a></li>
+                    <li><a href="">Operating Systems</a></li>
+                    <li><a href="">Security & Utilities</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="flex flex-col w-72">
+                <div>
+                  <h1 class="text-lg py-2">Desktop and Monitors</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">CPUs</a></li>
+                    <li><a href="">all in Ones</a></li>
+                    <li><a href="">Monitors</a></li>
+                    <li><a href="">UPS</a></li>
+                    <li><a href="">Servers</a></li>
+                    <li><a href="">Desktop Bundles</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h1 class="text-lg py-2">Wifi & Networking</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">Switches</a></li>
+                    <li><a href="">Routers</a></li>
+                    <li><a href="">Modems</a></li>
+                    <li><a href="">Networking Peripherals</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h1 class="text-lg py-2">Projectors</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">Office & Business</a></li>
+                    <li><a href="">Operating Systems</a></li>
+                    <li><a href="">Security & Utilities</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="flex flex-col w-72">
+                <div>
+                  <h1 class="text-lg py-2">Computing Accessories</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">Computer Peripherals</a></li>
+                    <li><a href="">Bags, Cases, Covers & Sleeves</a></li>
+                    <li><a href="">Laptop & Desktop Accessories</a></li>
+                    <li><a href="">Storage Devices</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h1 class="text-lg py-2">PC Gaming</h1>
+                  <ul class="space-y-3">
+                    <li><a href="">PC Games</a></li>
+                    <li><a href="">PC Gaming Accessories</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- empty space div -->
+              <div class="w-20"></div>
+              <!-- computer and accessories image -->
+              <div class="">
+                <img
+                  class="w-64 h-full"
+                  src="./images/comp-acce.png"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <li
+          id="dropdown-computer"
+          class="dropdown px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+        >
+          <a href="">Computer and Accessories</a>
+        </li>
+        <li
+          class="px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+        >
+          <a href="">Phone and Tablets</a>
+        </li>
+        <li
+          class="px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+        >
+          <a href="">Electronics</a>
+        </li>
+        <li
+          class="px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+        >
+          <a href="">Konga Fashion</a>
+        </li>
+        <li
+          class="px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+        >
+          <a href="">Home and Kitchen</a>
+        </li>
+        <li
+          class="px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+        >
+          <a href="">Baby, Kids and Toys</a>
+        </li>
+        <li
+          class="px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+        >
+          <a href="">Other Categories</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="bg-black">
+      <section class="grid grid-cols-3 gap-5 p-3">
+        <div class="col-span-2">
+          <img src="./images/pow.jpg" alt="" />
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <img src="./images/pow.jpg" alt="" />
+          </div>
+          <div>
+            <img src="./images/pow.jpg" alt="" />
+          </div>
+          <div>
+            <img src="./images/pow.jpg" alt="" />
+          </div>
+          <div>
+            <img src="./images/pow.jpg" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section class="flex space-x-36 bg-rose-900 py-3 px-5">
+        <button>Konga Blog</button><button>Pay Bill</button
+        ><button>Free Delivery</button><button>Offline Stores</button
+        ><button>Brand Stores</button><button>Book Flights</button>
+      </section>
+
+      <section class="bg-white m-5">
+        <h1 class="p-3">Recommended for you <span>See all Items</span></h1>
+        <hr />
+        <div class="grid grid-cols-3 gap-3 p-5">
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+        </div>
+      </section>
+
+      <section class="flex m-5">
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+      </section>
+
+      <section class="bg-white m-5">
+        <h1 class="p-3">Today's Deals <span>See all Items</span></h1>
+        <hr />
+        <div class="grid grid-cols-3 gap-3 p-5">
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+        </div>
+      </section>
+
+      <section class="banner m-5">
+        <div><img class="h-32 w-full" src="./images/pow.jpg" alt="" /></div>
+      </section>
+
+      <section class="grid grid-cols-2 m-5">
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+      </section>
+
+      <section class="div-scroll bg-white m-5">
+        <h1>Best Selling Products</h1>
+
+        <div class="flex">
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+        </div>
+      </section>
+      <section class="div-scroll bg-white m-5">
+        <h1>Your Browsing History</h1>
+
+        <div class="flex">
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+          <div><img src="./images/pow.jpg" alt="" /></div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-4 m-5">
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+      </section>
+
+      <section class="partners grid grid-cols-6 m-5 gap-3">
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+        <div><img src="./images/pow.jpg" alt="" /></div>
+      </section>
+
+      <section class="bg-white m-5 p-3">
+        <h1 class="py-4">
+          Konga Online Shopping in Nigeria - Best Shopping Site
+        </h1>
+        <p>
+          Konga.com is Nigeria’s number one online Shopping destination.We pride
+          ourselves in having everything you could possibly need for life and
+          living at the best prices than anywhere else. Our access to Original
+          Equipment Manufacturers and premium sellers gives us a wide range of
+          products at very low prices. Some of our popular categories include
+          electronics, mobile phones, computers, fashion, beauty products, home
+          and kitchen, Building and construction materials and a whole lot more
+          from premium brands. Some of our other categories include Food and
+          drinks, automotive and industrial, books, musical equipment, babies
+          and kids items, sports and fitness, to mention a few. To make your
+          shopping experience swift and memorable, there are also added services
+          like gift vouchers, consumer promotion activities across different
+          categories and bulk purchases with hassle-free delivery. Enjoy free
+          shipping rates for certain products and with the bulk purchase option,
+          you can enjoy low shipping rates, discounted prices and flexible
+          payment. When you shop on our platform, you can pay with your debit
+          card or via KongaPay, which is a convenient and secured payment
+          solution. Get the best of lifestyle services online. Don't miss out on
+          the biggest sales online which takes place on special dates yearly.
+        </p>
+      </section>
+
+      <section class="bg-zinc-600 m-5">
+        <ul class="flex space-x-12 px-5">
+          <li>
+            Email Support <br />
+            help@konga.com
+          </li>
+          <li>
+            PHONE SUPPORT <br />
+            0708 063 5700, 0809 460 5555, 01 888 3435
+          </li>
+          <li>WHATSAPP <br />0907 0038 400, 0809 460 5555</li>
+          <li>GET LATEST DEAL <br />Our best promotions sent to your inbox.</li>
+          <form action="">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email Address"
+            />
+            <button>Subscribe</button>
+          </form>
+        </ul>
+      </section>
+
+      <footer class="grid grid-cols-6 text-white m-5">
+        <div>
+          <h1>ABOUT KONGA</h1>
+          <ul>
+            <li>Contact Us</li>
+            <li>About Us</li>
+            <li>Careers</li>
+            <li>Our Blog</li>
+            <li>Forum</li>
+            <li>Terms & Conditions</li>
+          </ul>
+        </div>
+        <div>
+          <h1>PAYMENT</h1>
+          <ul>
+            <li>KOngPay</li>
+            <li>Wallet</li>
+            <li>Verve</li>
+            <li>Mastercard</li>
+            <li>Visa</li>
+          </ul>
+        </div>
+        <div>
+          <h1>BUYING ON KONGA</h1>
+          <ul>
+            <li>Buyer Safety Centre</li>
+            <li>FAQs</li>
+            <li>Delivery</li>
+            <li>Konga Return Policy</li>
+            <li>Digital Services</li>
+            <li>Bulk Purchase</li>
+          </ul>
+        </div>
+        <div>
+          <h1>MORE INFO</h1>
+          <ul>
+            <li>Site Map</li>
+            <li>Track My Order</li>
+            <li>Privacy Policy</li>
+            <li>Authentic Items Policy</li>
+          </ul>
+        </div>
+        <div>
+          <h1>MAKE MONEY ON KONGA</h1>
+          <ul>
+            <li>Become a Konga Affiliate</li>
+          </ul>
+        </div>
+        <div><h1>DOWNLOAD AND CONNECT WITH US</h1></div>
+        <div class="text-white ml-auto mr-auto col-span-6 mt-5">
+          Copyright &copy 2022 Konga.com. All rights reserved
+        </div>
+      </footer>
+    </div>
+    <script src="./index.js"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+  </body>
+</html>
