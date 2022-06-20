@@ -41,14 +41,6 @@ let computerMenus = [
     ],
   },
   {
-    id: "Printers, Scanners & Accessories",
-    links: ["Printers", "Scanners", "Inks, Toners & Cartridges"],
-  },
-  {
-    id: "Software",
-    links: ["Office & Business", "Operating Systems", "Security & Utilities"],
-  },
-  {
     id: "Desktop and Monitors",
     links: [
       "CPUs",
@@ -58,6 +50,14 @@ let computerMenus = [
       "Servers",
       "Desktop Bundles",
     ],
+  },
+  {
+    id: "Software",
+    links: ["Office & Business", "Operating Systems", "Security & Utilities"],
+  },
+  {
+    id: "Printers, Scanners & Accessories",
+    links: ["Printers", "Scanners", "Inks, Toners & Cartridges"],
   },
   {
     id: "Wifi & Networking",
@@ -79,41 +79,25 @@ let computerMenus = [
   { id: "PC Gaming", links: ["PC Games", "PC Gaming Accessories"] },
 ];
 
-let computerList = [computerMenus].map((i) => {
-  return i;
-});
-console.log(computerList);
+computerMenus.forEach(function (item) {
+  let computerMenu = document.createElement("div");
+  computerMenu.classList.add("right-content");
+  computerMenu.setAttribute("id", item.id);
+  computerMenu.innerHTML = `<h2 class="text-2xl font-bold text-gray-800 w-64 mr-10">${item.id}</h2>`;
 
-let content = document.querySelector("#content");
-let contentUl = document.querySelector("#content-ul");
+  let computerMenuList = document.createElement("ul");
+  let computerMenuLinks = item.links.map((item) => {
+    return item;
+  });
 
-let computerHtml = "";
-let computerLinks = "";
-computerList.forEach(function (item) {
-  let itemsId = item.map((i) => {
-    return i.id;
-  });
-  let itemsLinks = item.map((i) => {
-    return i.links;
-  });
-  itemsId.forEach(function (itemid) {
-    console.log(itemid);
-    return (computerHtml += `<h1 class="">${itemid}</h1>`);
-  });
-// To map the links today
-  itemsLinks.forEach(function (itemlinks) {
-    console.log(itemlinks);
-    return (computerLinks += `<li class=""><a href="" ${itemlinks}</a></li>`);
-  });
-});
-console.log(computerHtml);
-content.innerHTML = computerHtml;
-console.log(computerLinks);
-contentUl.innerHTML = computerLinks;
+  let computerMenuLinksHtml = "";
 
-let drops = [...Array(dropRight.length)].map((_, i) => {
-  dropRight[i].addEventListener("mouseenter", function (e) {
-    console.log(e);
-    rightContent.classList.remove("hidden");
+  computerMenuLinks.forEach(function (item) {
+    return (computerMenuLinksHtml += `<li class="list-content py-2 ">${item}</li>`);
   });
+
+  computerMenuList.innerHTML = computerMenuLinksHtml;
+  computerMenu.appendChild(computerMenuList);
+  rightContent.appendChild(computerMenu);
+  console.log(item.id);
 });
