@@ -15,11 +15,10 @@ html {
   /* border: 1px solid black; */
 }
 
-.dropdown:hover .dropdown-content {
+/* .dropdown:hover .dropdown-content {
   display: flex;
-}
+} */
 
-.drop-right:hover ~ .drop-right-content {
+/* .drop-right:hover div:has(.drop-right-menus) {
   display: flex;
-}
-
+} */

@@ -67,24 +67,25 @@
             ></span>
           </button>
         </form>
-        <li
-          id="1"
-          class="dropdown relative px-4 py-4 w-32 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+        <div
+          class="dropdown relative px-4 py-3.5 w-32 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
         >
-          <span class="flex items-center"
-            ><span
-              class="iconify mr-1.5 font-black text-xl bg-stone-300 rounded-full"
-              data-icon="bi:question"
-            ></span>
-            <span>Help</span
-            ><span
-              class="iconify text-lg ml-1.5"
-              data-icon="ep:arrow-down"
-            ></span>
-          </span>
-          <ul
-            id="01"
-            class="dropdown-content hidden flex-col absolute left-0 top-12 w-48 bg-white transition hover:delay-0 duration-300 ease-in-out"
+          <div>
+            <span class="flex items-center"
+              ><span
+                class="iconify mr-1.5 font-black text-xl bg-stone-300 rounded-full"
+                data-icon="bi:question"
+              ></span>
+              <span>Help</span
+              ><span
+                class="iconify text-lg ml-1.5"
+                data-icon="ep:arrow-down"
+              ></span>
+            </span>
+          </div>
+
+          <div
+            class="dropdown-content z-50 hidden flex flex-col absolute left-0 top-12 w-48 bg-white transition hover:delay-0 duration-300 ease-in-out"
           >
             <li
               class="px-5 py-3 text-black hover:text-red-700 hover:bg-slate-200"
@@ -101,8 +102,8 @@
             >
               <a href="">Track My Order</a>
             </li>
-          </ul>
-        </li>
+          </div>
+        </div>
         <li
           class="px-4 py-4 mr-2 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
         >
@@ -119,91 +120,38 @@
           <span class="bg-white rounded-sm text-black px-2 ml-2">0</span>
         </a>
       </ul>
-      <ul class="text-white flex justify-center bg-rose-900">
+      <div id="second-level-nav" class="text-white flex bg-rose-900">
         <div
-          id="2"
           class="dropdown relative px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out"
         >
-          <span class="flex items-center cursor-pointer">
-            <span class="font-extrabold">All Categories</span>
-            <span
-              class="iconify ml-2 text-xl"
-              data-icon="charm:menu-hamburger"
-            ></span>
-          </span>
+          <div>
+            <span class="flex items-center cursor-pointer">
+              <span class="font-extrabold">All Categories</span>
+              <span
+                class="iconify ml-2 text-xl"
+                data-icon="charm:menu-hamburger"
+              ></span>
+            </span>
+          </div>
+
           <!-- All categories menu in 2 column flex -->
           <div class="dropdown-content hidden flex absolute left-0 top-11">
             <!-- Menu list -->
-            <div
-              style="width: 290px; height: calc(100vh - 10.9375rem)"
-              class="text-black bg-rose-50 overflow-y-auto"
-            >
-              <div id="category-menu">
-                <div id="content">
-                  <ul id="content-ul"></ul>
-                </div>
-              </div>
-            </div>
-            <!-- Each Menu content appears here -->
-            <!-- Computer and accessories menu -->
-            <div
-              style="
-                height: calc(100vh - 10.9375rem);
-                width: calc(100vw - 310px);
-              "
-              class="drop-right-content flex flex-wrap bg-white text-black p-7 overflow-y-auto"
-            >
-              <!-- empty space div -->
-              <!-- <div class="w-20"></div> -->
-              <!-- computer and accessories image -->
-              <!-- <div class="">
-                <img
-                  class="w-64 h-full"
-                  src="./images/comp-acce.png"
-                  alt=""
-                  srcset=""
-                />
-              </div> -->
+            <div class="relative">
+              <!-- category list -->
+              <div
+                id="category-menu"
+                style="
+                  width: calc(100vw - 17px);
+                  height: calc(100vh - 10.9375rem);
+                "
+                class="text-black bg-rose-50"
+              ></div>
+              <!-- Category menu -->
             </div>
           </div>
         </div>
-        <li
-          id="dropdown-computer"
-          class="dropdown px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
-        >
-          <a href="">Computer and Accessories</a>
-        </li>
-        <li
-          class="px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
-        >
-          <a href="">Phone and Tablets</a>
-        </li>
-        <li
-          class="px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
-        >
-          <a href="">Electronics</a>
-        </li>
-        <li
-          class="px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
-        >
-          <a href="">Konga Fashion</a>
-        </li>
-        <li
-          class="px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
-        >
-          <a href="">Home and Kitchen</a>
-        </li>
-        <li
-          class="px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
-        >
-          <a href="">Baby, Kids and Toys</a>
-        </li>
-        <li
-          class="px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
-        >
-          <a href="">Other Categories</a>
-        </li>
-      </ul>
+      </div>
     </nav>
     <div class="bg-black">
       <section class="grid grid-cols-3 gap-5 p-3">
