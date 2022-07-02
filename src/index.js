@@ -360,10 +360,10 @@ otherServicesContainer.setAttribute("class", "services flex flex-wrap");
 otherServices.forEach((service) => {
   //for each ad in the array
   let serviceEl = document.createElement("div");
-  serviceEl.setAttribute("class", "w-1/6 p-2 bg-white");
+  serviceEl.setAttribute("class", "w-1/6 p-2");
   let serviceImage = document.createElement("img");
   serviceImage.setAttribute("src", service.image);
-  serviceImage.setAttribute("class", "rounded-md shadow-md p-2");
+  serviceImage.setAttribute("class", "rounded-md shadow-md p-2 bg-white");
   let serviceLink = document.createElement("a");
   serviceLink.setAttribute("href", service.link);
   serviceLink.appendChild(serviceImage);
@@ -638,7 +638,7 @@ function renderProducts(todaysDeal) {
   let todaysDealContainer = document.createElement("div");
   todaysDealContainer.setAttribute(
     "class",
-    "todays-deal rounded-lg bg-rose-300"
+    "todays-deal rounded-lg bg-rose-300 mb-5"
   );
   let heading = document.createElement("div");
   let headingTitle = document.createElement("h2");
@@ -777,7 +777,7 @@ function renderSponsors(sponsoredProducts) {
   let sponsoredProductsContainer = document.createElement("div");
   sponsoredProductsContainer.setAttribute(
     "class",
-    "sponsored-products rounded-lg bg-rose-300"
+    "sponsored-products rounded-lg bg-rose-300 mb-5"
   );
   let heading = document.createElement("div");
   let headingTitle = document.createElement("h2");
@@ -806,15 +806,18 @@ function renderSponsors(sponsoredProducts) {
   let sponsoredProductsItems = document.createElement("div");
   sponsoredProductsItems.setAttribute(
     "class",
-    "flex justify-center flex-wrap bg-white"
+    "flex space-x-5 p-5 overflow-x-auto bg-white"
   );
 
   Object.keys(sponsoredProducts).forEach((item, i) => {
     if (item !== "header") {
       let sponsoredProductsItem = document.createElement("div");
+
+      
+
       sponsoredProductsItem.setAttribute(
         "class",
-        "sm:w-1/2 md:w-96 p-3 bg-white hover:shadow-2xl m-0.5"
+        "p-3 bg-white hover:shadow-2xl"
       );
       let sponsoredProductsItemImg = document.createElement("img");
       let sponsoredProductsItemTitle = document.createElement("h3");
@@ -822,10 +825,10 @@ function renderSponsors(sponsoredProducts) {
       let sponsoredProductsItemLink = document.createElement("a");
       let titlePrice = document.createElement("div");
       titlePrice.setAttribute("class", "flex flex-col p-3");
-      sponsoredProductsItemImg.setAttribute("class", "w-24 h-24");
+      sponsoredProductsItemImg.setAttribute("class", "w-40 h-40");
       sponsoredProductsItemTitle.setAttribute("class", "text-xl font-bold");
       sponsoredProductsItemPrice.setAttribute("class", "text-gray-800");
-      sponsoredProductsItemLink.setAttribute("class", "flex");
+      sponsoredProductsItemLink.setAttribute("class", "flex flex-col w-64");
       sponsoredProductsItemImg.src = sponsoredProducts[item].img;
       sponsoredProductsItemTitle.innerHTML = sponsoredProducts[item].title;
       sponsoredProductsItemPrice.innerHTML = sponsoredProducts[item].price;
