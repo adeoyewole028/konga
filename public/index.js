@@ -1,5 +1,6 @@
 let header = document.querySelector("header");
-let categoriesMenu = document.querySelector("#category-menu");
+let nav = document.querySelector("nav");
+let main = document.querySelector("main");
 
 // header Images
 let headerContent = [
@@ -28,107 +29,520 @@ headerContent.forEach((image) => {
   header.appendChild(headerImages);
 });
 
+let topNavContent = [
+  {
+    name: "./images/logo.png",
+    link: "#",
+  },
+  {
+    name: "Store Locator",
+    link: "#",
+  },
+  {
+    name: "Sell on Konga",
+    link: "#",
+  },
+  {
+    name: "form",
+  },
+  {
+    name: "Help",
+    link: "#",
+
+    subMenu: [
+      { name: "FAQ", link: "#" },
+      { name: "Contact Us", link: "#" },
+      { name: "Track My Order", link: "#" },
+    ],
+  },
+  {
+    name: "Login/Sign Up",
+    link: "#",
+  },
+  {
+    name: "My Cart",
+    link: "#",
+  },
+];
+
+let topNav = document.createElement("ul");
+topNav.setAttribute(
+  "class",
+  "top-nav flex justify-center text-white items-center px-8"
+);
+topNav.setAttribute("style", "background-color: #ed017f;");
+topNavContent.forEach((item) => {
+  let topNavList = document.createElement("li");
+  topNavList.setAttribute(
+    "class",
+    "top-nav-item px-4 w-32 py-4 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+  );
+  let topNavLink = document.createElement("a");
+
+  if (item.name === "./images/logo.png") {
+    topNavLink.setAttribute("href", item.link);
+    topNavLink.setAttribute("class", "flex items-center");
+    let topNavImage = document.createElement("img");
+    topNavImage.setAttribute("src", item.name);
+    topNavImage.setAttribute("class", "w-32 mr-16");
+    topNavLink.appendChild(topNavImage);
+    topNav.appendChild(topNavLink);
+  } else if (item.name === "form") {
+    topNavLink.setAttribute("href", item.link);
+    topNavLink.setAttribute("class", "flex items-center");
+    let topNavForm = document.createElement("form");
+    topNavForm.setAttribute("class", "flex items-center justify-center");
+    let topNavInput = document.createElement("input");
+    topNavInput.setAttribute("type", "text");
+    topNavInput.setAttribute(
+      "class",
+      "text-black outline-none rounded-l-md h-8 p-2"
+    );
+    topNavInput.setAttribute("style", "width: 500px;");
+    topNavInput.setAttribute(
+      "placeholder",
+      "Search for products, brands and categories..."
+    );
+    let topNavButton = document.createElement("button");
+
+    topNavButton.setAttribute("class", "bg-amber-500 w-10 h-8 rounded-r-md");
+    let topNavIcon = document.createElement("span");
+    topNavIcon.setAttribute("class", "iconify mr-auto ml-auto");
+    topNavIcon.setAttribute("data-icon", "ant-design:search-outlined");
+    topNavButton.appendChild(topNavIcon);
+    topNavForm.appendChild(topNavInput);
+    topNavForm.appendChild(topNavButton);
+    topNav.appendChild(topNavForm);
+  } else if (item.name === "Help") {
+    let helpItem = document.createElement("div");
+    helpItem.setAttribute(
+      "class",
+      "dropdown relative px-4 py-3.5 w-32 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+    );
+    helpItem.innerHTML = `<span class="flex items-center"
+    ><span
+      class="iconify mr-1.5 font-black text-xl bg-stone-300 rounded-full"
+      data-icon="bi:question"
+    ></span>
+    <span>${item.name}</span
+    ><span
+      class="iconify text-lg ml-1.5"
+      data-icon="ep:arrow-down"
+    ></span>
+  </span>`;
+    topNav.appendChild(helpItem);
+    let topNavSubMenu = document.createElement("ul");
+    topNavSubMenu.setAttribute(
+      "class",
+      "top-nav-sub-menu dropdown-content z-50 hidden flex flex-col absolute left-0 top-12 w-48 bg-white transition hover:delay-0 duration-300 ease-in-out"
+    );
+    item.subMenu.forEach((subItem) => {
+      let topNavSubMenuList = document.createElement("li");
+      topNavSubMenuList.setAttribute(
+        "class",
+        "top-nav-sub-menu-item px-5 py-3 text-black hover:text-red-700 hover:bg-slate-200"
+      );
+      let topNavSubMenuLink = document.createElement("a");
+      topNavSubMenuLink.setAttribute("href", subItem.link);
+      topNavSubMenuLink.innerHTML = subItem.name;
+      topNavSubMenuList.appendChild(topNavSubMenuLink);
+      topNavSubMenu.appendChild(topNavSubMenuList);
+    });
+    helpItem.appendChild(topNavSubMenu);
+  } else if (item.name === "My Cart") {
+    let cartItem = document.createElement("a");
+
+    cartItem.innerHTML = `<a
+    href=""
+    class="flex items-center rounded-sm bg-emerald-500 hover:bg-green-600 h-10 px-5 py-4 transition hover:delay-0 duration-300 ease-in-out"
+    ><span
+      class="iconify mr-1.5 text-3xl fw-bold"
+      data-icon="jam:shopping-cart"
+    ></span>
+    <span class="text-xs">My Cart</span>
+    <span class="bg-white rounded-sm text-black px-2 ml-2">0</span>
+  </a>`;
+    topNav.appendChild(cartItem);
+  } else {
+    topNavLink.setAttribute("href", item.link);
+    topNavLink.innerHTML = item.name;
+    topNavList.appendChild(topNavLink);
+    topNav.appendChild(topNavList);
+  }
+});
+nav.appendChild(topNav);
+
 // categories dropdown and second nav menu array
 let categoryMenu = [
-  "Computer and Accessories",
-  "Phone and Tablets",
-  "Electronics",
-  "Konga Fashion",
-  "Home and Kitchen",
-  "Baby, Kids and Toys",
-  "Other Categories",
+  {
+    name: "All Categories",
+    subMenu1: [
+      { name: "Computer and Accessories",},
+      { name: "phones and Tablets",},
+      { name: "Electronics", },
+      { name: "Konga Fashion",},
+      { name: "Home and Kitchen",},
+      { name: "Baby, Kids and Toys",},
+      { name: "Other Categories",},
+    ],
+  },
+  {
+    name: "Computer and Accessories",
+    subMenu2: [
+      {
+        id: "Laptops",
+        link: [
+          { name: "Mini Laptops and Notebooks", link: "#" },
+          { name: "Notebooks", link: "#" },
+          { name: "Ultrabooks", link: "#" },
+          { name: "Hybrid PCs", link: "#" },
+          { name: "Macbooks", link: "#" },
+        ],
+      },
+      {
+        id: "Desktops and Monitors",
+        link: [
+          { name: "CPUs", link: "#" },
+          { name: "All in Ones", link: "#" },
+          { name: "Monitors", link: "#" },
+          { name: "UPS", link: "#" },
+          { name: "Servers", link: "#" },
+          { name: "Desktop Bundles", link: "#" },
+        ],
+      },
+      {
+        id: "Computer Accessories",
+        link: [
+          { name: "Computer Peripherals", link: "#" },
+          { name: "Bags, Cases, Covers & Sleeves", link: "#" },
+          { name: "Laptop & Desktop Accessories", link: "#" },
+          { name: "Storage Devices", link: "#" },
+        ],
+      },
+      {
+        id: "Printers, Scanners & Accessories",
+        link: [
+          { name: "Printers", link: "#" },
+          { name: "Scanners", link: "#" },
+          { name: "Inks, Toners & Cartridges", link: "#" },
+        ],
+      },
+      {
+        id: "Wifi & Networking",
+        link: [
+          { name: "Switches", link: "#" },
+          { name: "Routers", link: "#" },
+          { name: "Modems", link: "#" },
+          { name: "Networking Peripherals", link: "#" },
+        ],
+      },
+      {
+        id: "PC Gaming",
+        link: [
+          { name: "PC Games", link: "#" },
+          { name: "PC Gaming Accessories", link: "#" },
+        ],
+      },
+      {
+        id: "Software",
+        link: [
+          { name: "Office & Business", link: "#" },
+          {
+            name: "Operating Systems",
+            name: "Security & Utilities",
+            link: "#",
+          },
+        ],
+      },
+      {
+        id: "Projectors",
+        link: [
+          { name: "Switches", link: "#" },
+          { name: "Routers", link: "#" },
+          { name: "Modems", link: "#" },
+          { name: "Networking Peripherals", link: "#" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Phones and Tablets",
+    subMenu3: [
+      {
+        id: "Smartphones",
+        link: [
+          { name: "Smartphones", link: "#" },
+          { name: "Tablets", link: "#" },
+          { name: "Smart Watches", link: "#" },
+          { name: "Smart Bags", link: "#" },
+          { name: "Smart Home", link: "#" },
+        ],
+      },
+      {
+        id: "Mobile Phone Accessories",
+        link: [
+          { name: "Cables", link: "#" },
+          { name: "Cases & Covers", link: "#" },
+          { name: "Screen Protectors", link: "#" },
+          { name: "Chargers & Power Banks", link: "#" },
+          { name: "Earphones & Headsets", link: "#" },
+          { name: "Smartwatches & Bands", link: "#" },
+          { name: "Clips, Holders & Stands", link: "#" },
+          { name: "Batteries", link: "#" },
+        ],
+      },
+      {
+        id: "Tablets",
+        link: [
+          { name: "Android", link: "#" },
+          { name: "iOS", link: "#" },
+          { name: "Windows", link: "#" },
+          { name: "Other OS", link: "#" },
+        ],
+      },
+      {
+        id: "Tablet Accessories",
+        link: [
+          { name: "Cases & Covers", link: "#" },
+          { name: "Holders & Stands", link: "#" },
+          { name: "Other Accessories", link: "#" },
+        ],
+      },
+      {
+        id: "Shop By Price",
+        link: [
+          { name: "Up to 10,000", link: "#" },
+          { name: "Up to 20,000", link: "#" },
+          { name: "Up to 30,000", link: "#" },
+          { name: "Up to 40,000", link: "#" },
+          { name: "Up to 50,000", link: "#" },
+          { name: "Up to 60,000", link: "#" },
+          { name: "60,000 & Above", link: "#" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Electronics",
+    subMenu4: [
+      {
+        id: "TVs and Audio",
+        link: [
+          { name: "TVs", link: "#" },
+          { name: "Audio", link: "#" },
+        ],
+      },
+      {
+        id: "Cameras",
+        link: [
+          { name: "Cameras", link: "#" },
+          { name: "Accessories", link: "#" },
+        ],
+      },
+      {
+        id: "Video Games",
+        link: [
+          { name: "Video Games", link: "#" },
+          { name: "Accessories", link: "#" },
+        ],
+      },
+    ],
+  },
+  { name: "Konga Fashion", link: "#" },
+  { name: "Home and Kitchen", link: "#" },
+  { name: "Baby, Kids and Toys", link: "#" },
+  { name: "Other Categories", link: "#" },
 ];
 
-// computer and accessories dropdown menu
-let computerMenus = [
-  {
-    id: "laptop",
-    links: [
-      "Mini Laptops and Notebooks",
-      "Notebooks",
-      "Ultrabooks",
-      "Hybrid PCs",
-      "Macbooks",
-    ],
-  },
-  {
-    id: "Desktop and Monitors",
-    links: [
-      "CPUs",
-      "all in Ones",
-      "Monitors",
-      "UPS",
-      "Servers",
-      "Desktop Bundles",
-    ],
-  },
-  {
-    id: "Computer Accessories",
-    links: [
-      "Computer Peripherals",
-      "Bags, Cases, Covers & Sleeves",
-      "Laptop & Desktop Accessories",
-      "Storage Devices",
-    ],
-  },
-  {
-    id: "Printers, Scanners & Accessories",
-    links: ["Printers", "Scanners", "Inks, Toners & Cartridges"],
-  },
-  {
-    id: "Wifi & Networking",
-    links: ["Switches", "Routers", "Modems", "Networking Peripherals"],
-  },
-  { id: "PC Gaming", links: ["PC Games", "PC Gaming Accessories"] },
+let subNav = document.createElement("div");
+subNav.setAttribute("class", "sub-nav text-white bg-rose-900");
+let subNavList = document.createElement("ul");
+subNavList.setAttribute("class", "sub-nav-list flex");
+categoryMenu.forEach((item) => {
+  let subNavItem = document.createElement("li");
+  subNavItem.setAttribute(
+    "class",
+    "sub-nav-item flex align-center dropdown relative px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+  );
+  let subNavSpan = document.createElement("span");
+  subNavSpan.setAttribute("class", "flex");
+  subNavSpan.innerHTML = item.name;
+  if (item.name === "All Categories") {
+    subNavSpan.innerHTML = `<span class="mr-2">${item.name}</span><span class= "iconify right-2 text-xl" data-icon = "charm:menu-hamburger"></span>`;
+  }
+  subNavItem.appendChild(subNavSpan);
+  subNavList.appendChild(subNavItem);
+  subNav.appendChild(subNavList);
+  if (item.subMenu1) {
+    let subNavSubMenu = document.createElement("ul");
+    subNavSubMenu.setAttribute(
+      "class",
+      "sub-nav-sub-menu dropdown-content z-50 hidden flex flex-col absolute left-0 top-10 w-64 bg-white transition hover:delay-0 duration-300 ease-in-out"
+    );
+    item.subMenu1.forEach((subItem) => {
+      let subNavSubMenuList = document.createElement("li");
+      subNavSubMenuList.setAttribute(
+        "class",
+        "sub-nav-sub-menu-item px-5 py-3 text-black hover:text-red-700 hover:bg-slate-200"
+      );
+      subNavSubMenuList.innerHTML = subItem.name;
+      subNavSubMenu.appendChild(subNavSubMenuList);
+    });
+    subNavItem.appendChild(subNavSubMenu);
+  }
 
-  {
-    id: "Software",
-    links: ["Office & Business", "Operating Systems", "Security & Utilities"],
-  },
-  {
-    id: "Projectors",
-    links: ["Office & Business", "Operating Systems", "Security & Utilities"],
-  },
-];
+  if (item.subMenu2) {
+    let subNavSubMenu = document.createElement("ul");
+    subNavSubMenu.setAttribute(
+      "class",
+      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute -left-44  top-11 bg-white transition hover:delay-0 duration-300 ease-in-out"
+    );
+    subNavSubMenu.style.width = "calc(100vw - 14px)";
+    item.subMenu2.forEach((subItem) => {
+      let subNavSubMenuList1 = document.createElement("li");
+      let subNavSubMenuHead = document.createElement("h3");
+      subNavSubMenuHead.setAttribute(
+        "class",
+        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
+      );
+      subNavSubMenuList1.setAttribute(
+        "class",
+        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
+      );
 
-// phone and tablets dropdown menu
-const phoneAndTabletMenu = [
-  {
-    id: "Mobile Phones",
-    links: ["Smartphones", "Feature Phones"],
-  },
-  {
-    id: "Mobile Phone Accessories",
-    links: [
-      "Cables",
-      "Cases & Covers",
-      "Screen Protectors",
-      "Chargers & Power Banks",
-      "Earphones & Headsets",
-      "Smartwatches & Bands",
-      "Clips, Holders & Stands",
-      "Batteries",
-    ],
-  },
-  { id: "Tablets", links: ["Android", "iOS", "Windows", "Other OS"] },
-  {
-    id: "Tablet Accessories",
-    links: ["Cases & Covers", "Holders & Stands", "Other Accessories"],
-  },
-  {
-    id: "Shop By Price",
-    links: [
-      "Up to 10,000",
-      "Up to 20,000",
-      "Up to 30,000",
-      "Up to 40,000",
-      "Up to 50,000",
-      "Up to 60,000",
-      "60,000 & Above",
-    ],
-  },
-];
-let main = document.querySelector("main");
+      subNavSubMenuHead.innerHTML = subItem.id;
+      subNavSubMenuList1.appendChild(subNavSubMenuHead);
+      subNavSubMenu.appendChild(subNavSubMenuList1);
+      let subNavSubMenuListSubList = document.createElement("ul");
+      subItem.link.forEach((subSubItem) => {
+        let subNavSubMenuList2 = document.createElement("li");
+        subNavSubMenuList2.setAttribute(
+          "class",
+          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
+        );
+        subNavSubMenuList2.innerHTML = subSubItem.name;
+        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
+        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
+      });
+    });
+    subNavItem.appendChild(subNavSubMenu);
+  } else if (item.subMenu3) {
+    let subNavSubMenu = document.createElement("ul");
+    subNavSubMenu.setAttribute(
+      "class",
+      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute  top-11 bg-white transition hover:delay-0 duration-300 ease-in-out"
+    );
+    subNavSubMenu.setAttribute(
+      "style",
+      "width: calc(100vw - 13px); left: calc(-28.5vw);"
+    );
+    item.subMenu3.forEach((subItem) => {
+      let subNavSubMenuList1 = document.createElement("li");
+      let subNavSubMenuHead = document.createElement("h3");
+      subNavSubMenuHead.setAttribute(
+        "class",
+        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
+      );
+      subNavSubMenuList1.setAttribute(
+        "class",
+        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
+      );
+
+      subNavSubMenuHead.innerHTML = subItem.id;
+      subNavSubMenuList1.appendChild(subNavSubMenuHead);
+      subNavSubMenu.appendChild(subNavSubMenuList1);
+      let subNavSubMenuListSubList = document.createElement("ul");
+      subItem.link.forEach((subSubItem) => {
+        let subNavSubMenuList2 = document.createElement("li");
+        subNavSubMenuList2.setAttribute(
+          "class",
+          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
+        );
+        subNavSubMenuList2.innerHTML = subSubItem.name;
+        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
+        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
+      });
+    });
+    subNavItem.appendChild(subNavSubMenu);
+  } else if (item.subMenu4) {
+    let subNavSubMenu = document.createElement("ul");
+    subNavSubMenu.setAttribute(
+      "class",
+      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute top-11 bg-white transition hover:delay-0 duration-300 ease-in-out"
+    );
+    subNavSubMenu.setAttribute(
+      "style",
+      "width: calc(100vw - 16px); left: calc(-41vw);"
+    );
+    item.subMenu4.forEach((subItem) => {
+      let subNavSubMenuList1 = document.createElement("li");
+      let subNavSubMenuHead = document.createElement("h3");
+      subNavSubMenuHead.setAttribute(
+        "class",
+        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
+      );
+      subNavSubMenuList1.setAttribute(
+        "class",
+        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
+      );
+
+      subNavSubMenuHead.innerHTML = subItem.id;
+      subNavSubMenuList1.appendChild(subNavSubMenuHead);
+      subNavSubMenu.appendChild(subNavSubMenuList1);
+      let subNavSubMenuListSubList = document.createElement("ul");
+      subItem.link.forEach((subSubItem) => {
+        let subNavSubMenuList2 = document.createElement("li");
+        subNavSubMenuList2.setAttribute(
+          "class",
+          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
+        );
+        subNavSubMenuList2.innerHTML = subSubItem.name;
+        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
+        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
+      });
+    });
+    subNavItem.appendChild(subNavSubMenu);
+  }
+});
+nav.appendChild(subNav);
+
+let drops = document.querySelectorAll(".dropdown");
+
+drops.forEach((drop) => {
+  drop.addEventListener("mouseenter", function () {
+    let dropsMenu = this.children[1];
+    if (this.classList.contains("dropdown")) {
+      console.log(this.children[1]);
+      dropsMenu.classList.toggle("hidden");
+    }
+  });
+
+  drop.addEventListener("mouseleave", function () {
+    let dropsMenu = this.children[1];
+    console.log("mouseleave");
+    if (this.classList.contains("dropdown")) {
+      console.log(this.children[1]);
+      dropsMenu.classList.toggle("hidden");
+    }
+  });
+});
+
+let sidesMenu = document.querySelectorAll(".drop-right");
+let rightContent = document.querySelectorAll(".drop-right-menus");
+sidesMenu.forEach((item, i) => {
+  item.addEventListener("mouseenter", function () {
+    if (rightContent[i].classList.contains("hidden")) {
+      rightContent[i].classList.toggle("hidden");
+    } else {
+      rightContent[i].classList.toggle("hidden");
+    }
+
+    item.addEventListener("mouseleave", function () {
+      rightContent[i].classList.toggle("hidden");
+    });
+  });
+});
+
 let section = document.createElement("section");
 section.setAttribute("class", "banner-section flex");
 let bannerContainer = document.createElement("div");
@@ -139,46 +553,6 @@ bannerContainer.setAttribute(
 );
 
 let bannerCarousel = [
-  // {
-  //   id: "banner-1",
-  //   image: "./images/flashSale.gif",
-  //   link: "#",
-  // },
-  // {
-  //   id: "banner-2",
-  //   image: "./images/samsung-treasure-hunt1.jpg",
-  //   link: "#",
-  // },
-  // {
-  //   id: "banner-3",
-  //   image: "./images/gaming.jpg",
-  //   link: "#",
-  // },
-  // {
-  //   id: "banner-4",
-  //   image: "./images/BuyNowPayLater.png",
-  //   link: "#",
-  // },
-  // {
-  //   id: "banner-5",
-  //   image: "./images/Mouka.jpg",
-  //   link: "#",
-  // },
-  // {
-  //   id: "banner-6",
-  //   image: "./images/AwoofDeal.jpg",
-  //   link: "#",
-  // },
-  // {
-  //   id: "banner-7",
-  //   image: "./images/BestDealPhone.gif",
-  //   link: "#",
-  // },
-  // {
-  //   id: "banner-8",
-  //   image: "./images/OneStopElectronics.gif",
-  //   link: "#",
-  // },
   "./images/flashSale.gif",
   "./images/samsung-treasure-hunt1.jpg",
   "./images/gaming.jpg",
@@ -262,23 +636,6 @@ function carousel() {
       slider.classList.toggle("hidden");
     });
   });
-
-  // let bannerCarouselImages = document.createElement("ul");
-  // bannerCarouselImages.setAttribute("class", "banner-carousel flex space-x-5");
-  // bannerCarousel.forEach((image) => {
-  //   let imagesList = document.createElement("li");
-  //   imagesList.setAttribute("class", "banner-carousel-image");
-  //   let imageLink = document.createElement("a");
-  //   imageLink.setAttribute("href", "#");
-  //   let imageElement = document.createElement("img");
-  //   imageElement.setAttribute("src", image);
-  //   imageElement.setAttribute("class", "rounded-full w-4 h-4");
-
-  //   imageLink.appendChild(imageElement);
-  //   imagesList.appendChild(imageLink);
-  //   bannerCarouselImages.appendChild(imagesList);
-  //   bannerContainer.appendChild(bannerCarouselImages);
-  // });
 }
 
 let bannerAd = [
@@ -306,7 +663,7 @@ let bannerAd = [
 
 let bannerAdContainer = document.createElement("div");
 bannerAdContainer.setAttribute("class", "flex  flex-wrap");
-// bannerAdContainer.setAttribute("style", "width: calc(100vw - 70%")
+
 bannerAd.forEach((ad) => {
   //for each ad in the array
   let adEl = document.createElement("div");
@@ -355,240 +712,27 @@ let otherServices = [
   },
 ];
 
-let otherServicesContainer = document.createElement("div");
-otherServicesContainer.setAttribute("class", "services flex flex-wrap");
-otherServices.forEach((service) => {
-  //for each ad in the array
-  let serviceEl = document.createElement("div");
-  serviceEl.setAttribute("class", "w-1/6 p-2");
-  let serviceImage = document.createElement("img");
-  serviceImage.setAttribute("src", service.image);
-  serviceImage.setAttribute("class", "rounded-md shadow-md p-2 bg-white");
-  let serviceLink = document.createElement("a");
-  serviceLink.setAttribute("href", service.link);
-  serviceLink.appendChild(serviceImage);
-  serviceEl.appendChild(serviceLink);
-  otherServicesContainer.appendChild(serviceEl);
-  main.appendChild(otherServicesContainer);
-});
-
-// Categories dropdown menu
-let categoriesContainer = document.createElement("div");
-categoriesContainer.setAttribute(
-  "class",
-  "flex categories-container flex-row-reverse justify-end"
-);
-categoriesContainer.setAttribute("style", "height: calc(100vh - 10.9375rem");
-let allCategoriesList1 = document.createElement("ul");
-allCategoriesList1.setAttribute(
-  "class",
-  "flex-none categories-list overflow-y-auto"
-);
-allCategoriesList1.setAttribute("style", "width: 300px;");
-categoryMenu.forEach(function (item) {
-  // loop through the array and create a list item for each item
-  let listItem = document.createElement("li");
-  listItem.setAttribute(
-    "class",
-    "drop-right px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
-  );
-  listItem.innerHTML = item;
-  allCategoriesList1.appendChild(listItem);
-  categoriesContainer.appendChild(allCategoriesList1);
-  categoriesMenu.appendChild(categoriesContainer);
-
-  let computerContainer = document.createElement("div");
-  // computerContainer.setAttribute("style", "width: 100%;");
-  computerContainer.setAttribute(
-    "class",
-    "drop-right-menus hidden flex flex-wrap overflow-y-auto"
-  );
-
-  computerMenus.forEach(function (item) {
-    let computerMenu = document.createElement("div");
-    computerMenu.classList.add("right-content");
-    computerMenu.setAttribute("id", item.id);
-    computerMenu.innerHTML = `<h2 class="text-lg font-bold text-gray-800 w-64 mr-10">${item.id}</h2>`;
-
-    let computerMenuList = document.createElement("ul");
-    let computerMenuLinks = item.links.map((item) => {
-      return item;
-    });
-
-    let computerMenuLinksHtml = "";
-
-    computerMenuLinks.forEach(function (item) {
-      return (computerMenuLinksHtml += `<li class="list-content py-2 ">${item}</li>`);
-    });
-
-    computerMenuList.innerHTML = computerMenuLinksHtml;
-    computerMenu.appendChild(computerMenuList);
-    computerContainer.appendChild(computerMenu); // append the computer menu to the computer container
+function renderServices(services) {
+  let container = document.createElement("div");
+  container.setAttribute("class", "flex flex-wrap");
+  services.forEach((service) => {
+    let serviceEl = document.createElement("div");
+    serviceEl.setAttribute("class", "w-1/6 p-2");
+    let serviceImage = document.createElement("img");
+    serviceImage.setAttribute("src", service.image);
+    serviceImage.setAttribute("class", "w-full rounded-md p-2 bg-white");
+    let serviceLink = document.createElement("a");
+    serviceLink.setAttribute("href", service.link);
+    serviceLink.appendChild(serviceImage);
+    serviceEl.appendChild(serviceLink);
+    container.appendChild(serviceEl);
   });
+  main.appendChild(container);
+}
 
-  if (item === "Computer and Accessories") {
-    categoriesContainer.appendChild(computerContainer);
-  }
+renderServices(otherServices);
 
-  let phoneContainer = document.createElement("div");
-  // phoneContainer.setAttribute("style", "width: 100%;");
-  phoneContainer.setAttribute(
-    "class",
-    "drop-right-menus hidden flex flex-wrap overflow-y-auto ml-32"
-  );
-  phoneAndTabletMenu.forEach((items) => {
-    let phoneTabMenu = document.createElement("div");
-    phoneTabMenu.classList.add("right-content");
-    phoneTabMenu.setAttribute("id", items.id);
-    phoneTabMenu.innerHTML = `<h2 class="text-lg font-bold text-gray-800 w-64 mr-10">${items.id}</h2>`;
-
-    let phoneTabMenuList = document.createElement("ul");
-    let phoneTabMenuLinks = items.links.map((item) => {
-      return item;
-    });
-
-    let phoneTabMenuLinksHtml = "";
-
-    phoneTabMenuLinks.forEach(function (item) {
-      return (phoneTabMenuLinksHtml += `<li class="list-content py-2 ">${item}</li>`);
-    });
-
-    phoneTabMenuList.innerHTML = phoneTabMenuLinksHtml;
-    phoneTabMenu.appendChild(phoneTabMenuList);
-    phoneContainer.appendChild(phoneTabMenu);
-  });
-
-  if (item === "Phone and Tablets") {
-    categoriesContainer.appendChild(phoneContainer);
-  }
-});
-
-// Second level Nav dropdown menu for Computer and Accessories etc
-
-let secondNav = document.querySelector("#second-level-nav"); // second level nav
-let allCategoriesList2 = document.createElement("ul"); // second level nav ul element
-
-allCategoriesList2.setAttribute("class", "flex");
-categoryMenu.forEach(function (item) {
-  // second level menu forEach loop to create li elements
-  let listItem = document.createElement("li");
-  listItem.setAttribute(
-    "class",
-    "dropdown relative px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
-  );
-  listItem.innerHTML = item;
-  allCategoriesList2.appendChild(listItem);
-  secondNav.appendChild(allCategoriesList2);
-
-  let computerContainer = document.createElement("div");
-  computerContainer.setAttribute(
-    "class",
-    "absolute px-20 top-11 hidden bg-white flex flex-wrap"
-  );
-  computerContainer.setAttribute(
-    "style",
-    "width: calc(100vw - 18px); left: -182px;"
-  );
-
-  computerMenus.forEach(function (item) {
-    let computerMenu = document.createElement("div");
-    computerMenu.setAttribute("id", item.id);
-    computerMenu.innerHTML = `<h2 class="text-lg font-bold text-gray-800 w-60 mr-5">${item.id}</h2>`;
-
-    let computerMenuList = document.createElement("ul");
-    let computerMenuLinks = item.links.map((item) => {
-      return item;
-    });
-
-    let computerMenuLinksHtml = "";
-
-    computerMenuLinks.forEach(function (item) {
-      return (computerMenuLinksHtml += `<li class="list-content py-2 ">${item}</li>`);
-    });
-
-    computerMenuList.innerHTML = computerMenuLinksHtml;
-    computerMenu.appendChild(computerMenuList);
-    computerContainer.appendChild(computerMenu);
-  });
-
-  if (item === "Computer and Accessories") {
-    listItem.appendChild(computerContainer);
-  }
-
-  let phoneContainer = document.createElement("div");
-  phoneContainer.setAttribute(
-    "class",
-    "absolute px-20 top-11 hidden bg-white flex flex-wrap"
-  );
-  phoneContainer.setAttribute(
-    "style",
-    "width: calc(100vw - 18px); left: -394px;"
-  );
-
-  phoneAndTabletMenu.forEach((items) => {
-    let phoneTabMenu = document.createElement("div");
-    phoneTabMenu.innerHTML = `<h2 class="text-lg font-bold text-gray-800 w-60 mr-5">${items.id}</h2>`;
-
-    let phoneTabMenuList = document.createElement("ul");
-    let phoneTabMenuLinks = items.links.map((item) => {
-      return item;
-    });
-
-    let phoneTabMenuLinksHtml = "";
-
-    phoneTabMenuLinks.forEach(function (item) {
-      return (phoneTabMenuLinksHtml += `<li class="list-content py-2 ">${item}</li>`);
-    });
-
-    phoneTabMenuList.innerHTML = phoneTabMenuLinksHtml;
-    phoneTabMenu.appendChild(phoneTabMenuList);
-    phoneContainer.appendChild(phoneTabMenu);
-  });
-  if (item === "Phone and Tablets") {
-    listItem.appendChild(phoneContainer);
-  }
-});
 // Dropdown event listeners for all dropdown menus ie first level and second level nav menus
-let drops = document.querySelectorAll(".dropdown");
-
-drops.forEach((drop) => {
-  drop.addEventListener("mouseenter", function () {
-    let dropContent = this.children[0];
-    let dropContent2 = this.children[1];
-    if (dropContent.classList.contains("hidden")) {
-      dropContent.classList.toggle("hidden");
-    } else if (dropContent2) {
-      dropContent2.classList.toggle("hidden");
-    }
-  });
-
-  drop.addEventListener("mouseleave", function () {
-    let dropContent = this.children[0];
-    let dropContent2 = this.children[1];
-
-    if (dropContent.classList.contains("flex")) {
-      dropContent.classList.toggle("hidden");
-    } else if (dropContent2) {
-      dropContent2.classList.add("hidden");
-    }
-  });
-});
-
-let sidesMenu = document.querySelectorAll(".drop-right");
-let rightContent = document.querySelectorAll(".drop-right-menus");
-sidesMenu.forEach((item, i) => {
-  item.addEventListener("mouseenter", function () {
-    if (rightContent[i].classList.contains("hidden")) {
-      rightContent[i].classList.toggle("hidden");
-    } else {
-      rightContent[i].classList.toggle("hidden");
-    }
-
-    item.addEventListener("mouseleave", function () {
-      rightContent[i].classList.toggle("hidden");
-    });
-  });
-});
 
 let todaysDeal = {
   header: {
@@ -812,8 +956,6 @@ function renderSponsors(sponsoredProducts) {
   Object.keys(sponsoredProducts).forEach((item, i) => {
     if (item !== "header") {
       let sponsoredProductsItem = document.createElement("div");
-
-      
 
       sponsoredProductsItem.setAttribute(
         "class",
