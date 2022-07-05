@@ -177,13 +177,13 @@ let categoryMenu = [
   {
     name: "All Categories",
     subMenu1: [
-      { name: "Computer and Accessories",},
-      { name: "phones and Tablets",},
-      { name: "Electronics", },
-      { name: "Konga Fashion",},
-      { name: "Home and Kitchen",},
-      { name: "Baby, Kids and Toys",},
-      { name: "Other Categories",},
+      { name: "Computer and Accessories" },
+      { name: "phones and Tablets" },
+      { name: "Electronics" },
+      { name: "Konga Fashion" },
+      { name: "Home and Kitchen" },
+      { name: "Baby, Kids and Toys" },
+      { name: "Other Categories" },
     ],
   },
   {
@@ -373,6 +373,20 @@ categoryMenu.forEach((item) => {
   subNavItem.appendChild(subNavSpan);
   subNavList.appendChild(subNavItem);
   subNav.appendChild(subNavList);
+
+  // if(item.name !== "All Categories"){
+  //   let subNavDropdown = document.createElement("div");
+  //   subNavDropdown.setAttribute("class", "sub-nav-dropdown absolute top-0 left-0 z-10 w-full h-full");
+  //   let subNavDropdownList = document.createElement("ul");
+  //   subNavDropdownList.setAttribute("class", "sub-nav-dropdown-list flex flex-col");
+  //   let subNavDropdownItem = document.createElement("li");
+  //   subNavDropdownItem.setAttribute("class", "sub-nav-dropdown-item flex");
+  //   subNavDropdownItem.innerHTML = item.name;
+  //   subNavDropdownList.appendChild(subNavDropdownItem);
+  //   subNavDropdown.appendChild(subNavDropdownList);
+  //   subNavItem.appendChild(subNavDropdown);
+  // }
+
   if (item.subMenu1) {
     let subNavSubMenu = document.createElement("ul");
     subNavSubMenu.setAttribute(
@@ -991,3 +1005,203 @@ function renderSponsors(sponsoredProducts) {
 }
 
 renderSponsors(sponsoredProducts);
+
+let categories = [
+  {
+    id: "other-categories-1",
+    image: "./images/laptop.png",
+    link: "#",
+  },
+  {
+    id: "other-categories-2",
+    image: "./images/smartphones.png",
+    link: "#",
+  },
+  {
+    id: "other-categories-3",
+    image: "./images/beauty.png",
+    link: "#",
+  },
+  {
+    id: "other-categories-4",
+    image: "./images/provisions.png",
+    link: "#",
+  },
+  {
+    id: "other-categories-5",
+    image: "./images/video.png",
+    link: "#",
+  },
+  {
+    id: "other-categories-6",
+    image: "./images/ma.png",
+    link: "#",
+  },
+];
+
+renderServices(categories);
+
+let recommendedProducts = {
+  header: {
+    title: "Recommended for you",
+    link: "#",
+  },
+
+  "item 1": {
+    img: "./images/kongaCourier.png",
+    title: "Kong Courier bag Large",
+    price: "$100",
+    link: "#",
+  },
+  "Item 2": {
+    img: "./images/Milo2.png",
+    title: "Nestle Milo 20g",
+    price: "$100",
+    link: "#",
+  },
+  "Item 3": {
+    img: "./images/hpLaptop.png",
+    title: "HP 255 g Laptop",
+    price: "$100",
+    link: "#",
+  },
+  "Item 4": {
+    img: "./images/mtn4g.png",
+    title: "MTN 4G LTE Mifi",
+    price: "$100",
+    link: "#",
+  },
+  "Item 5": {
+    img: "./images/devon.png",
+    title: "Devon Vegetable Oil",
+    price: "$100",
+    link: "#",
+  },
+  "Item 6": {
+    img: "./images/jameson.png",
+    title: "Jameson Irish Whiskey",
+    price: "$100",
+    link: "#",
+  },
+};
+
+renderProducts(recommendedProducts);
+
+let phoneBudget = [{ img: "./images/phoneBudget.png", link: "#" }];
+
+phoneBudget.forEach((item) => {
+  let phoneBudgetContainer = document.createElement("div");
+  phoneBudgetContainer.setAttribute(
+    "class",
+    "phone-budget rounded-lg bg-white mb-5"
+  );
+  let phoneBudgetImg = document.createElement("img");
+  phoneBudgetImg.setAttribute("class", "w-full h-full rounded-lg p-3");
+  phoneBudgetImg.src = item.img;
+
+  let phoneBudgetLink = document.createElement("a");
+  phoneBudgetLink.setAttribute("class", "rounded-lg");
+  phoneBudgetLink.href = item.link;
+  phoneBudgetLink.appendChild(phoneBudgetImg);
+
+  phoneBudgetContainer.appendChild(phoneBudgetLink);
+  main.appendChild(phoneBudgetContainer);
+});
+
+let savingBar = [
+  { img: "./images/saveMore.png", link: "#" },
+  { img: "./images/barShop.png", link: "#" },
+];
+
+let savingBarContainer = document.createElement("div");
+savingBar.forEach((item) => {
+  savingBarContainer.setAttribute(
+    "class",
+    "saving-bar flex rounded-lg bg-white mb-5"
+  );
+  let savingBarImg = document.createElement("img");
+  savingBarImg.setAttribute("class", "w-full h-full rounded-lg p-3");
+  savingBarImg.src = item.img;
+
+  let savingBarLink = document.createElement("a");
+  savingBarLink.href = item.link;
+  savingBarLink.appendChild(savingBarImg);
+
+  savingBarContainer.appendChild(savingBarLink);
+  main.appendChild(savingBarContainer);
+});
+
+let shopNow = [
+  {
+    link: "#",
+    content: {
+      img: "./images/furnish.png",
+      title: "Home Furnishing",
+      desc: "Get Up to 50% Off",
+      action: "Shop Now",
+    },
+  },
+  {
+    link: "#",
+    content: {
+      img: "./images/fitness.png",
+      title: "FITNESS TOOLS AND EQUIPMENTS",
+      desc: "Get Fitness Equipment at amazing discounts",
+      action: "Shop Now",
+    },
+  },
+  {
+    link: "#",
+    content: {
+      img: "./images/kids.png",
+      title: "KIDS WEAR AND ACCESSORIES",
+      desc: "Get all Kiddies Products at huge Discount",
+      action: "Shop Now",
+    },
+  },
+  {
+    link: "#",
+    content: {
+      img: "./images/tv.png",
+      title: "TOP DEALS ON TELEVISIONS",
+      desc: "Get The TV you want with bargain deals",
+      action: "Shop Now",
+    },
+  },
+];
+
+let shopNowContainer = document.createElement("div");
+shopNowContainer.setAttribute("class", "shop-now flex rounded-lg mb-5 space-x-10");
+shopNow.forEach((item) => {
+  let shopHolder = document.createElement("div");
+  shopHolder.setAttribute("class", "shop-holder bg-white");
+  let textHolder = document.createElement("div");
+  let shopNowLink = document.createElement("a");
+  shopNowLink.setAttribute("class", "");
+  shopNowLink.href = item.link;
+
+  let shopNowImg = document.createElement("img");
+  shopNowImg.setAttribute("class", "w-full h-full rounded-lg p-3");
+  shopNowImg.src = item.content.img;
+
+  let shopNowTitle = document.createElement("h3");
+  shopNowTitle.setAttribute("class", "text-2xl font-bold");
+  shopNowTitle.innerHTML = item.content.title;
+
+  let shopNowDesc = document.createElement("p");
+  shopNowDesc.setAttribute("class", "text-sm");
+  shopNowDesc.innerHTML = item.content.desc;
+
+  let shopNowAction = document.createElement("span");
+  shopNowAction.setAttribute("class", "font-bold");
+  shopNowAction.innerHTML = item.content.action;
+
+  textHolder.appendChild(shopNowTitle);
+  textHolder.appendChild(shopNowDesc);
+  textHolder.appendChild(shopNowAction);
+  shopNowLink.appendChild(shopNowImg);
+  shopNowLink.appendChild(textHolder);
+  shopHolder.appendChild(shopNowLink);
+  shopNowContainer.appendChild(shopHolder);
+  main.appendChild(shopNowContainer);
+});
