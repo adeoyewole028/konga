@@ -3,9 +3,6 @@ let nav = document.querySelector("nav");
 let main = document.querySelector("main");
 let footer = document.querySelector("footer");
 
-
-
-
 // header Images
 let headerContent = [
   "./images/k_travels2.png",
@@ -1175,10 +1172,7 @@ let shopNow = [
 ];
 
 let shopNowContainer = document.createElement("div");
-shopNowContainer.setAttribute(
-  "class",
-  "shop-now flex mb-5 space-x-10"
-);
+shopNowContainer.setAttribute("class", "shop-now flex mb-5 space-x-10");
 shopNow.forEach((item) => {
   let shopHolder = document.createElement("div");
   shopHolder.setAttribute("class", "shop-holder bg-white rounded-lg");
@@ -1366,8 +1360,9 @@ footerHead.forEach((item) => {
   }
   footerHeadIcon.innerHTML = `<i class="${item.icon}" data-icon="${item.dataIcon}"></i>`;
   let footerHeadTitle = document.createElement("div");
-  footerHeadTitle.setAttribute("class", "footer-head-title font-bold");
+  footerHeadTitle.setAttribute("class", "footer-head-title");
   footerHeadTitle.innerHTML = `<h2>${item.title}</h2>`;
+
   let footerHeadDesc = document.createElement("div");
   footerHeadDesc.setAttribute(
     "class",
@@ -1552,13 +1547,13 @@ footerMain.forEach((item) => {
     "footer-main-holder flex h-full align-center"
   );
   let footerMainTitle = document.createElement("div");
-  footerMainTitle.setAttribute("class", "footer-main-title ");
-  footerMainTitle.innerHTML = `<h2 class="py-5">${item.title}</h2>`;
+  footerMainTitle.setAttribute("class", "footer-main-title");
+  footerMainTitle.innerHTML = `<h2 class="py-5 font-bold">${item.title}</h2>`;
   let footerMainLinks = document.createElement("div");
   footerMainLinks.setAttribute("class", "footer-main-links pb-4 space-y-4");
   item.links.forEach((link) => {
     let footerMainLink = document.createElement("div");
-    footerMainLink.setAttribute("class", "footer-main-link");
+    footerMainLink.setAttribute("class", "footer-main-link hover:text-white");
     footerMainLink.innerHTML = `<a href="${link.link}">${link.name}</a>`;
     footerMainLinks.appendChild(footerMainLink);
   });
@@ -1568,5 +1563,18 @@ footerMain.forEach((item) => {
 });
 footer.appendChild(footerMainContainer);
 
+let footerDiv = document.querySelectorAll(".footer-main-holder");
 
+console.log(footerDiv);
 
+footerDiv.forEach((item) => {
+  item.addEventListener("mouseenter", () => {
+    console.log(item.children[0].children[0].innerHTML);
+    let title = item.children[0].children[0];
+    title.classList.toggle("text-white");
+  }); item.addEventListener("mouseleave", () => {
+    console.log(item.children[0].children[0].innerHTML);
+    let title = item.children[0].children[0];
+    title.classList.toggle("text-white");
+  });
+});
