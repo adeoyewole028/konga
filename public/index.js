@@ -1342,12 +1342,12 @@ let footerHead = [
 let footerHeadContainer = document.createElement("div");
 footerHeadContainer.setAttribute(
   "class",
-  "footer-head flex w-full bg-gray-800 py-3 text-gray-400 justify-center text-sm space-x-2"
+  "footer-head flex bg-gray-800 py-3 text-gray-400 justify-center text-sm space-x-2"
 );
 let formEl = document.createElement("div");
 formEl.innerHTML = `
   
-  <form class="w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 rounded-r-md text-white absolute right-0 " type="submit">Subscribe</button></form>
+  <form class="w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 mr-5 rounded-r-md text-white absolute right-0 " type="submit">Subscribe</button></form>
 
   `;
 footerHead.forEach((item) => {
