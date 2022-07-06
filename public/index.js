@@ -1347,7 +1347,7 @@ footerHeadContainer.setAttribute(
 let formEl = document.createElement("div");
 formEl.innerHTML = `
   
-  <form class="w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 rounded-r-md text-white" type="submit">Subscribe</button></form>
+  <form class="w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 rounded-r-md text-white absolute right-0 " type="submit">Subscribe</button></form>
 
   `;
 footerHead.forEach((item) => {
