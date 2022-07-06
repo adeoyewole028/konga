@@ -1260,7 +1260,7 @@ let partnersStore = [
 let partnersStoreContainer = document.createElement("div");
 partnersStoreContainer.setAttribute(
   "class",
-  "partners-store flex flex-wrap w-full justify-center mb-5"
+  "partners-store flex flex-wrap justify-center mb-5"
 );
 partnersStore.forEach((item) => {
   let partnersStoreHolder = document.createElement("div");
@@ -1270,7 +1270,8 @@ partnersStore.forEach((item) => {
   partnersStoreLink.href = item.link;
 
   let partnersStoreImg = document.createElement("img");
-  partnersStoreImg.setAttribute("class", "w-52 h-full hover:shadow-lg");
+  partnersStoreImg.setAttribute("class", "h-full hover:shadow-lg");
+  partnersStoreImg.setAttribute("style", "width: 218px");
   partnersStoreImg.src = item.img;
 
   partnersStoreLink.appendChild(partnersStoreImg);
