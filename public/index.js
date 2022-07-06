@@ -1171,37 +1171,151 @@ let shopNow = [
 ];
 
 let shopNowContainer = document.createElement("div");
-shopNowContainer.setAttribute("class", "shop-now flex rounded-lg mb-5 space-x-10");
+shopNowContainer.setAttribute(
+  "class",
+  "shop-now flex rounded-lg mb-5 space-x-10"
+);
 shopNow.forEach((item) => {
   let shopHolder = document.createElement("div");
   shopHolder.setAttribute("class", "shop-holder bg-white");
-  let textHolder = document.createElement("div");
-  let shopNowLink = document.createElement("a");
-  shopNowLink.setAttribute("class", "");
-  shopNowLink.href = item.link;
 
-  let shopNowImg = document.createElement("img");
-  shopNowImg.setAttribute("class", "w-full h-full rounded-lg p-3");
-  shopNowImg.src = item.content.img;
-
-  let shopNowTitle = document.createElement("h3");
-  shopNowTitle.setAttribute("class", "text-2xl font-bold");
-  shopNowTitle.innerHTML = item.content.title;
-
-  let shopNowDesc = document.createElement("p");
-  shopNowDesc.setAttribute("class", "text-sm");
-  shopNowDesc.innerHTML = item.content.desc;
-
-  let shopNowAction = document.createElement("span");
-  shopNowAction.setAttribute("class", "font-bold");
-  shopNowAction.innerHTML = item.content.action;
-
-  textHolder.appendChild(shopNowTitle);
-  textHolder.appendChild(shopNowDesc);
-  textHolder.appendChild(shopNowAction);
-  shopNowLink.appendChild(shopNowImg);
-  shopNowLink.appendChild(textHolder);
-  shopHolder.appendChild(shopNowLink);
+  shopHolder.innerHTML = `<div>
+  <a href="${item.link}"><div class="shop-img"><img src="${item.content.img}" alt=""></div>
+  <div class="shop-title">${item.content.title}</div>
+  <div class="shop-desc">${item.content.desc}</div>
+  <div class="shop-action">${item.content.action}</div>
+  </a>
+  </div>`;
   shopNowContainer.appendChild(shopHolder);
   main.appendChild(shopNowContainer);
 });
+
+let partnersStore = [
+  {
+    id: 1,
+    link: "#",
+    img: "./images/hp.png",
+  },
+  {
+    id: 2,
+    link: "#",
+    img: "./images/itec.png",
+  },
+  {
+    id: 3,
+    link: "#",
+    img: "./images/intel.png",
+  },
+  {
+    id: 4,
+    link: "#",
+    img: "./images/barcardi.png",
+  },
+  {
+    id: 5,
+    link: "#",
+    img: "./images/tecs.png",
+  },
+  {
+    id: 6,
+    link: "#",
+    img: "./images/uni.png",
+  },
+  {
+    id: 7,
+    link: "#",
+    img: "./images/philip.png",
+  },
+  {
+    id: 8,
+    link: "#",
+    img: "./images/coke.png",
+  },
+  {
+    id: 9,
+    link: "#",
+    img: "./images/samsung.png",
+  },
+  {
+    id: 10,
+    link: "#",
+    img: "./images/lenovo.png",
+  },
+  {
+    id: 11,
+    link: "#",
+    img: "./images/nokia.png",
+  },
+  {
+    id: 12,
+    link: "#",
+    img: "./images/apc.png",
+  },
+];
+
+let partnersStoreContainer = document.createElement("div");
+partnersStoreContainer.setAttribute(
+  "class",
+  "partners-store flex flex-wrap w-full justify-center mb-5"
+);
+partnersStore.forEach((item) => {
+  let partnersStoreHolder = document.createElement("div");
+  partnersStoreHolder.setAttribute("class", "partners-store-holder h-full");
+  let partnersStoreLink = document.createElement("a");
+  partnersStoreLink.setAttribute("class", "partners-store-link");
+  partnersStoreLink.href = item.link;
+
+  let partnersStoreImg = document.createElement("img");
+  partnersStoreImg.setAttribute("class", "w-52 h-full hover:shadow-lg");
+  partnersStoreImg.src = item.img;
+
+  partnersStoreLink.appendChild(partnersStoreImg);
+  partnersStoreHolder.appendChild(partnersStoreLink);
+  partnersStoreContainer.appendChild(partnersStoreHolder);
+  main.appendChild(partnersStoreContainer);
+});
+
+let aboutKonga = [
+  {
+    title: "Konga Online Shopping in Nigeria - Best Shopping Site",
+    desc: "Konga.com is Nigeria’s number one online Shopping destination. We pride ourselves in having everything you could possibly need for life and living at the best prices than anywhere else. Our access to Original Equipment Manufacturers and premium sellers gives us a wide range of products at very low prices. Some of our popular categories include electronics, mobile phones, computers, fashion, beauty products, home and kitchen, Building and construction materials and a whole lot more from premium brands. Some of our other categories include Food and drinks, automotive and industrial, books, musical equipment, babies and kids items, sports and fitness, to mention a few. To make your shopping experience swift and memorable, there are also added services like gift vouchers, consumer promotion activities across different categories and bulk purchases with hassle-free delivery. Enjoy free shipping rates for certain products and with the bulk purchase option, you can enjoy low shipping rates, discounted prices and flexible payment. When you shop on our platform, you can pay with your debit card or via KongaPay, which is a convenient and secured payment solution. Get the best of lifestyle services online. Don't miss out on the biggest sales online which takes place on special dates yearly.",
+  },
+];
+
+let aboutKongaContainer = document.createElement("div");
+aboutKongaContainer.setAttribute(
+  "class",
+  "about-konga flex flex-wrap bg-white rounded-lg p-5 w-full justify-center mb-5"
+);
+aboutKonga.forEach((item) => {
+  let aboutKongaHolder = document.createElement("div");
+  aboutKongaHolder.setAttribute("class", "about-konga-holder h-full");
+  let aboutKongaTitle = document.createElement("div");
+  aboutKongaTitle.setAttribute("class", "about-konga-title py-3 font-bold");
+  aboutKongaTitle.innerHTML = `<h2>${item.title}</h2>`;
+  let aboutKongaDesc = document.createElement("div");
+  aboutKongaDesc.setAttribute("class", "about-konga-desc py-3 text-sm leading-7 text-slate-600");
+  aboutKongaDesc.innerHTML = `<p>${item.desc}</p>`;
+  aboutKongaHolder.appendChild(aboutKongaTitle);
+  aboutKongaHolder.appendChild(aboutKongaDesc);
+  aboutKongaContainer.appendChild(aboutKongaHolder);
+  main.appendChild(aboutKongaContainer);
+});
+
+
+let footer = [
+  {
+    id: 1,
+    link: "#",
+    img: "./images/facebook.png",
+  },
+  {
+    id: 2,
+    link: "#",
+    img: "./images/twitter.png",
+  },
+  {
+    id: 3,
+    link: "#",
+    img: "./images/instagram.png",
+  },]
