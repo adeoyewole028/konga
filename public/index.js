@@ -1,6 +1,7 @@
 let header = document.querySelector("header");
 let nav = document.querySelector("nav");
 let main = document.querySelector("main");
+let footer = document.querySelector("footer");
 
 // header Images
 let headerContent = [
@@ -1337,12 +1338,12 @@ let footerHead = [
 let footerHeadContainer = document.createElement("div");
 footerHeadContainer.setAttribute(
   "class",
-  "footer-head flex w-full justify-center text-sm space-x-2 mb-5"
+  "footer-head flex w-full bg-gray-800 py-3 text-gray-400 justify-center text-sm space-x-2"
 );
 let formEl = document.createElement("div");
 formEl.innerHTML = `
   
-  <form class="w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 rounded-r-md" type="submit">Subscribe</button></form>
+  <form class="w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 rounded-r-md text-white" type="submit">Subscribe</button></form>
 
   `;
 footerHead.forEach((item) => {
@@ -1354,7 +1355,7 @@ footerHead.forEach((item) => {
   let footerHeadIcon = document.createElement("div");
   footerHeadIcon.setAttribute(
     "class",
-    "footer-head-icon self-center bg-white rounded-full  p-3"
+    "footer-head-icon self-center text-black bg-white rounded-full  p-3"
   );
   if (item.id === 4) {
     footerHeadIcon.removeAttribute("class");
@@ -1366,7 +1367,7 @@ footerHead.forEach((item) => {
   let footerHeadDesc = document.createElement("div");
   footerHeadDesc.setAttribute(
     "class",
-    "footer-head-desc text-sm leading-7 text-slate-600"
+    "footer-head-desc text-sm leading-7 text-gray-400"
   );
   let summary = document.createElement("div");
   summary.setAttribute("class", "summary");
@@ -1377,5 +1378,188 @@ footerHead.forEach((item) => {
   footerHeadHolder.appendChild(summary);
   footerHeadContainer.appendChild(footerHeadHolder);
   footerHeadContainer.appendChild(formEl);
-  main.appendChild(footerHeadContainer);
+  footer.appendChild(footerHeadContainer);
 });
+
+let footerMain = [
+  {
+    id: 1,
+    title: "ABOUT KONGA",
+    links: [
+      {
+        name: "Contact Us",
+        link: "#",
+      },
+      {
+        name: "About Us",
+        link: "#",
+      },
+      {
+        name: "Careers",
+        link: "#",
+      },
+      {
+        name: "Our Blog",
+        link: "#",
+      },
+      {
+        name: "Forum",
+        link: "#",
+      },
+      {
+        name: "Terms & Conditions",
+        link: "#",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "PAYMENT",
+    links: [
+      {
+        name: "Konga Pay",
+        link: "#",
+      },
+      {
+        name: "Wallet",
+        link: "#",
+      },
+      {
+        name: "Verve",
+        link: "#",
+      },
+      {
+        name: "MaserCard",
+        link: "#",
+      },
+      {
+        name: "Visa",
+        link: "#",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "BUYING ON KONGA",
+    links: [
+      {
+        name: "Buyer Safety Centre",
+        link: "#",
+      },
+      {
+        name: "FAQs",
+        link: "#",
+      },
+      {
+        name: "Delivery",
+        link: "#",
+      },
+      {
+        name: "Konga Return Policy",
+        link: "#",
+      },
+      {
+        name: "Digital Services",
+        link: "#",
+      },
+      {
+        name: "Bulk Purchase",
+        link: "#",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "MORE INFO",
+    links: [
+      {
+        name: "Site Map",
+        link: "#",
+      },
+      {
+        name: "Track My Order",
+        link: "#",
+      },
+      {
+        name: "Privacy Policy",
+        link: "#",
+      },
+      {
+        name: "Authentic Items Policy",
+        link: "#",
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "MAKE MONEY ON KONGA",
+    links: [
+      {
+        name: "Become a Konga Affiliate",
+        link: "#",
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "DOWNLOAD AND CONNECT WITH US",
+    links: [
+      {
+        name: "./images/logo.png",
+        link: "#",
+      },
+      {
+        name: "./images/logo.png",
+        link: "#",
+      },
+    ],
+
+    subTitle: "CONTACT US WITH",
+    links: [
+      {
+        name: "./images/logo.png",
+        link: "#",
+      },
+      {
+        name: "./images/logo.png",
+        link: "#",
+      },
+      {
+        name: "./images/logo.png",
+        link: "#",
+      },
+      {
+        name: "./images/logo.png",
+        link: "#",
+      },
+    ],
+  },
+];
+
+let footerMainContainer = document.createElement("div");
+footerMainContainer.setAttribute(
+  "class",
+  "footer-main flex w-full bg-black px-10 text-gray-400 justify-between text-sm mb-5"
+);
+footerMain.forEach((item) => {
+  let footerMainHolder = document.createElement("div");
+  footerMainHolder.setAttribute(
+    "class",
+    "footer-main-holder flex h-full align-center"
+  );
+  let footerMainTitle = document.createElement("div");
+  footerMainTitle.setAttribute("class", "footer-main-title ");
+  footerMainTitle.innerHTML = `<h2 class="py-5">${item.title}</h2>`;
+  let footerMainLinks = document.createElement("div");
+  footerMainLinks.setAttribute("class", "footer-main-links pb-4 space-y-4");
+  item.links.forEach((link) => {
+    let footerMainLink = document.createElement("div");
+    footerMainLink.setAttribute("class", "footer-main-link");
+    footerMainLink.innerHTML = `<a href="${link.link}">${link.name}</a>`;
+    footerMainLinks.appendChild(footerMainLink);
+  });
+  footerMainTitle.appendChild(footerMainLinks);
+  footerMainHolder.appendChild(footerMainTitle);
+  footerMainContainer.appendChild(footerMainHolder);
+});
+footer.appendChild(footerMainContainer);
