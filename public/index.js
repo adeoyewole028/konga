@@ -3,6 +3,9 @@ let nav = document.querySelector("nav");
 let main = document.querySelector("main");
 let footer = document.querySelector("footer");
 
+
+
+
 // header Images
 let headerContent = [
   "./images/k_travels2.png",
@@ -1174,17 +1177,17 @@ let shopNow = [
 let shopNowContainer = document.createElement("div");
 shopNowContainer.setAttribute(
   "class",
-  "shop-now flex rounded-lg mb-5 space-x-10"
+  "shop-now flex mb-5 space-x-10"
 );
 shopNow.forEach((item) => {
   let shopHolder = document.createElement("div");
-  shopHolder.setAttribute("class", "shop-holder bg-white");
+  shopHolder.setAttribute("class", "shop-holder bg-white rounded-lg");
 
   shopHolder.innerHTML = `<div>
-  <a href="${item.link}"><div class="shop-img"><img src="${item.content.img}" alt=""></div>
-  <div class="shop-title">${item.content.title}</div>
-  <div class="shop-desc">${item.content.desc}</div>
-  <div class="shop-action">${item.content.action}</div>
+  <a href="${item.link}"><div class="shop-img rounded-lg"><img src="${item.content.img}" alt=""></div>
+  <h3 class="shop-title font-bold pl-5 pt-5">${item.content.title}</h3>
+  <div class="shop-desc pl-5 py-5 text-sm">${item.content.desc}</div>
+  <div class="shop-action pb-5 text-rose-700 font-bold px-5 flex">${item.content.action}<span class="iconify self-center text-xs ml-2 mt-1" data-icon="dashicons:arrow-right-alt2"></span></div>
   </a>
   </div>`;
   shopNowContainer.appendChild(shopHolder);
@@ -1563,3 +1566,6 @@ footerMain.forEach((item) => {
   footerMainContainer.appendChild(footerMainHolder);
 });
 footer.appendChild(footerMainContainer);
+
+
+
