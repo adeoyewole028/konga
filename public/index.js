@@ -1565,15 +1565,12 @@ footer.appendChild(footerMainContainer);
 
 let footerDiv = document.querySelectorAll(".footer-main-holder");
 
-console.log(footerDiv);
-
 footerDiv.forEach((item) => {
   item.addEventListener("mouseenter", () => {
-    console.log(item.children[0].children[0].innerHTML);
     let title = item.children[0].children[0];
     title.classList.toggle("text-white");
-  }); item.addEventListener("mouseleave", () => {
-    console.log(item.children[0].children[0].innerHTML);
+  });
+  item.addEventListener("mouseleave", () => {
     let title = item.children[0].children[0];
     title.classList.toggle("text-white");
   });
