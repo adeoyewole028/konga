@@ -1294,7 +1294,10 @@ aboutKonga.forEach((item) => {
   aboutKongaTitle.setAttribute("class", "about-konga-title py-3 font-bold");
   aboutKongaTitle.innerHTML = `<h2>${item.title}</h2>`;
   let aboutKongaDesc = document.createElement("div");
-  aboutKongaDesc.setAttribute("class", "about-konga-desc py-3 text-sm leading-7 text-slate-600");
+  aboutKongaDesc.setAttribute(
+    "class",
+    "about-konga-desc py-3 text-sm leading-7 text-slate-600"
+  );
   aboutKongaDesc.innerHTML = `<p>${item.desc}</p>`;
   aboutKongaHolder.appendChild(aboutKongaTitle);
   aboutKongaHolder.appendChild(aboutKongaDesc);
@@ -1302,20 +1305,77 @@ aboutKonga.forEach((item) => {
   main.appendChild(aboutKongaContainer);
 });
 
-
-let footer = [
+let footerHead = [
   {
     id: 1,
-    link: "#",
-    img: "./images/facebook.png",
+    icon: "iconify",
+    dataIcon: "dashicons:email",
+    title: "EMAIL SUPPORT",
+    desc: "help@konga.com",
   },
   {
     id: 2,
-    link: "#",
-    img: "./images/twitter.png",
+    icon: "iconify",
+    dataIcon: "ci:phone",
+    title: "PHONE SUPPORT",
+    desc: "0708 063 5700, 0809 460 5555, 01 888 3435",
   },
   {
     id: 3,
-    link: "#",
-    img: "./images/instagram.png",
-  },]
+    icon: "iconify",
+    dataIcon: "bxl:whatsapp",
+    title: "WHATSPAPP",
+    desc: "0907 0038 400, 0809 460 5555",
+  },
+  {
+    id: 4,
+    title: "GET LATEST DEALS",
+    desc: "Our best promotions sent to your inbox.",
+  },
+];
+
+let footerHeadContainer = document.createElement("div");
+footerHeadContainer.setAttribute(
+  "class",
+  "footer-head flex w-full justify-center text-sm space-x-2 mb-5"
+);
+let formEl = document.createElement("div");
+formEl.innerHTML = `
+  
+  <form class="w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 rounded-r-md" type="submit">Subscribe</button></form>
+
+  `;
+footerHead.forEach((item) => {
+  let footerHeadHolder = document.createElement("div");
+  footerHeadHolder.setAttribute(
+    "class",
+    "footer-head-holder flex space-x-3 h-full align-center"
+  );
+  let footerHeadIcon = document.createElement("div");
+  footerHeadIcon.setAttribute(
+    "class",
+    "footer-head-icon self-center bg-white rounded-full  p-3"
+  );
+  if (item.id === 4) {
+    footerHeadIcon.removeAttribute("class");
+  }
+  footerHeadIcon.innerHTML = `<i class="${item.icon}" data-icon="${item.dataIcon}"></i>`;
+  let footerHeadTitle = document.createElement("div");
+  footerHeadTitle.setAttribute("class", "footer-head-title font-bold");
+  footerHeadTitle.innerHTML = `<h2>${item.title}</h2>`;
+  let footerHeadDesc = document.createElement("div");
+  footerHeadDesc.setAttribute(
+    "class",
+    "footer-head-desc text-sm leading-7 text-slate-600"
+  );
+  let summary = document.createElement("div");
+  summary.setAttribute("class", "summary");
+  footerHeadDesc.innerHTML = `<p>${item.desc}</p>`;
+  footerHeadHolder.appendChild(footerHeadIcon);
+  summary.appendChild(footerHeadTitle);
+  summary.appendChild(footerHeadDesc);
+  footerHeadHolder.appendChild(summary);
+  footerHeadContainer.appendChild(footerHeadHolder);
+  footerHeadContainer.appendChild(formEl);
+  main.appendChild(footerHeadContainer);
+});
