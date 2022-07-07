@@ -1504,32 +1504,36 @@ let footerMain = [
     title: "DOWNLOAD AND CONNECT WITH US",
     links: [
       {
-        name: "./images/logo.png",
+        name: "./images/apple.png",
         link: "#",
       },
       {
-        name: "./images/logo.png",
+        name: "./images/google.png",
         link: "#",
       },
     ],
 
     subTitle: "CONTACT US WITH",
-    links: [
+    socials: [
       {
-        name: "./images/logo.png",
-        link: "#",
+        id: "facebook",
+        icon: "iconify",
+        dataIcon: "akar-icons:facebook-fill",
       },
       {
-        name: "./images/logo.png",
-        link: "#",
+        id: "twitter",
+        icon: "iconify",
+        dataIcon: "entypo-social:twitter-with-circle",
       },
       {
-        name: "./images/logo.png",
-        link: "#",
+        id: "instagram",
+        icon: "iconify",
+        dataIcon: "ant-design:instagram-outlined",
       },
       {
-        name: "./images/logo.png",
-        link: "#",
+        id: "youtube",
+        icon: "iconify",
+        dataIcon: "uil:youtube",
       },
     ],
   },
@@ -1538,7 +1542,7 @@ let footerMain = [
 let footerMainContainer = document.createElement("div");
 footerMainContainer.setAttribute(
   "class",
-  "footer-main flex w-full bg-black px-10 text-gray-400 justify-between text-sm mb-5"
+  "footer-main flex w-full bg-black px-10 text-gray-400 justify-between text-sm"
 );
 footerMain.forEach((item) => {
   let footerMainHolder = document.createElement("div");
@@ -1555,8 +1559,40 @@ footerMain.forEach((item) => {
     let footerMainLink = document.createElement("div");
     footerMainLink.setAttribute("class", "footer-main-link hover:text-white");
     footerMainLink.innerHTML = `<a href="${link.link}">${link.name}</a>`;
+    if (item.id === 6) {
+      footerMainLink.innerHTML = `<a href="${link.link}"><img src="${link.name}" alt=""></a>`;
+    }
     footerMainLinks.appendChild(footerMainLink);
   });
+
+  if (item.id === 6) {
+    footerMainHolder.setAttribute("class", "flex flex-col");
+    footerMainLinks.setAttribute("class", "flex");
+
+    let footerSocial = document.createElement("div");
+    footerSocial.setAttribute("class", "footer-social order-last");
+    footerSocial.innerHTML = `<h2 class="py-5 font-bold">${item.subTitle}</h2>`;
+    let footerSocials = document.createElement("div");
+    footerSocials.setAttribute(
+      "class",
+      "footer-socials flex text-5xl space-x-4"
+    );
+    item.socials.forEach((social) => {
+      let footerSocialHolder = document.createElement("div");
+      footerSocialHolder.setAttribute(
+        "class",
+        "footer-social-holder flex h-full align-center"
+      );
+      let footerSocialIcon = document.createElement("div");
+      footerSocialIcon.setAttribute("class", "footer-social-icon");
+      footerSocialIcon.innerHTML = `<i class="${social.icon}" data-icon=${social.dataIcon}></i>`;
+      footerSocialHolder.appendChild(footerSocialIcon);
+      footerSocials.appendChild(footerSocialHolder);
+    });
+    footerSocial.appendChild(footerSocials);
+    footerMainHolder.appendChild(footerSocial);
+  }
+
   footerMainTitle.appendChild(footerMainLinks);
   footerMainHolder.appendChild(footerMainTitle);
   footerMainContainer.appendChild(footerMainHolder);
@@ -1575,3 +1611,14 @@ footerDiv.forEach((item) => {
     title.classList.toggle("text-white");
   });
 });
+
+let today = new Date();
+let year = today.getFullYear();
+let footerCopyright = document.createElement("div");
+footerCopyright.setAttribute(
+  "class",
+  "footer-copyright flex justify-center items-center h-full"
+);
+footerCopyright.innerHTML = `<p class="text-white text-center bg-black">Copyright © ${year} Konga. All rights reserved.</p>`;
+footer.appendChild(footerCopyright);
+
