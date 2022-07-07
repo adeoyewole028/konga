@@ -69,20 +69,40 @@ let topNavContent = [
 let topNav = document.createElement("ul");
 topNav.setAttribute(
   "class",
-  "top-nav flex justify-center text-white items-center px-8"
+  "top-nav flex justify-center text-white items-center px-8 md:bg-[#ed017f] drop-shadow-xl"
 );
-topNav.setAttribute("style", "background-color: #ed017f;");
+
+let mobileNav = document.createElement("ul");
+mobileNav.setAttribute(
+  "class",
+  "mobile-nav flex justify-between p-3 md:hidden"
+);
+let logo = document.createElement("div");
+logo.setAttribute("class", "logo flex justify-center items-center");
+logo.innerHTML = `<div><span class= "iconify mr-1 text-xl font-black" data-icon = "charm:menu-hamburger"></span></div><img src="./images/kongalogo.png" class="w-24 ">`;
+let navItem = document.createElement("li");
+navItem.setAttribute("class", "nav-item flex text-gray-500 ");
+navItem.innerHTML = `<div><span class="iconify text-2xl mr-2" data-icon="dashicons:admin-home"></span></div><div><span
+class="iconify text-3xl fw-bold"
+data-icon="jam:shopping-cart"
+></span></div>`;
+mobileNav.appendChild(logo);
+mobileNav.appendChild(navItem);
+
+nav.appendChild(mobileNav);
+
+// topNav.setAttribute("style", "background-color: #ed017f;");
 topNavContent.forEach((item) => {
   let topNavList = document.createElement("li");
   topNavList.setAttribute(
     "class",
-    "top-nav-item px-4 w-32 py-4 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+    "top-nav-item px-4 w-32 py-4 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer hidden md:block"
   );
   let topNavLink = document.createElement("a");
 
   if (item.name === "./images/logo.png") {
     topNavLink.setAttribute("href", item.link);
-    topNavLink.setAttribute("class", "flex items-center");
+    topNavLink.setAttribute("class", "md:flex items-center hidden");
     let topNavImage = document.createElement("img");
     topNavImage.setAttribute("src", item.name);
     topNavImage.setAttribute("class", "w-32 mr-16");
@@ -92,23 +112,28 @@ topNavContent.forEach((item) => {
     topNavLink.setAttribute("href", item.link);
     topNavLink.setAttribute("class", "flex items-center");
     let topNavForm = document.createElement("form");
-    topNavForm.setAttribute("class", "flex items-center justify-center");
+    topNavForm.setAttribute(
+      "class",
+      "flex items-center justify-center w-[800px] md:w-[540px]"
+    );
     let topNavInput = document.createElement("input");
     topNavInput.setAttribute("type", "text");
     topNavInput.setAttribute(
       "class",
-      "text-black outline-none rounded-l-md h-8 p-2"
+      "text-black outline-none w-[250px] bg-gray-200 h-10 md:bg-white md:rounded-l-md md:h-8 p-2 md:p-2 md:w-[500px]"
     );
-    topNavInput.setAttribute("style", "width: 500px;");
     topNavInput.setAttribute(
       "placeholder",
       "Search for products, brands and categories..."
     );
     let topNavButton = document.createElement("button");
 
-    topNavButton.setAttribute("class", "bg-amber-500 w-10 h-8 rounded-r-md");
+    topNavButton.setAttribute(
+      "class",
+      "md:bg-amber-500 bg-gray-200 w-10 p-2 h-10 md:h-8 md:rounded-r-md"
+    );
     let topNavIcon = document.createElement("span");
-    topNavIcon.setAttribute("class", "iconify mr-auto ml-auto");
+    topNavIcon.setAttribute("class", "iconify mr-auto ml-auto text-xl");
     topNavIcon.setAttribute("data-icon", "ant-design:search-outlined");
     topNavButton.appendChild(topNavIcon);
     topNavForm.appendChild(topNavInput);
@@ -118,7 +143,7 @@ topNavContent.forEach((item) => {
     let helpItem = document.createElement("div");
     helpItem.setAttribute(
       "class",
-      "dropdown relative px-4 py-3.5 w-32 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+      "dropdown relative px-4 py-3.5 w-32 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer hidden md:block"
     );
     helpItem.innerHTML = `<span class="flex items-center"
     ><span
@@ -155,7 +180,7 @@ topNavContent.forEach((item) => {
 
     cartItem.innerHTML = `<a
     href=""
-    class="flex items-center rounded-sm bg-emerald-500 hover:bg-green-600 h-10 px-5 py-4 transition hover:delay-0 duration-300 ease-in-out"
+    class="md:flex items-center rounded-sm bg-emerald-500 hover:bg-green-600 h-10 px-5 py-4 transition hover:delay-0 duration-300 ease-in-out hidden"
     ><span
       class="iconify mr-1.5 text-3xl fw-bold"
       data-icon="jam:shopping-cart"
@@ -363,7 +388,7 @@ categoryMenu.forEach((item) => {
   let subNavItem = document.createElement("li");
   subNavItem.setAttribute(
     "class",
-    "sub-nav-item flex align-center dropdown relative px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+    "sub-nav-item md:flex align-center dropdown relative px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer hidden"
   );
   let subNavSpan = document.createElement("span");
   subNavSpan.setAttribute("class", "flex");
@@ -805,7 +830,7 @@ function renderProducts(todaysDeal) {
   let headingLinkText = document.createElement("span");
 
   heading.setAttribute("class", "flex space-x-10 items-center p-5");
-  headingTitle.setAttribute("class", "text-3xl font-bold text-gray-800");
+  headingTitle.setAttribute("class", "text-2xl font-bold text-gray-800");
   headingLink.setAttribute("class", "text-gray-800");
   headingLinkText.setAttribute("class", "text-gray-800");
 
@@ -1172,7 +1197,10 @@ let shopNow = [
 ];
 
 let shopNowContainer = document.createElement("div");
-shopNowContainer.setAttribute("class", "shop-now flex mb-5 space-x-10");
+shopNowContainer.setAttribute(
+  "class",
+  "shop-now flex mb-5 space-x-10 overflow-x-auto md:overflow-none"
+);
 shopNow.forEach((item) => {
   let shopHolder = document.createElement("div");
   shopHolder.setAttribute("class", "shop-holder bg-white rounded-lg");
@@ -1336,7 +1364,7 @@ let footerHead = [
 let footerHeadContainer = document.createElement("div");
 footerHeadContainer.setAttribute(
   "class",
-  "footer-head flex bg-gray-800 py-3 text-gray-400 justify-center text-sm space-x-2"
+  "footer-head flex bg-gray-800 py-3 text-gray-400 justify-center text-sm space-x-2 flex-wrap md:flex-nowrap"
 );
 let formEl = document.createElement("div");
 formEl.innerHTML = `
@@ -1542,7 +1570,7 @@ let footerMain = [
 let footerMainContainer = document.createElement("div");
 footerMainContainer.setAttribute(
   "class",
-  "footer-main flex w-full bg-black px-10 text-gray-400 justify-between text-sm"
+  "footer-main md:flex w-full bg-black px-10 text-gray-400 justify-between text-sm hidden"
 );
 footerMain.forEach((item) => {
   let footerMainHolder = document.createElement("div");
@@ -1617,8 +1645,7 @@ let year = today.getFullYear();
 let footerCopyright = document.createElement("div");
 footerCopyright.setAttribute(
   "class",
-  "footer-copyright flex justify-center items-center h-full"
+  "footer-copyright flex justify-center items-center"
 );
 footerCopyright.innerHTML = `<p class="text-white text-center bg-black">Copyright © ${year} Konga. All rights reserved.</p>`;
 footer.appendChild(footerCopyright);
-
