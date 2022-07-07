@@ -1172,19 +1172,16 @@ let shopNow = [
 ];
 
 let shopNowContainer = document.createElement("div");
-shopNowContainer.setAttribute(
-  "class",
-  "shop-now flex rounded-lg mb-5 space-x-10"
-);
+shopNowContainer.setAttribute("class", "shop-now flex mb-5 space-x-10");
 shopNow.forEach((item) => {
   let shopHolder = document.createElement("div");
-  shopHolder.setAttribute("class", "shop-holder bg-white");
+  shopHolder.setAttribute("class", "shop-holder bg-white rounded-lg");
 
   shopHolder.innerHTML = `<div>
-  <a href="${item.link}"><div class="shop-img"><img src="${item.content.img}" alt=""></div>
-  <div class="shop-title">${item.content.title}</div>
-  <div class="shop-desc">${item.content.desc}</div>
-  <div class="shop-action">${item.content.action}</div>
+  <a href="${item.link}"><div class="shop-img rounded-lg"><img src="${item.content.img}" alt=""></div>
+  <h3 class="shop-title font-bold pl-5 pt-5">${item.content.title}</h3>
+  <div class="shop-desc pl-5 py-5 text-sm">${item.content.desc}</div>
+  <div class="shop-action pb-5 text-rose-700 font-bold px-5 flex">${item.content.action}<span class="iconify self-center text-xs ml-2 mt-1" data-icon="dashicons:arrow-right-alt2"></span></div>
   </a>
   </div>`;
   shopNowContainer.appendChild(shopHolder);
@@ -1257,7 +1254,7 @@ let partnersStore = [
 let partnersStoreContainer = document.createElement("div");
 partnersStoreContainer.setAttribute(
   "class",
-  "partners-store flex flex-wrap w-full justify-center mb-5"
+  "partners-store flex flex-wrap justify-center mb-5"
 );
 partnersStore.forEach((item) => {
   let partnersStoreHolder = document.createElement("div");
@@ -1267,7 +1264,8 @@ partnersStore.forEach((item) => {
   partnersStoreLink.href = item.link;
 
   let partnersStoreImg = document.createElement("img");
-  partnersStoreImg.setAttribute("class", "w-52 h-full hover:shadow-lg");
+  partnersStoreImg.setAttribute("class", "h-full hover:shadow-lg");
+  partnersStoreImg.setAttribute("style", "width: 218px");
   partnersStoreImg.src = item.img;
 
   partnersStoreLink.appendChild(partnersStoreImg);
@@ -1338,12 +1336,12 @@ let footerHead = [
 let footerHeadContainer = document.createElement("div");
 footerHeadContainer.setAttribute(
   "class",
-  "footer-head flex w-full bg-gray-800 py-3 text-gray-400 justify-center text-sm space-x-2"
+  "footer-head flex bg-gray-800 py-3 text-gray-400 justify-center text-sm space-x-2"
 );
 let formEl = document.createElement("div");
 formEl.innerHTML = `
   
-  <form class="w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 rounded-r-md text-white" type="submit">Subscribe</button></form>
+  <form class="w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 mr-5 rounded-r-md text-white absolute right-0 " type="submit">Subscribe</button></form>
 
   `;
 footerHead.forEach((item) => {
@@ -1362,8 +1360,9 @@ footerHead.forEach((item) => {
   }
   footerHeadIcon.innerHTML = `<i class="${item.icon}" data-icon="${item.dataIcon}"></i>`;
   let footerHeadTitle = document.createElement("div");
-  footerHeadTitle.setAttribute("class", "footer-head-title font-bold");
+  footerHeadTitle.setAttribute("class", "footer-head-title");
   footerHeadTitle.innerHTML = `<h2>${item.title}</h2>`;
+
   let footerHeadDesc = document.createElement("div");
   footerHeadDesc.setAttribute(
     "class",
@@ -1505,32 +1504,36 @@ let footerMain = [
     title: "DOWNLOAD AND CONNECT WITH US",
     links: [
       {
-        name: "./images/logo.png",
+        name: "./images/apple.png",
         link: "#",
       },
       {
-        name: "./images/logo.png",
+        name: "./images/google.png",
         link: "#",
       },
     ],
 
     subTitle: "CONTACT US WITH",
-    links: [
+    socials: [
       {
-        name: "./images/logo.png",
-        link: "#",
+        id: "facebook",
+        icon: "iconify",
+        dataIcon: "akar-icons:facebook-fill",
       },
       {
-        name: "./images/logo.png",
-        link: "#",
+        id: "twitter",
+        icon: "iconify",
+        dataIcon: "entypo-social:twitter-with-circle",
       },
       {
-        name: "./images/logo.png",
-        link: "#",
+        id: "instagram",
+        icon: "iconify",
+        dataIcon: "ant-design:instagram-outlined",
       },
       {
-        name: "./images/logo.png",
-        link: "#",
+        id: "youtube",
+        icon: "iconify",
+        dataIcon: "uil:youtube",
       },
     ],
   },
@@ -1539,7 +1542,7 @@ let footerMain = [
 let footerMainContainer = document.createElement("div");
 footerMainContainer.setAttribute(
   "class",
-  "footer-main flex w-full bg-black px-10 text-gray-400 justify-between text-sm mb-5"
+  "footer-main flex w-full bg-black px-10 text-gray-400 justify-between text-sm"
 );
 footerMain.forEach((item) => {
   let footerMainHolder = document.createElement("div");
@@ -1548,18 +1551,74 @@ footerMain.forEach((item) => {
     "footer-main-holder flex h-full align-center"
   );
   let footerMainTitle = document.createElement("div");
-  footerMainTitle.setAttribute("class", "footer-main-title ");
-  footerMainTitle.innerHTML = `<h2 class="py-5">${item.title}</h2>`;
+  footerMainTitle.setAttribute("class", "footer-main-title");
+  footerMainTitle.innerHTML = `<h2 class="py-5 font-bold">${item.title}</h2>`;
   let footerMainLinks = document.createElement("div");
   footerMainLinks.setAttribute("class", "footer-main-links pb-4 space-y-4");
   item.links.forEach((link) => {
     let footerMainLink = document.createElement("div");
-    footerMainLink.setAttribute("class", "footer-main-link");
+    footerMainLink.setAttribute("class", "footer-main-link hover:text-white");
     footerMainLink.innerHTML = `<a href="${link.link}">${link.name}</a>`;
+    if (item.id === 6) {
+      footerMainLink.innerHTML = `<a href="${link.link}"><img src="${link.name}" alt=""></a>`;
+    }
     footerMainLinks.appendChild(footerMainLink);
   });
+
+  if (item.id === 6) {
+    footerMainHolder.setAttribute("class", "flex flex-col");
+    footerMainLinks.setAttribute("class", "flex");
+
+    let footerSocial = document.createElement("div");
+    footerSocial.setAttribute("class", "footer-social order-last");
+    footerSocial.innerHTML = `<h2 class="py-5 font-bold">${item.subTitle}</h2>`;
+    let footerSocials = document.createElement("div");
+    footerSocials.setAttribute(
+      "class",
+      "footer-socials flex text-5xl space-x-4"
+    );
+    item.socials.forEach((social) => {
+      let footerSocialHolder = document.createElement("div");
+      footerSocialHolder.setAttribute(
+        "class",
+        "footer-social-holder flex h-full align-center"
+      );
+      let footerSocialIcon = document.createElement("div");
+      footerSocialIcon.setAttribute("class", "footer-social-icon");
+      footerSocialIcon.innerHTML = `<i class="${social.icon}" data-icon=${social.dataIcon}></i>`;
+      footerSocialHolder.appendChild(footerSocialIcon);
+      footerSocials.appendChild(footerSocialHolder);
+    });
+    footerSocial.appendChild(footerSocials);
+    footerMainHolder.appendChild(footerSocial);
+  }
+
   footerMainTitle.appendChild(footerMainLinks);
   footerMainHolder.appendChild(footerMainTitle);
   footerMainContainer.appendChild(footerMainHolder);
 });
 footer.appendChild(footerMainContainer);
+
+let footerDiv = document.querySelectorAll(".footer-main-holder");
+
+footerDiv.forEach((item) => {
+  item.addEventListener("mouseenter", () => {
+    let title = item.children[0].children[0];
+    title.classList.toggle("text-white");
+  });
+  item.addEventListener("mouseleave", () => {
+    let title = item.children[0].children[0];
+    title.classList.toggle("text-white");
+  });
+});
+
+let today = new Date();
+let year = today.getFullYear();
+let footerCopyright = document.createElement("div");
+footerCopyright.setAttribute(
+  "class",
+  "footer-copyright flex justify-center items-center h-full"
+);
+footerCopyright.innerHTML = `<p class="text-white text-center bg-black">Copyright © ${year} Konga. All rights reserved.</p>`;
+footer.appendChild(footerCopyright);
+
