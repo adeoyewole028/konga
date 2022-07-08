@@ -625,7 +625,7 @@ function carousel() {
   span.setAttribute("data-icon", "dashicons:arrow-left-alt2");
   previousBtn.setAttribute(
     "class",
-    "slider hidden absolute bg-white shadow-lg rounded-full p-5 left-0 translate-y-36 translate-x-10"
+    "slider md:hidden absolute bg-white shadow-lg rounded-full p-5 left-0 top-1/3 md:translate-y-36 md:translate-x-10"
   );
   previousBtn.appendChild(span);
   bannerContainer.appendChild(previousBtn);
@@ -642,7 +642,7 @@ function carousel() {
 
   let bannerImage = document.createElement("img");
   bannerImage.setAttribute("src", bannerCarousel[num]);
-  bannerImage.setAttribute("class", "rounded-lg w-screen h-[170px] md:w-[900px] md:h-screen");
+  bannerImage.setAttribute("class", "rounded-lg w-screen h-[170px] md:w-[920px] md:h-full");
   bannerEl.appendChild(bannerImage);
   bannerContainer.appendChild(bannerEl);
   section.appendChild(bannerContainer);
@@ -654,7 +654,7 @@ function carousel() {
   span2.setAttribute("data-icon", "dashicons:arrow-right-alt2");
   nextBtn.setAttribute(
     "class",
-    "slider hidden absolute bg-white shadow-lg rounded-full p-5  right-0 translate-y-36 -translate-x-10"
+    "slider md:hidden absolute bg-white shadow-lg rounded-full p-5 right-0 md:-right-10 top-1/3 md:top-1/2"
   );
   nextBtn.appendChild(span2);
   bannerContainer.appendChild(nextBtn);
@@ -679,12 +679,12 @@ function carousel() {
 
   bannerContainer.addEventListener("mouseenter", () => {
     slider.forEach((slider) => {
-      slider.classList.toggle("hidden");
+      slider.classList.toggle("md:hidden");
     });
   });
   bannerContainer.addEventListener("mouseleave", () => {
     slider.forEach((slider) => {
-      slider.classList.toggle("hidden");
+      slider.classList.toggle("md:hidden");
     });
   });
 }
@@ -718,10 +718,10 @@ bannerAdContainer.setAttribute("class", "flex  flex-wrap");
 bannerAd.forEach((ad) => {
   //for each ad in the array
   let adEl = document.createElement("div");
-  adEl.setAttribute("class", "w-1/2 p-1");
+  adEl.setAttribute("class", "min-w-fit min-h-0 p-1");
   let adImage = document.createElement("img");
   adImage.setAttribute("src", ad.image);
-  adImage.setAttribute("class", "w-full rounded-md");
+  adImage.setAttribute("class", "w-[140px] md:w-44 md:h-44 rounded-md");
   let adLink = document.createElement("a");
   adLink.setAttribute("href", ad.link);
   adLink.appendChild(adImage);
