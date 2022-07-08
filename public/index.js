@@ -769,7 +769,7 @@ let otherServices = [
 ];
 
 function renderServices(services) {
-  let container = document.createElement("div");  
+  let container = document.createElement("div");
   container.setAttribute("class", "md:flex flex-wrap hidden");
   services.forEach((service) => {
     let serviceEl = document.createElement("div");
@@ -838,31 +838,20 @@ function renderProducts(todaysDeal) {
   let todaysDealContainer = document.createElement("div");
   todaysDealContainer.setAttribute(
     "class",
-    "todays-deal rounded-lg bg-rose-300 mb-5"
+    "todays-deal flex flex-col rounded-lg bg-rose-300 mb-5"
   );
   let heading = document.createElement("div");
-  let headingTitle = document.createElement("h2");
-  let headingLink = document.createElement("a");
-  let headingLinkText = document.createElement("span");
-
   heading.setAttribute("class", "flex space-x-10 items-center p-5");
-  headingTitle.setAttribute("class", "text-2xl font-bold text-gray-800");
-  headingLink.setAttribute("class", "text-gray-800");
-  headingLinkText.setAttribute("class", "text-gray-800");
-
-  headingTitle.innerHTML = todaysDeal.header.title;
-  headingLink.href = todaysDeal.header.link;
-  headingLinkText.innerHTML = "See All Items";
-  headingLink.appendChild(headingLinkText);
-  heading.appendChild(headingTitle);
-  heading.appendChild(headingLink);
+  heading.innerHTML = `<h2 class="text-2xl font-bold text-center">${todaysDeal.header.title}</h2>
+    <a href="${todaysDeal.header.link}"<button class="btn btn-primary">See All Items</button></a>
+    `;
   todaysDealContainer.appendChild(heading);
   main.appendChild(todaysDealContainer);
 
   let todaysDealItems = document.createElement("div");
   todaysDealItems.setAttribute(
     "class",
-    "flex justify-center flex-wrap bg-white"
+    "flex justify-center basis-1/2 overflow-x-auto md:flex-wrap bg-white"
   );
 
   Object.keys(todaysDeal).forEach((item, i) => {
@@ -870,7 +859,7 @@ function renderProducts(todaysDeal) {
       let todaysDealItem = document.createElement("div");
       todaysDealItem.setAttribute(
         "class",
-        "sm:w-1/2 md:w-96 p-3 bg-white hover:shadow-2xl m-0.5"
+        "p-3 bg-white hover:shadow-2xl m-0.5"
       );
       let todaysDealItemImg = document.createElement("img");
       let todaysDealItemTitle = document.createElement("h3");
@@ -1081,7 +1070,7 @@ let categories = [
   },
 ];
 
-renderServices(categories)
+renderServices(categories);
 
 let recommendedProducts = {
   header: {
