@@ -748,6 +748,42 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 50%;
 }
 
+.w-\[143px\] {
+  width: 143px;
+}
+
+.w-\[142px\] {
+  width: 142px;
+}
+
+.w-\[141px\] {
+  width: 141px;
+}
+
+.w-\[14px\] {
+  width: 14px;
+}
+
+.w-\[100\] {
+  width: 100;
+}
+
+.w-\[100\%\] {
+  width: 100%;
+}
+
+.w-\[150px\] {
+  width: 150px;
+}
+
+.w-\[170px\] {
+  width: 170px;
+}
+
+.w-\[173px\] {
+  width: 173px;
+}
+
 .min-w-full {
   min-width: 100%;
 }
@@ -760,6 +796,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-none {
   flex: none;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.basis-1\/2 {
+  flex-basis: 50%;
 }
 
 .translate-y-36 {
@@ -1283,6 +1327,10 @@ html {
     height: 100vh;
   }
 
+  .md\:min-h-0 {
+    min-height: 0px;
+  }
+
   .md\:w-\[540px\] {
     width: 540px;
   }
@@ -1315,8 +1363,42 @@ html {
     width: 11rem;
   }
 
+  .md\:w-\[44\] {
+    width: 44;
+  }
+
+  .md\:w-\[180PX\] {
+    width: 180PX;
+  }
+
+  .md\:w-\[180\] {
+    width: 180;
+  }
+
+  .md\:w-\[180px\] {
+    width: 180px;
+  }
+
+  .md\:w-\[190px\] {
+    width: 190px;
+  }
+
+  .md\:w-\[188px\] {
+    width: 188px;
+  }
+
+  .md\:w-\[185px\] {
+    width: 185px;
+  }
+
   .md\:min-w-0 {
     min-width: 0px;
+  }
+
+  .md\:min-w-fit {
+    min-width: -webkit-fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
   }
 
   .md\:translate-y-36 {

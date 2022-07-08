@@ -383,7 +383,10 @@ let subNav = document.createElement("div");
 subNav.setAttribute("class", "sub-nav text-white");
 
 let mobileSubNav = document.createElement("ul");
-mobileSubNav.setAttribute("class", "mobile-sub-nav text-black bg-white px-3 py-1 flex justify-between md:hidden");
+mobileSubNav.setAttribute(
+  "class",
+  "mobile-sub-nav text-black bg-white px-3 py-1 flex justify-between md:hidden"
+);
 mobileSubNav.innerHTML = `<li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="ph:dots-three-circle"></span><span>Browse All</span></li>
 <li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="map:clothing-store"></span><span>Fashion</span></li>
 <li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="icon-park-outline:computer"></span><span>Computer</span></li>
@@ -391,7 +394,6 @@ mobileSubNav.innerHTML = `<li class="flex flex-col"><span class="iconify self-ce
 <li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="ant-design:tags-outlined"></span><span>All Deals</span></li>`;
 
 subNav.appendChild(mobileSubNav);
-
 
 let subNavList = document.createElement("ul");
 subNavList.setAttribute("class", "sub-nav-list md:flex bg-rose-900 hidden");
@@ -642,7 +644,10 @@ function carousel() {
 
   let bannerImage = document.createElement("img");
   bannerImage.setAttribute("src", bannerCarousel[num]);
-  bannerImage.setAttribute("class", "rounded-lg w-screen h-[170px] md:w-[920px] md:h-full");
+  bannerImage.setAttribute(
+    "class",
+    "rounded-lg w-screen h-[170px] md:w-[920px] md:h-full"
+  );
   bannerEl.appendChild(bannerImage);
   bannerContainer.appendChild(bannerEl);
   section.appendChild(bannerContainer);
@@ -713,15 +718,15 @@ let bannerAd = [
 ];
 
 let bannerAdContainer = document.createElement("div");
-bannerAdContainer.setAttribute("class", "flex  flex-wrap");
+bannerAdContainer.setAttribute("class", "flex flex-wrap");
 
 bannerAd.forEach((ad) => {
   //for each ad in the array
   let adEl = document.createElement("div");
-  adEl.setAttribute("class", "min-w-fit min-h-0 p-1");
+  adEl.setAttribute("class", "basis-1/2 p-1");
   let adImage = document.createElement("img");
   adImage.setAttribute("src", ad.image);
-  adImage.setAttribute("class", "w-[140px] md:w-44 md:h-44 rounded-md");
+  adImage.setAttribute("class", "rounded-md");
   let adLink = document.createElement("a");
   adLink.setAttribute("href", ad.link);
   adLink.appendChild(adImage);
@@ -764,8 +769,8 @@ let otherServices = [
 ];
 
 function renderServices(services) {
-  let container = document.createElement("div");
-  container.setAttribute("class", "flex flex-wrap");
+  let container = document.createElement("div");  
+  container.setAttribute("class", "md:flex flex-wrap hidden");
   services.forEach((service) => {
     let serviceEl = document.createElement("div");
     serviceEl.setAttribute("class", "w-1/6 p-2");
@@ -1076,7 +1081,7 @@ let categories = [
   },
 ];
 
-renderServices(categories);
+renderServices(categories)
 
 let recommendedProducts = {
   header: {
