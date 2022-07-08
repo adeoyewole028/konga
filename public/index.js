@@ -792,7 +792,7 @@ renderServices(otherServices);
 
 let todaysDeal = {
   header: {
-    title: "Today's Deal",
+    title: "Today's Deals",
     link: "#",
   },
 
@@ -838,11 +838,14 @@ function renderProducts(todaysDeal) {
   let todaysDealContainer = document.createElement("div");
   todaysDealContainer.setAttribute(
     "class",
-    "todays-deal flex flex-col rounded-lg bg-rose-900 mb-5 text-white"
+    "todays-deal flex flex-col rounded-lg bg-gray-800 md:bg-rose-900 mb-5 mt-3 text-white"
   );
   let heading = document.createElement("div");
-  heading.setAttribute("class", "flex space-x-10 items-center py-1.5 pl-4");
-  heading.innerHTML = `<h2 class="text-3xl font-bold text-center">${todaysDeal.header.title}</h2>
+  heading.setAttribute(
+    "class",
+    "flex justify-between md:justify-start md:space-x-10 items-center py-1.5 px-4"
+  );
+  heading.innerHTML = `<h2 class="md:text-3xl font-bold text-center">${todaysDeal.header.title}</h2>
     <a href="${todaysDeal.header.link}"<button class="btn btn-primary text-xs">See All Items</button></a>
     `;
   todaysDealContainer.appendChild(heading);
@@ -862,17 +865,17 @@ function renderProducts(todaysDeal) {
         "md:basis-1/3 p-3 text-sm bg-white hover:shadow-2xl"
       );
       let todaysDealItemLink = document.createElement("a");
-      todaysDealItemLink.setAttribute("class", "flex flex-col md:flex-row w-32 md:w-full");
+      todaysDealItemLink.setAttribute(
+        "class",
+        "flex flex-col md:flex-row w-32 md:w-full"
+      );
       let todaysDealItemImg = document.createElement("img");
       let todaysDealItemTitle = document.createElement("h3");
       let todaysDealItemPrice = document.createElement("p");
       let titlePrice = document.createElement("div");
       titlePrice.setAttribute("class", "flex flex-col p-3");
       todaysDealItemImg.setAttribute("class", "md:w-24 md:h-24");
-      todaysDealItemTitle.setAttribute(
-        "class",
-        "text-gray-800"
-      );
+      todaysDealItemTitle.setAttribute("class", "text-gray-800");
       todaysDealItemPrice.setAttribute("class", "text-gray-800");
       todaysDealItemImg.src = todaysDeal[item].img;
       todaysDealItemTitle.innerHTML = todaysDeal[item].title;
@@ -966,31 +969,17 @@ function renderSponsors(sponsoredProducts) {
   let sponsoredProductsContainer = document.createElement("div");
   sponsoredProductsContainer.setAttribute(
     "class",
-    "sponsored-products rounded-lg bg-rose-300 mb-5"
+    "sponsored-products rounded-lg bg-white mb-5"
   );
   let heading = document.createElement("div");
   let headingTitle = document.createElement("h2");
-  let headingLink = document.createElement("a");
-  let headingLinkText = document.createElement("span");
 
-  heading.setAttribute("class", "flex space-x-10 items-center p-5");
-  headingTitle.setAttribute("class", "text-3xl font-bold text-gray-800");
-  headingLink.setAttribute("class", "text-gray-800");
-  headingLinkText.setAttribute("class", "text-gray-800");
+  heading.setAttribute("class", "flex py-1.5 px-4");
+  headingTitle.setAttribute("class", "md:text-3xl font-bold text-gray-800");
 
-  if (sponsoredProducts.header.link === undefined) {
-    headingTitle.innerHTML = sponsoredProducts.header.title;
-    heading.appendChild(headingTitle);
-    sponsoredProductsContainer.appendChild(heading);
-  } else {
-    headingTitle.innerHTML = sponsoredProducts.header.title;
-    headingLink.href = sponsoredProducts.header.link;
-    headingLinkText.innerHTML = "See All Items";
-    headingLink.appendChild(headingLinkText);
-    heading.appendChild(headingTitle);
-    heading.appendChild(headingLink);
-    sponsoredProductsContainer.appendChild(heading);
-  }
+  headingTitle.innerHTML = sponsoredProducts.header.title;
+  heading.appendChild(headingTitle);
+  sponsoredProductsContainer.appendChild(heading);
 
   let sponsoredProductsItems = document.createElement("div");
   sponsoredProductsItems.setAttribute(
@@ -1013,7 +1002,7 @@ function renderSponsors(sponsoredProducts) {
       let titlePrice = document.createElement("div");
       titlePrice.setAttribute("class", "flex flex-col p-3");
       sponsoredProductsItemImg.setAttribute("class", "w-40 h-40");
-      sponsoredProductsItemTitle.setAttribute("class", "text-xl font-bold");
+      sponsoredProductsItemTitle.setAttribute("class", "");
       sponsoredProductsItemPrice.setAttribute("class", "text-gray-800");
       sponsoredProductsItemLink.setAttribute("class", "flex flex-col w-64");
       sponsoredProductsItemImg.src = sponsoredProducts[item].img;
