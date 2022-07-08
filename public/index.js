@@ -113,13 +113,13 @@ topNavContent.forEach((item) => {
     let topNavForm = document.createElement("form");
     topNavForm.setAttribute(
       "class",
-      "flex items-center justify-center md:w-[540px]"
+      "flex items-center justify-center px-3 md:px-0 min-w-full md:min-w-0 md:w-[540px]"
     );
     let topNavInput = document.createElement("input");
     topNavInput.setAttribute("type", "text");
     topNavInput.setAttribute(
       "class",
-      "text-black outline-none w-[270px] p-2 bg-gray-200 h-10 md:bg-white md:rounded-l-md md:h-8 md:p-2 md:w-[500px]"
+      "text-black outline-none w-full p-2 bg-gray-200 h-10 md:bg-white md:rounded-l-md md:h-8 md:p-2 md:w-[500px]"
     );
     topNavInput.setAttribute(
       "placeholder",
