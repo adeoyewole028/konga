@@ -381,7 +381,7 @@ let categoryMenu = [
 
 let subNav = document.createElement("div");
 subNav.setAttribute("class", "sub-nav text-white");
-
+// Mobile subnav Menu
 let mobileSubNav = document.createElement("ul");
 mobileSubNav.setAttribute(
   "class",
