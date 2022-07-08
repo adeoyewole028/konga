@@ -623,6 +623,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 1rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -657,6 +661,28 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-12 {
   height: 3rem;
+}
+
+.h-44 {
+  height: 11rem;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.h-max {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.h-\[max\] {
+  height: max;
+}
+
+.h-\[170px\] {
+  height: 170px;
 }
 
 .w-24 {
@@ -737,6 +763,26 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-\[250px\] {
   width: 250px;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
+.w-\[auto\] {
+  width: auto;
+}
+
+.w-80 {
+  width: 20rem;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.w-2\/5 {
+  width: 40%;
 }
 
 .flex-none {
@@ -938,6 +984,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding: 0.75rem;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -1002,6 +1052,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pb-4 {
   padding-bottom: 1rem;
+}
+
+.pr-3 {
+  padding-right: 0.75rem;
 }
 
 .text-center {
@@ -1229,6 +1283,18 @@ html {
     height: 2rem;
   }
 
+  .md\:h-64 {
+    height: 16rem;
+  }
+
+  .md\:h-full {
+    height: 100%;
+  }
+
+  .md\:h-screen {
+    height: 100vh;
+  }
+
   .md\:w-96 {
     width: 24rem;
   }
@@ -1251,6 +1317,18 @@ html {
 
   .md\:w-\[540px\] {
     width: 540px;
+  }
+
+  .md\:w-\[96\] {
+    width: 96;
+  }
+
+  .md\:w-\[900px\] {
+    width: 900px;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
   }
 
   .md\:flex-nowrap {
@@ -1284,5 +1362,21 @@ html {
 
   .md\:p-2 {
     padding: 0.5rem;
+  }
+
+  .md\:p-5 {
+    padding: 1.25rem;
+  }
+
+  .md\:p-4 {
+    padding: 1rem;
+  }
+
+  .md\:p-1 {
+    padding: 0.25rem;
+  }
+
+  .md\:pr-3 {
+    padding-right: 0.75rem;
   }
 }

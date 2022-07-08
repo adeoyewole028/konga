@@ -72,7 +72,7 @@ topNav.setAttribute(
   "top-nav flex justify-center text-white items-center px-8 md:bg-[#ed017f] drop-shadow-xl"
 );
 
-let mobileNav = document.createElement("ul");
+let mobileNav = document.createElement("div");
 mobileNav.setAttribute(
   "class",
   "mobile-nav flex justify-between p-3 md:hidden"
@@ -80,7 +80,7 @@ mobileNav.setAttribute(
 let logo = document.createElement("div");
 logo.setAttribute("class", "logo flex justify-center items-center");
 logo.innerHTML = `<div><span class= "iconify mr-1 text-xl font-black" data-icon = "charm:menu-hamburger"></span></div><img src="./images/kongalogo.png" class="w-24 ">`;
-let navItem = document.createElement("li");
+let navItem = document.createElement("div");
 navItem.setAttribute("class", "nav-item flex text-gray-500 ");
 navItem.innerHTML = `<div><span class="iconify text-2xl mr-2" data-icon="dashicons:admin-home"></span></div><div><span
 class="iconify text-3xl fw-bold"
@@ -91,7 +91,6 @@ mobileNav.appendChild(navItem);
 
 nav.appendChild(mobileNav);
 
-// topNav.setAttribute("style", "background-color: #ed017f;");
 topNavContent.forEach((item) => {
   let topNavList = document.createElement("li");
   topNavList.setAttribute(
@@ -381,14 +380,26 @@ let categoryMenu = [
 ];
 
 let subNav = document.createElement("div");
-subNav.setAttribute("class", "sub-nav text-white bg-rose-900");
+subNav.setAttribute("class", "sub-nav text-white");
+
+let mobileSubNav = document.createElement("ul");
+mobileSubNav.setAttribute("class", "mobile-sub-nav text-black bg-white p-5 flex justify-between md:hidden");
+mobileSubNav.innerHTML = `<li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="ph:dots-three-circle"></span><span>Browse All</span></li>
+<li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="map:clothing-store"></span><span>Fashion</span></li>
+<li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="icon-park-outline:computer"></span><span>Computer</span></li>
+<li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="bi:phone"></span><span>Phone</span></li>
+<li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="ant-design:tags-outlined"></span><span>All Deals</span></li>`;
+
+subNav.appendChild(mobileSubNav);
+
+
 let subNavList = document.createElement("ul");
-subNavList.setAttribute("class", "sub-nav-list flex");
+subNavList.setAttribute("class", "sub-nav-list md:flex bg-rose-900 hidden");
 categoryMenu.forEach((item) => {
   let subNavItem = document.createElement("li");
   subNavItem.setAttribute(
     "class",
-    "sub-nav-item md:flex align-center dropdown relative px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer hidden"
+    "sub-nav-item md:flex align-center dropdown relative px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
   );
   let subNavSpan = document.createElement("span");
   subNavSpan.setAttribute("class", "flex");
@@ -584,12 +595,12 @@ sidesMenu.forEach((item, i) => {
 });
 
 let section = document.createElement("section");
-section.setAttribute("class", "banner-section flex");
+section.setAttribute("class", "banner-section flex flex-col md:flex-row");
 let bannerContainer = document.createElement("div");
-bannerContainer.setAttribute("style", "width: calc(100vw - 30%);");
+// display flex and flex col to position select buttons in the banner div
 bannerContainer.setAttribute(
   "class",
-  "banner-container flex flex-col flex-none items-center relative"
+  "banner-container flex-none flex-col flex items-center relative"
 );
 
 let bannerCarousel = [
@@ -607,7 +618,7 @@ carousel();
 
 function carousel() {
   let bannerEl = document.createElement("div");
-  bannerEl.setAttribute("class", "p-3");
+  bannerEl.setAttribute("class", "md:p-1 md:pr-3");
   let previousBtn = document.createElement("button");
   let span = document.createElement("span");
   span.setAttribute("class", "iconify");
@@ -631,7 +642,7 @@ function carousel() {
 
   let bannerImage = document.createElement("img");
   bannerImage.setAttribute("src", bannerCarousel[num]);
-  bannerImage.setAttribute("class", "w");
+  bannerImage.setAttribute("class", "rounded-lg w-screen h-[170px] md:w-[900px] md:h-screen");
   bannerEl.appendChild(bannerImage);
   bannerContainer.appendChild(bannerEl);
   section.appendChild(bannerContainer);
@@ -707,7 +718,7 @@ bannerAdContainer.setAttribute("class", "flex  flex-wrap");
 bannerAd.forEach((ad) => {
   //for each ad in the array
   let adEl = document.createElement("div");
-  adEl.setAttribute("class", "w-1/2 p-3");
+  adEl.setAttribute("class", "w-1/2 p-1");
   let adImage = document.createElement("img");
   adImage.setAttribute("src", ad.image);
   adImage.setAttribute("class", "w-full rounded-md");
