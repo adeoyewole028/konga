@@ -834,7 +834,7 @@ let todaysDeal = {
   },
 };
 
-function renderProducts(todaysDeal) {  
+function renderProducts(todaysDeal) {
   let todaysDealContainer = document.createElement("div");
   todaysDealContainer.setAttribute(
     "class",
@@ -854,7 +854,7 @@ function renderProducts(todaysDeal) {
   let todaysDealItems = document.createElement("div");
   todaysDealItems.setAttribute(
     "class",
-    "flex overflow-x-auto md:flex-wrap bg-white"
+    "flex overflow-x-auto rounded-b-lg md:flex-wrap bg-white"
   );
 
   Object.keys(todaysDeal).forEach((item, i) => {
@@ -984,7 +984,7 @@ function renderSponsors(sponsoredProducts) {
   let sponsoredProductsItems = document.createElement("div");
   sponsoredProductsItems.setAttribute(
     "class",
-    "flex space-x-5 p-5 overflow-x-auto bg-white"
+    "flex space-x-5 p- rounded-b-lg overflow-x-auto bg-white"
   );
 
   Object.keys(sponsoredProducts).forEach((item, i) => {
@@ -1112,10 +1112,10 @@ phoneBudget.forEach((item) => {
   let phoneBudgetContainer = document.createElement("div");
   phoneBudgetContainer.setAttribute(
     "class",
-    "phone-budget rounded-lg bg-white mb-5"
+    "phone-budget p-2 rounded bg-white flex basis-1 mb-5"
   );
   let phoneBudgetImg = document.createElement("img");
-  phoneBudgetImg.setAttribute("class", "w-full h-full rounded-lg p-3");
+  phoneBudgetImg.setAttribute("class", "w-full h-full rounded");
   phoneBudgetImg.src = item.img;
 
   let phoneBudgetLink = document.createElement("a");
@@ -1136,7 +1136,7 @@ let savingBarContainer = document.createElement("div");
 savingBar.forEach((item) => {
   savingBarContainer.setAttribute(
     "class",
-    "saving-bar flex rounded-lg bg-white mb-5"
+    "saving-bar flex flex-wrap md:flex-nowrap rounded-lg bg-white mb-5"
   );
   let savingBarImg = document.createElement("img");
   savingBarImg.setAttribute("class", "w-full h-full rounded-lg p-3");
@@ -1192,19 +1192,19 @@ let shopNow = [
 let shopNowContainer = document.createElement("div");
 shopNowContainer.setAttribute(
   "class",
-  "shop-now flex mb-5 space-x-10 overflow-x-auto md:overflow-none"
+  "shop-now mb-5 overflow-x-auto flex md:overflow-none space-x-1"
 );
 shopNow.forEach((item) => {
   let shopHolder = document.createElement("div");
-  shopHolder.setAttribute("class", "shop-holder bg-white rounded-lg");
+  shopHolder.setAttribute("class", "shop-holder basis-1/2 flex");
 
-  shopHolder.innerHTML = `<div>
-  <a href="${item.link}"><div class="shop-img rounded-lg"><img src="${item.content.img}" alt=""></div>
-  <h3 class="shop-title font-bold pl-5 pt-5">${item.content.title}</h3>
-  <div class="shop-desc pl-5 py-5 text-sm">${item.content.desc}</div>
-  <div class="shop-action pb-5 text-rose-700 font-bold px-5 flex">${item.content.action}<span class="iconify self-center text-xs ml-2 mt-1" data-icon="dashicons:arrow-right-alt2"></span></div>
+  shopHolder.innerHTML = `
+  <a class="bg-white p-1 rounded-lg md:basis-" href="${item.link}"><div class="shop-img"><img src="${item.content.img}" alt=""></div>
+  <h3 class="shop-title font-bold pt-5">${item.content.title}</h3>
+  <div class="shop-desc py-5 text-sm">${item.content.desc}</div>
+  <div class="shop-action pb-5 text-rose-700 font-bold flex">${item.content.action}<span class="iconify self-center text-xs ml-2 mt-1" data-icon="dashicons:arrow-right-alt2"></span></div>
   </a>
-  </div>`;
+  `;
   shopNowContainer.appendChild(shopHolder);
   main.appendChild(shopNowContainer);
 });
@@ -1279,14 +1279,11 @@ partnersStoreContainer.setAttribute(
 );
 partnersStore.forEach((item) => {
   let partnersStoreHolder = document.createElement("div");
-  partnersStoreHolder.setAttribute("class", "partners-store-holder h-full");
+  partnersStoreHolder.setAttribute("class", "partners-store-holder basis-1/6");
   let partnersStoreLink = document.createElement("a");
-  partnersStoreLink.setAttribute("class", "partners-store-link");
   partnersStoreLink.href = item.link;
 
   let partnersStoreImg = document.createElement("img");
-  partnersStoreImg.setAttribute("class", "h-full hover:shadow-lg");
-  partnersStoreImg.setAttribute("style", "width: 218px");
   partnersStoreImg.src = item.img;
 
   partnersStoreLink.appendChild(partnersStoreImg);
@@ -1305,7 +1302,7 @@ let aboutKonga = [
 let aboutKongaContainer = document.createElement("div");
 aboutKongaContainer.setAttribute(
   "class",
-  "about-konga flex flex-wrap bg-white rounded-lg p-5 w-full justify-center mb-5"
+  "about-konga hidden md:flex flex-wrap bg-white rounded-lg p-5 w-full justify-center mb-5"
 );
 aboutKonga.forEach((item) => {
   let aboutKongaHolder = document.createElement("div");
@@ -1357,12 +1354,12 @@ let footerHead = [
 let footerHeadContainer = document.createElement("div");
 footerHeadContainer.setAttribute(
   "class",
-  "footer-head flex bg-gray-800 py-3 text-gray-400 justify-center text-sm space-x-2 flex-wrap md:flex-nowrap"
+  "footer-head flex flex-col md:flex-row bg-gray-800 py-3 px-5 text-gray-400 md:justify-center text-sm space-y-4 md:space-y-0 md:space-x-2 flex-wrap md:flex-nowrap"
 );
 let formEl = document.createElement("div");
 formEl.innerHTML = `
   
-  <form class="w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 mr-5 rounded-r-md text-white absolute right-0 " type="submit">Subscribe</button></form>
+  <form class="min-w-full m:w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-full md:w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 mr-5 rounded-r-md text-white absolute right-0 " type="submit">Subscribe</button></form>
 
   `;
 footerHead.forEach((item) => {
