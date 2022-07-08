@@ -69,7 +69,7 @@ let topNavContent = [
 let topNav = document.createElement("ul");
 topNav.setAttribute(
   "class",
-  "top-nav flex justify-center text-white items-center px-8 md:bg-[#ed017f] drop-shadow-xl"
+  "top-nav flex justify-center text-white items-center md:px-8 md:bg-[#ed017f] md:border-b-0 border-b-2 pb-3 md:pb-0"
 );
 
 let mobileNav = document.createElement("div");
@@ -113,13 +113,13 @@ topNavContent.forEach((item) => {
     let topNavForm = document.createElement("form");
     topNavForm.setAttribute(
       "class",
-      "flex items-center justify-center w-[800px] md:w-[540px]"
+      "flex items-center justify-center md:w-[540px]"
     );
     let topNavInput = document.createElement("input");
     topNavInput.setAttribute("type", "text");
     topNavInput.setAttribute(
       "class",
-      "text-black outline-none w-[250px] bg-gray-200 h-10 md:bg-white md:rounded-l-md md:h-8 p-2 md:p-2 md:w-[500px]"
+      "text-black outline-none w-[270px] p-2 bg-gray-200 h-10 md:bg-white md:rounded-l-md md:h-8 md:p-2 md:w-[500px]"
     );
     topNavInput.setAttribute(
       "placeholder",
@@ -383,7 +383,7 @@ let subNav = document.createElement("div");
 subNav.setAttribute("class", "sub-nav text-white");
 
 let mobileSubNav = document.createElement("ul");
-mobileSubNav.setAttribute("class", "mobile-sub-nav text-black bg-white p-5 flex justify-between md:hidden");
+mobileSubNav.setAttribute("class", "mobile-sub-nav text-black bg-white px-3 py-1 flex justify-between md:hidden");
 mobileSubNav.innerHTML = `<li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="ph:dots-three-circle"></span><span>Browse All</span></li>
 <li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="map:clothing-store"></span><span>Fashion</span></li>
 <li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="icon-park-outline:computer"></span><span>Computer</span></li>
