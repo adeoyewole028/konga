@@ -834,7 +834,7 @@ let todaysDeal = {
   },
 };
 
-function renderProducts(todaysDeal) {
+function renderProducts(todaysDeal) {  
   let todaysDealContainer = document.createElement("div");
   todaysDealContainer.setAttribute(
     "class",
@@ -843,7 +843,7 @@ function renderProducts(todaysDeal) {
   let heading = document.createElement("div");
   heading.setAttribute(
     "class",
-    "flex justify-between md:justify-start md:space-x-10 items-center py-1.5 px-4"
+    "flex justify-between border-b-2 md:justify-start md:space-x-10 items-center py-1.5 px-4"
   );
   heading.innerHTML = `<h2 class="md:text-3xl font-bold text-center">${todaysDeal.header.title}</h2>
     <a href="${todaysDeal.header.link}"<button class="btn btn-primary text-xs">See All Items</button></a>
@@ -862,7 +862,7 @@ function renderProducts(todaysDeal) {
       let todaysDealItem = document.createElement("div");
       todaysDealItem.setAttribute(
         "class",
-        "md:basis-1/3 p-3 text-sm bg-white hover:shadow-2xl"
+        "md:basis-1/3 p-3 rounded-b-lg text-sm bg-white hover:shadow-2xl"
       );
       let todaysDealItemLink = document.createElement("a");
       todaysDealItemLink.setAttribute(
@@ -974,7 +974,7 @@ function renderSponsors(sponsoredProducts) {
   let heading = document.createElement("div");
   let headingTitle = document.createElement("h2");
 
-  heading.setAttribute("class", "flex py-1.5 px-4");
+  heading.setAttribute("class", "flex border-b-2 py-1.5 px-4");
   headingTitle.setAttribute("class", "md:text-3xl font-bold text-gray-800");
 
   headingTitle.innerHTML = sponsoredProducts.header.title;
@@ -1023,7 +1023,6 @@ function renderSponsors(sponsoredProducts) {
   sponsoredProductsContainer.appendChild(sponsoredProductsItems);
   main.appendChild(sponsoredProductsContainer);
 }
-
 renderSponsors(sponsoredProducts);
 
 let categories = [
