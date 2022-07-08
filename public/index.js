@@ -625,7 +625,7 @@ function carousel() {
   span.setAttribute("data-icon", "dashicons:arrow-left-alt2");
   previousBtn.setAttribute(
     "class",
-    "slider md:hidden absolute bg-white shadow-lg rounded-full p-5 left-0 top-1/3 md:translate-y-36 md:translate-x-10"
+    "slider md:hidden absolute bg-white shadow-lg rounded-full p-5 left-0 md:left-10 top-1/3"
   );
   previousBtn.appendChild(span);
   bannerContainer.appendChild(previousBtn);
@@ -654,7 +654,7 @@ function carousel() {
   span2.setAttribute("data-icon", "dashicons:arrow-right-alt2");
   nextBtn.setAttribute(
     "class",
-    "slider md:hidden absolute bg-white shadow-lg rounded-full p-5 right-0 md:-right-10 top-1/3 md:top-1/2"
+    "slider md:hidden absolute bg-white shadow-lg rounded-full p-5 right-0 md:right-10 top-1/3"
   );
   nextBtn.appendChild(span2);
   bannerContainer.appendChild(nextBtn);
