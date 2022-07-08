@@ -851,7 +851,7 @@ function renderProducts(todaysDeal) {
   let todaysDealItems = document.createElement("div");
   todaysDealItems.setAttribute(
     "class",
-    "flex justify-center basis-1/2 overflow-x-auto md:flex-wrap bg-white"
+    "flex overflow-x-auto md:flex-wrap bg-white"
   );
 
   Object.keys(todaysDeal).forEach((item, i) => {
@@ -859,12 +859,13 @@ function renderProducts(todaysDeal) {
       let todaysDealItem = document.createElement("div");
       todaysDealItem.setAttribute(
         "class",
-        "p-3 bg-white hover:shadow-2xl m-0.5"
+        "basis-1/3 p-3 bg-white hover:shadow-2xl"
       );
+      let todaysDealItemLink = document.createElement("a");
+      todaysDealItemLink.setAttribute("class", "flex flex-col md:flex-row basis-1/2");
       let todaysDealItemImg = document.createElement("img");
       let todaysDealItemTitle = document.createElement("h3");
       let todaysDealItemPrice = document.createElement("p");
-      let todaysDealItemLink = document.createElement("a");
       let titlePrice = document.createElement("div");
       titlePrice.setAttribute("class", "flex flex-col p-3");
       todaysDealItemImg.setAttribute("class", "w-24 h-24");
@@ -873,7 +874,6 @@ function renderProducts(todaysDeal) {
         "text-xl font-bold text-gray-800"
       );
       todaysDealItemPrice.setAttribute("class", "text-gray-800");
-      todaysDealItemLink.setAttribute("class", "flex");
       todaysDealItemImg.src = todaysDeal[item].img;
       todaysDealItemTitle.innerHTML = todaysDeal[item].title;
       todaysDealItemPrice.innerHTML = todaysDeal[item].price;
