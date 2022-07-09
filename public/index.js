@@ -15,7 +15,7 @@ let headerContent = [
 ];
 
 let headerImages = document.createElement("ul");
-headerImages.setAttribute("class", "header-images flex justify-between py-3");
+headerImages.setAttribute("class", "header-images flex justify-between space-x-10 py-3");
 headerContent.forEach((image) => {
   let imagesList = document.createElement("li");
   imagesList.setAttribute("class", "header-image basis-1/6");
