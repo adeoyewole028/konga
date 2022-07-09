@@ -15,14 +15,15 @@ let headerContent = [
 ];
 
 let headerImages = document.createElement("ul");
-headerImages.setAttribute("class", "header-images flex space-x-10 py-3");
+headerImages.setAttribute("class", "header-images flex justify-between py-3");
 headerContent.forEach((image) => {
   let imagesList = document.createElement("li");
-  imagesList.setAttribute("class", "header-image w-24");
+  imagesList.setAttribute("class", "header-image basis-1/6");
   let imageLink = document.createElement("a");
   imageLink.setAttribute("href", "#");
   let imageElement = document.createElement("img");
   imageElement.setAttribute("src", image);
+  imageElement.setAttribute("class", "h w-24")
 
   imageLink.appendChild(imageElement);
   imagesList.appendChild(imageLink);
@@ -351,39 +352,506 @@ let categoryMenu = [
     name: "Electronics",
     subMenu4: [
       {
-        id: "TVs and Audio",
+        id: "Televisions",
         link: [
-          { name: "TVs", link: "#" },
-          { name: "Audio", link: "#" },
+          { name: "Smart TVs", link: "#" },
+          { name: "LED TVs", link: "#" },
+          { name: "Curved TVs", link: "#" },
+          { name: "OLED TVs", link: "#" },
+          { name: "Plasma TVs", link: "#" },
+        ],
+      },
+      {
+        id: "DVD Players and Recorders",
+        link: [
+          { name: "DVD Players", link: "#" },
+          { name: "DVD Recorders", link: "#" },
         ],
       },
       {
         id: "Cameras",
         link: [
-          { name: "Cameras", link: "#" },
-          { name: "Accessories", link: "#" },
+          { name: "Digital Cameras", link: "#" },
+          { name: "Professional & SLR Cameras", link: "#" },
+          { name: "Camcorders & Video Cameras", link: "#" },
+          { name: "Camera Lenses & Accessories", link: "#" },
+          { name: "PCCTV Cameras", link: "#" },
         ],
       },
       {
-        id: "Video Games",
+        id: "Accessories",
         link: [
-          { name: "Video Games", link: "#" },
-          { name: "Accessories", link: "#" },
+          { name: "TV Audio", link: "#" },
+          { name: "Headphones", link: "#" },
+          { name: "Television Accessories", link: "#" },
+          { name: "Other Accessories", link: "#" },
+          { name: "Gaming Accessories", link: "#" },
+        ],
+      },
+      {
+        id: "Home Theatres & Audio Systems",
+        link: [
+          { name: "Home Theatre", link: "#" },
+          { name: "HiFi Systems", link: "#" },
+          { name: "MP3 Players & Speakers", link: "#" },
+        ],
+      },
+      {
+        id: "Games and Consoles",
+        link: [
+          { name: "PS4", link: "#" },
+          { name: "PS3", link: "#" },
+          { name: "Xbox One", link: "#" },
+          { name: "Xbox 360", link: "#" },
+          { name: "Nintendo Wii", link: "#" },
+          { name: "Sony PSP", link: "#" },
+          { name: "PS Vita", link: "#" },
+          { name: "Nintendo 3DS", link: "#" },
         ],
       },
     ],
   },
-  { name: "Konga Fashion", link: "#" },
-  { name: "Home and Kitchen", link: "#" },
-  { name: "Baby, Kids and Toys", link: "#" },
-  { name: "Other Categories", link: "#" },
+  {
+    name: "Konga Fashion",
+    subMenu5: [
+      {
+        id: "Women's Wear",
+        link: [
+          { name: "Tops", link: "#" },
+          { name: "Trousers", link: "#" },
+          { name: "Jumpsuits & Playsuits", link: "#" },
+          { name: "Suits & Blazers", link: "#" },
+          { name: "Skirts", link: "#" },
+          { name: "Co-ordinates", link: "#" },
+          { name: "Lingerie & Sleepwear", link: "#" },
+          { name: "Ready to Wear", link: "#" },
+        ],
+      },
+      {
+        id: "Women's Shoes",
+        link: [
+          { name: "Ballerinas & Flats", link: "#" },
+          { name: "Heels", link: "#" },
+          { name: "Sandals & Slippers", link: "#" },
+          { name: "Wedges", link: "#" },
+          { name: "Sport Shoes", link: "#" },
+          { name: "Shoes & Bags", link: "#" },
+        ],
+      },
+      {
+        id: "Women's Accessories",
+        link: [
+          { name: "Bags", link: "#" },
+          { name: "Belts", link: "#" },
+          { name: "Purses & Clutches", link: "#" },
+          { name: "Wallets", link: "#" },
+          { name: "Jewellery", link: "#" },
+          { name: "Hats & Scarves", link: "#" },
+        ],
+      },
+      {
+        id: "Men's Wear",
+        link: [
+          { name: "Shirts", link: "#" },
+          { name: "Polos", link: "#" },
+          { name: "T-Shirts", link: "#" },
+          { name: "Jeans", link: "#" },
+          { name: "Trousers & Shorts", link: "#" },
+          { name: "Suits, Blazers & Jackets", link: "#" },
+          { name: "Pyjamas", link: "#" },
+          { name: "Jerseys", link: "#" },
+          { name: "Traditional Wear", link: "#" },
+        ],
+      },
+      {
+        id: "Men Shoes",
+        link: [
+          { name: "Casual Shoes", link: "#" },
+          { name: "Formal Shoes", link: "#" },
+          { name: "Slippers & Sandals", link: "#" },
+          { name: "Shoe Care & Accessories", link: "#" },
+        ],
+      },
+      {
+        id: "Men's Accessories",
+        link: [
+          { name: "Belts & Wallets", link: "#" },
+          { name: "Socks & Underwear", link: "#" },
+          { name: "Caps & Hats", link: "#" },
+          { name: "Jewellery", link: "#" },
+          { name: "Bags", link: "#" },
+          { name: "Ties & Cufflinks", link: "#" },
+        ],
+      },
+      {
+        id: "Watches",
+        link: [
+          { name: "Men's Watches", link: "#" },
+          { name: "Women's Watches", link: "#" },
+          { name: "Unisex Watches", link: "#" },
+        ],
+      },
+      {
+        id: "Fashion Bundles",
+        link: [
+          { name: "Women's Fashion Bundles", link: "#" },
+          { name: "Men's Fashion Bundles", link: "#" },
+          { name: "Xbox One", link: "#" },
+          { name: "Xbox 360", link: "#" },
+          { name: "Nintendo Wii", link: "#" },
+          { name: "Sony PSP", link: "#" },
+          { name: "PS Vita", link: "#" },
+          { name: "Nintendo 3DS", link: "#" },
+        ],
+      },
+      {
+        id: "Style Finder for Women",
+        link: [
+          { name: "Monochrome", link: "#" },
+          { name: "Floral", link: "#" },
+          { name: "Bold in Black", link: "#" },
+          { name: "9 to 5 Chic", link: "#" },
+          { name: "Trending Now", link: "#" },
+          { name: "Red Hot", link: "#" },
+        ],
+      },
+      {
+        id: "Style Finder for Men",
+        link: [
+          { name: "Monochrome", link: "#" },
+          { name: "Prints", link: "#" },
+          { name: "Wardrobe Basics", link: "#" },
+          { name: "Men in Blue", link: "#" },
+          { name: "Business Look", link: "#" },
+        ],
+      },
+      {
+        id: "Under 5K Shop",
+        link: [
+          { name: "Men's Fashion Under 5K", link: "#" },
+          { name: "Women's Fashion Under 5K", link: "#" },
+        ],
+      },
+      {
+        id: "Wedding Shop",
+        link: [
+          { name: "Women's Wedding Shop", link: "#" },
+          { name: "Men's Wedding Shop", link: "#" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Home and Kitchen",
+    subMenu6: [
+      {
+        id: "Large Appliances",
+        link: [
+          { name: "Air Conditioners & Coolers", link: "#" },
+          { name: "Fans", link: "#" },
+          { name: "Freezers", link: "#" },
+          { name: "Washers & Dryers", link: "#" },
+          { name: "Refrigerators", link: "#" },
+          { name: "Cookers & Ovens", link: "#" },
+          { name: " Water Dispensers", link: "#" },
+          { name: "Vacuum Cleaners", link: "#" },
+        ],
+      },
+      {
+        id: "Small Appliances",
+        link: [
+          { name: "Blenders, Juicers & Mixers", link: "#" },
+          { name: "Hot Plates & Burners", link: "#" },
+          { name: "Irons & Steamers", link: "#" },
+          { name: "Processors & Mincers", link: "#" },
+          { name: "Toasters & Sandwich Makers", link: "#" },
+          { name: "Deep Fryers & Rice Cookers", link: "#" },
+          { name: "Electric Kettles", link: "#" },
+          { name: "Microwaves", link: "#" },
+          { name: "Yam Pounder", link: "#" },
+        ],
+      },
+      {
+        id: "Home Furnishings",
+        link: [
+          { name: "Bed & Bathroom Furnishings", link: "#" },
+          { name: "Curtains & Blinds", link: "#" },
+          { name: "Decor", link: "#" },
+          { name: "Light Fixtures", link: "#" },
+          { name: "Rugs & Carpets", link: "#" },
+          { name: "Housekeeping & Pet Supplies", link: "#" },
+        ],
+      },
+      {
+        id: "Kitchen & Dining",
+        link: [
+          { name: "Cook and Bakeware", link: "#" },
+          { name: "Dining", link: "#" },
+          { name: "Kitchen Utensils", link: "#" },
+          { name: "Cooker Hoods & Ventilators", link: "#" },
+        ],
+      },
+      {
+        id: "Top Brands",
+        link: [
+          { name: "LG", link: "#" },
+          { name: "Samsung", link: "#" },
+          { name: "Polystar", link: "#" },
+          { name: "Scanfrost", link: "#" },
+          { name: "Hisense", link: "#" },
+          { name: "Saisho", link: "#" },
+          { name: "Haier Thermocool", link: "#" },
+          { name: "Master Chef", link: "#" },
+        ],
+      },
+      {
+        id: "Furniture",
+        link: [
+          { name: "Living Room Furniture", link: "#" },
+          { name: "Bedroom Furniture", link: "#" },
+          { name: "Office Furniture", link: "#" },
+          { name: "Kitchen & Dining Furniture", link: "#" },
+        ],
+      },
+      {
+        id: "Others",
+        link: [
+          { name: "Rain Boots & Raincoats", link: "#" },
+          { name: "Gas Cylinder & Accessories", link: "#" },
+          { name: "Towel Racks", link: "#" },
+          { name: "Garment Steamers", link: "#" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Baby, Kids and Toys",
+    subMenu7: [
+      {
+        id: "Fashion for Girls",
+        link: [
+          { name: "Sets", link: "#" },
+          { name: "Dresses", link: "#" },
+          { name: "Tops, Jackets, & Sweatshirts", link: "#" },
+          { name: "Denim, Trousers & Leggings", link: "#" },
+          { name: "Underwear & Socks", link: "#" },
+          { name: "Watches", link: "#" },
+          { name: "Shoes", link: "#" },
+          { name: "Sleepwear", link: "#" },
+          { name: "Bodysuits & Playsuits", link: "#" },
+        ],
+      },
+      {
+        id: "Fashion for Boys",
+        link: [
+          { name: " Polos & T-Shirts", link: "#" },
+          { name: "Sets", link: "#" },
+          { name: "Watches", link: "#" },
+          { name: "Denim & Trousers", link: "#" },
+          { name: "Bodysuits & Playsuits", link: "#" },
+          { name: "Sleepwear", link: "#" },
+          { name: "Underwear & Socks", link: "#" },
+          { name: "Shoes", link: "#" },
+          { name: "Shirts", link: "#" },
+        ],
+      },
+      {
+        id: "Baby Essentials",
+        link: [
+          { name: "Bibs & Burp Cloths", link: "#" },
+          { name: "Bottle Feeding", link: "#" },
+          { name: "Breastfeeding", link: "#" },
+          { name: "Pacifiers & Teethers", link: "#" },
+          { name: " Baby Food & Formula", link: "#" },
+          { name: "Feeding & Nursing", link: "#" },
+        ],
+      },
+      {
+        id: "Maternity",
+        link: [
+          { name: "Maternity Tops & Jackets", link: "#" },
+          { name: "Maternity Dresses", link: "#" },
+          { name: "Maternity Trousers & Skirts", link: "#" },
+          { name: "Maternity Underwear", link: "#" },
+          { name: "Maternity Accessories", link: "#" },
+        ],
+      },
+      {
+        id: "School Store",
+        link: [
+          { name: "Bags & Backpacks", link: "#" },
+          { name: "Lunchboxes & Waterbottles", link: "#" },
+          { name: "School Uniform & Accessories", link: "#" },
+          { name: "School Shoes", link: "#" },
+        ],
+      },
+      {
+        id: "Travel & Safety Gear",
+        link: [
+          { name: "Car Seats, Strollers & Carriers", link: "#" },
+          { name: "Baby Monitors & Safety Gates", link: "#" },
+          { name: "Mobile Beds & Nets", link: "#" },
+          { name: "High Chairs & Booster Seats", link: "#" },
+        ],
+      },
+      {
+        id: "Diapering & Daily Care",
+        link: [
+          { name: "Daily Care", link: "#" },
+          { name: "Bathtime Essentials", link: "#" },
+          { name: "Diapers & Baby Wipes", link: "#" },
+          { name: "Diaper Bags & Changing Mats", link: "#" },
+          { name: "Potty Training", link: "#" },
+          { name: "Co-ordinates", link: "#" },
+          { name: "Lingerie & Sleepwear", link: "#" },
+          { name: "Ready to Wear", link: "#" },
+        ],
+      },
+      {
+        id: "Kids' Beddings & Decor",
+        link: [
+          { name: "Bedding", link: "#" },
+          { name: "Décor Accessories", link: "#" },
+          { name: "Furniture", link: "#" },
+        ],
+      },
+      {
+        id: "Toys & Activities",
+        link: [
+          { name: "Tablets for Kids", link: "#" },
+          { name: "Educational Toys", link: "#" },
+          { name: "Activities", link: "#" },
+          { name: "Bicycles & Ride On", link: "#" },
+          { name: "Bouncers, Rockers & Swingers", link: "#" },
+          { name: "Games & Puzzles", link: "#" },
+          { name: "Play Pens & Play Mats", link: "#" },
+          { name: "Party Store", link: "#" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Other Categories",
+    subMenu8: [
+      {
+        id: "Beauty, Health & Personal Care",
+        link: [
+          { name: "Makeup", link: "#" },
+          { name: "Fragrances", link: "#" },
+          { name: "Hair Centre", link: "#" },
+          { name: "Health", link: "#" },
+          { name: "Personal Care", link: "#" },
+          { name: "Skin Care", link: "#" },
+          { name: "Sexual Wellness", link: "#" },
+          { name: "Contraceptives", link: "#" },
+          { name: "Other Contraceptives & Lubricants", link: "#" },
+        ],
+      },
+      {
+        id: "Sports and Fitness",
+        link: [
+          { name: "Fitness", link: "#" },
+          { name: "Outdoor & Indoor Games", link: "#" },
+          { name: "Sportswear", link: "#" },
+          { name: "Football", link: "#" },
+          { name: "Swimming", link: "#" },
+          { name: "Boxing", link: "#" },
+          { name: "Basketball", link: "#" },
+        ],
+      },
+      {
+        id: "Groceries",
+        link: [
+          { name: "Beverages", link: "#" },
+          { name: "Food", link: "#" },
+          { name: "Frozen Food", link: "#" },
+        ],
+      },
+      {
+        id: "Books & Media Library",
+        link: [
+          { name: "Books", link: "#" },
+          { name: "Musical Equipment", link: "#" },
+          { name: "Keyboard, Pianos & Drums", link: "#" },
+          { name: "Stage, Studio & Recording Equipment", link: "#" },
+          { name: "Wind Instruments", link: "#" },
+          { name: "String Instruments", link: "#" },
+          { name: "Audio Books", link: "#" },
+          { name: "African Tales", link: "#" },
+        ],
+      },
+      {
+        id: "Alcoholic Beverages",
+        link: [
+          { name: "Wines", link: "#" },
+          { name: "Spirits", link: "#" },
+          { name: "Liqueurs & Creams", link: "#" },
+          { name: "Whiskey", link: "#" },
+          { name: "Champagne", link: "#" },
+        ],
+      },
+      {
+        id: "Office & School Supplies",
+        link: [
+          { name: "Greeting Cards", link: "#" },
+          { name: "School Supplies", link: "#" },
+          { name: "Office Supplies", link: "#" },
+          { name: "Build Your Office", link: "#" },
+        ],
+      },
+      {
+        id: "Generators & Power Solutions",
+        link: [
+          { name: "Generators & Accessories", link: "#" },
+          { name: "Inverters", link: "#" },
+          { name: "UPS & Surge Protectors", link: "#" },
+          { name: "Solar & Alternative Energy", link: "#" },
+        ],
+      },
+      {
+        id: "Automotive",
+        link: [
+          { name: "Automotive Tools & Accessories", link: "#" },
+          { name: "Safety and Security", link: "#" },
+          { name: "Autocare & Maintenance", link: "#" },
+          { name: "Tyres & Batteries", link: "#" },
+          { name: "Replacement Parts", link: "#" },
+          { name: "Hand & Power Tools", link: "#" },
+        ],
+      },
+      {
+        id: "Building & Industrial",
+        link: [
+          { name: "Sewing Machines & Accessories", link: "#" },
+          { name: "Tools", link: "#" },
+          { name: "Plumbing Materials", link: "#" },
+          { name: "Construction Materials", link: "#" },
+          { name: "Paints", link: "#" },
+          { name: "Electrical Fittings", link: "#" },
+        ],
+      },
+      {
+        id: "Agriculture",
+        link: [
+          { name: "Seeds", link: "#" },
+          { name: "Fertilizers", link: "#" },
+          { name: "Pesticides & Herbicides", link: "#" },
+          { name: "Farm Machinery & Equipments", link: "#" },
+          { name: "Poultry", link: "#" },
+        ],
+      },
+    ],
+  },
 ];
 
 let subNav = document.createElement("div");
 subNav.setAttribute("class", "sub-nav text-white");
-
+// Mobile subnav Menu
 let mobileSubNav = document.createElement("ul");
-mobileSubNav.setAttribute("class", "mobile-sub-nav text-black bg-white px-3 py-1 flex justify-between md:hidden");
+mobileSubNav.setAttribute(
+  "class",
+  "mobile-sub-nav text-black bg-white px-3 py-1 flex justify-between md:hidden"
+);
 mobileSubNav.innerHTML = `<li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="ph:dots-three-circle"></span><span>Browse All</span></li>
 <li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="map:clothing-store"></span><span>Fashion</span></li>
 <li class="flex flex-col"><span class="iconify self-center text-3xl" data-icon="icon-park-outline:computer"></span><span>Computer</span></li>
@@ -392,14 +860,22 @@ mobileSubNav.innerHTML = `<li class="flex flex-col"><span class="iconify self-ce
 
 subNav.appendChild(mobileSubNav);
 
-
 let subNavList = document.createElement("ul");
-subNavList.setAttribute("class", "sub-nav-list md:flex bg-rose-900 hidden");
+subNavList.setAttribute("class", "sub-nav-list px-4 md:flex bg-rose-900 hidden");
+
+let subNavSubMenuHtml = "";
+
 categoryMenu.forEach((item) => {
+  console.log(item.name);
+
+  subNavSubMenuHtml += `<li class="sub-nav-sub-menu-item">
+  <a href="#" class="text-white">${item.name}</a>
+  <ul class="sub-nav-sub-menu-list">`;
+
   let subNavItem = document.createElement("li");
   subNavItem.setAttribute(
     "class",
-    "sub-nav-item md:flex align-center dropdown relative px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+    "sub-nav-item basis-1/2 text-xs md:flex justify-center  dropdown relative py-2 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
   );
   let subNavSpan = document.createElement("span");
   subNavSpan.setAttribute("class", "flex");
@@ -410,19 +886,6 @@ categoryMenu.forEach((item) => {
   subNavItem.appendChild(subNavSpan);
   subNavList.appendChild(subNavItem);
   subNav.appendChild(subNavList);
-
-  // if(item.name !== "All Categories"){
-  //   let subNavDropdown = document.createElement("div");
-  //   subNavDropdown.setAttribute("class", "sub-nav-dropdown absolute top-0 left-0 z-10 w-full h-full");
-  //   let subNavDropdownList = document.createElement("ul");
-  //   subNavDropdownList.setAttribute("class", "sub-nav-dropdown-list flex flex-col");
-  //   let subNavDropdownItem = document.createElement("li");
-  //   subNavDropdownItem.setAttribute("class", "sub-nav-dropdown-item flex");
-  //   subNavDropdownItem.innerHTML = item.name;
-  //   subNavDropdownList.appendChild(subNavDropdownItem);
-  //   subNavDropdown.appendChild(subNavDropdownList);
-  //   subNavItem.appendChild(subNavDropdown);
-  // }
 
   if (item.subMenu1) {
     let subNavSubMenu = document.createElement("ul");
@@ -555,6 +1018,7 @@ categoryMenu.forEach((item) => {
     subNavItem.appendChild(subNavSubMenu);
   }
 });
+
 nav.appendChild(subNav);
 
 let drops = document.querySelectorAll(".dropdown");
@@ -595,12 +1059,12 @@ sidesMenu.forEach((item, i) => {
 });
 
 let section = document.createElement("section");
-section.setAttribute("class", "banner-section flex flex-col md:flex-row");
+section.setAttribute("class", "banner-section flex flex-col md:flex-row md:pb-3");
 let bannerContainer = document.createElement("div");
 // display flex and flex col to position select buttons in the banner div
 bannerContainer.setAttribute(
   "class",
-  "banner-container flex-none flex-col flex items-center relative"
+  "banner-container flex-none flex-col flex items-center relative md:basis-9/12"
 );
 
 let bannerCarousel = [
@@ -618,14 +1082,14 @@ carousel();
 
 function carousel() {
   let bannerEl = document.createElement("div");
-  bannerEl.setAttribute("class", "md:p-1 md:pr-3");
+  bannerEl.setAttribute("class", "md:pb md:pr-3");
   let previousBtn = document.createElement("button");
   let span = document.createElement("span");
   span.setAttribute("class", "iconify");
   span.setAttribute("data-icon", "dashicons:arrow-left-alt2");
   previousBtn.setAttribute(
     "class",
-    "slider md:hidden absolute bg-white shadow-lg rounded-full p-5 left-0 md:left-10 top-1/3"
+    "slider md:hidden absolute bg-white shadow-lg rounded-full p-3 opacity-50 md:opacity-75 md:p-5 left-0 md:left-10 top-1/3"
   );
   previousBtn.appendChild(span);
   bannerContainer.appendChild(previousBtn);
@@ -642,7 +1106,10 @@ function carousel() {
 
   let bannerImage = document.createElement("img");
   bannerImage.setAttribute("src", bannerCarousel[num]);
-  bannerImage.setAttribute("class", "rounded-lg w-screen h-[170px] md:w-[920px] md:h-full");
+  bannerImage.setAttribute(
+    "class",
+    "rounded-lg"
+  );
   bannerEl.appendChild(bannerImage);
   bannerContainer.appendChild(bannerEl);
   section.appendChild(bannerContainer);
@@ -654,7 +1121,7 @@ function carousel() {
   span2.setAttribute("data-icon", "dashicons:arrow-right-alt2");
   nextBtn.setAttribute(
     "class",
-    "slider md:hidden absolute bg-white shadow-lg rounded-full p-5 right-0 md:right-10 top-1/3"
+    "slider md:hidden absolute bg-white shadow-lg rounded-full p-3 opacity-50 md:opacity-75 md:p-5 right-0 md:right-10 top-1/3"
   );
   nextBtn.appendChild(span2);
   bannerContainer.appendChild(nextBtn);
@@ -713,15 +1180,15 @@ let bannerAd = [
 ];
 
 let bannerAdContainer = document.createElement("div");
-bannerAdContainer.setAttribute("class", "flex  flex-wrap");
+bannerAdContainer.setAttribute("class", "flex flex-wrap md:basis-3/12");
 
 bannerAd.forEach((ad) => {
   //for each ad in the array
   let adEl = document.createElement("div");
-  adEl.setAttribute("class", "min-w-fit min-h-0 p-1");
+  adEl.setAttribute("class", "basis-1/2 p-1");
   let adImage = document.createElement("img");
   adImage.setAttribute("src", ad.image);
-  adImage.setAttribute("class", "w-[140px] md:w-44 md:h-44 rounded-md");
+  adImage.setAttribute("class", "rounded-md h-full");
   let adLink = document.createElement("a");
   adLink.setAttribute("href", ad.link);
   adLink.appendChild(adImage);
@@ -765,13 +1232,13 @@ let otherServices = [
 
 function renderServices(services) {
   let container = document.createElement("div");
-  container.setAttribute("class", "flex flex-wrap");
+  container.setAttribute("class", "md:flex flex-wrap hidden justify-between");
   services.forEach((service) => {
     let serviceEl = document.createElement("div");
-    serviceEl.setAttribute("class", "w-1/6 p-2");
+    serviceEl.setAttribute("class", "basis-1/6");
     let serviceImage = document.createElement("img");
     serviceImage.setAttribute("src", service.image);
-    serviceImage.setAttribute("class", "w-full rounded-md p-2 bg-white");
+    serviceImage.setAttribute("class", "w-52 rounded-md p-2 bg-white");
     let serviceLink = document.createElement("a");
     serviceLink.setAttribute("href", service.link);
     serviceLink.appendChild(serviceImage);
@@ -787,7 +1254,7 @@ renderServices(otherServices);
 
 let todaysDeal = {
   header: {
-    title: "Today's Deal",
+    title: "Today's Deals",
     link: "#",
   },
 
@@ -833,31 +1300,23 @@ function renderProducts(todaysDeal) {
   let todaysDealContainer = document.createElement("div");
   todaysDealContainer.setAttribute(
     "class",
-    "todays-deal rounded-lg bg-rose-300 mb-5"
+    "todays-deal flex flex-col rounded-lg bg-gray-800 md:bg-rose-900 mb-5 mt-3 text-white"
   );
   let heading = document.createElement("div");
-  let headingTitle = document.createElement("h2");
-  let headingLink = document.createElement("a");
-  let headingLinkText = document.createElement("span");
-
-  heading.setAttribute("class", "flex space-x-10 items-center p-5");
-  headingTitle.setAttribute("class", "text-2xl font-bold text-gray-800");
-  headingLink.setAttribute("class", "text-gray-800");
-  headingLinkText.setAttribute("class", "text-gray-800");
-
-  headingTitle.innerHTML = todaysDeal.header.title;
-  headingLink.href = todaysDeal.header.link;
-  headingLinkText.innerHTML = "See All Items";
-  headingLink.appendChild(headingLinkText);
-  heading.appendChild(headingTitle);
-  heading.appendChild(headingLink);
+  heading.setAttribute(
+    "class",
+    "flex justify-between border-b-2 md:justify-start md:space-x-10 items-center py-1.5 px-4"
+  );
+  heading.innerHTML = `<h2 class="md:text-3xl font-bold text-center">${todaysDeal.header.title}</h2>
+    <a href="${todaysDeal.header.link}"<button class="btn btn-primary text-xs">See All Items</button></a>
+    `;
   todaysDealContainer.appendChild(heading);
   main.appendChild(todaysDealContainer);
 
   let todaysDealItems = document.createElement("div");
   todaysDealItems.setAttribute(
     "class",
-    "flex justify-center flex-wrap bg-white"
+    "flex overflow-x-auto rounded-b-lg md:flex-wrap bg-white"
   );
 
   Object.keys(todaysDeal).forEach((item, i) => {
@@ -865,21 +1324,21 @@ function renderProducts(todaysDeal) {
       let todaysDealItem = document.createElement("div");
       todaysDealItem.setAttribute(
         "class",
-        "sm:w-1/2 md:w-96 p-3 bg-white hover:shadow-2xl m-0.5"
+        "md:basis-1/3 p-3 rounded-b-lg text-sm bg-white hover:shadow-2xl"
+      );
+      let todaysDealItemLink = document.createElement("a");
+      todaysDealItemLink.setAttribute(
+        "class",
+        "flex flex-col md:flex-row w-32 md:w-full"
       );
       let todaysDealItemImg = document.createElement("img");
       let todaysDealItemTitle = document.createElement("h3");
       let todaysDealItemPrice = document.createElement("p");
-      let todaysDealItemLink = document.createElement("a");
       let titlePrice = document.createElement("div");
       titlePrice.setAttribute("class", "flex flex-col p-3");
-      todaysDealItemImg.setAttribute("class", "w-24 h-24");
-      todaysDealItemTitle.setAttribute(
-        "class",
-        "text-xl font-bold text-gray-800"
-      );
+      todaysDealItemImg.setAttribute("class", "md:w-24 md:h-24");
+      todaysDealItemTitle.setAttribute("class", "text-gray-800");
       todaysDealItemPrice.setAttribute("class", "text-gray-800");
-      todaysDealItemLink.setAttribute("class", "flex");
       todaysDealItemImg.src = todaysDeal[item].img;
       todaysDealItemTitle.innerHTML = todaysDeal[item].title;
       todaysDealItemPrice.innerHTML = todaysDeal[item].price;
@@ -972,36 +1431,22 @@ function renderSponsors(sponsoredProducts) {
   let sponsoredProductsContainer = document.createElement("div");
   sponsoredProductsContainer.setAttribute(
     "class",
-    "sponsored-products rounded-lg bg-rose-300 mb-5"
+    "sponsored-products rounded-lg bg-white mb-5"
   );
   let heading = document.createElement("div");
   let headingTitle = document.createElement("h2");
-  let headingLink = document.createElement("a");
-  let headingLinkText = document.createElement("span");
 
-  heading.setAttribute("class", "flex space-x-10 items-center p-5");
-  headingTitle.setAttribute("class", "text-3xl font-bold text-gray-800");
-  headingLink.setAttribute("class", "text-gray-800");
-  headingLinkText.setAttribute("class", "text-gray-800");
+  heading.setAttribute("class", "flex border-b-2 py-1.5 px-4");
+  headingTitle.setAttribute("class", "md:text-3xl font-bold text-gray-800");
 
-  if (sponsoredProducts.header.link === undefined) {
-    headingTitle.innerHTML = sponsoredProducts.header.title;
-    heading.appendChild(headingTitle);
-    sponsoredProductsContainer.appendChild(heading);
-  } else {
-    headingTitle.innerHTML = sponsoredProducts.header.title;
-    headingLink.href = sponsoredProducts.header.link;
-    headingLinkText.innerHTML = "See All Items";
-    headingLink.appendChild(headingLinkText);
-    heading.appendChild(headingTitle);
-    heading.appendChild(headingLink);
-    sponsoredProductsContainer.appendChild(heading);
-  }
+  headingTitle.innerHTML = sponsoredProducts.header.title;
+  heading.appendChild(headingTitle);
+  sponsoredProductsContainer.appendChild(heading);
 
   let sponsoredProductsItems = document.createElement("div");
   sponsoredProductsItems.setAttribute(
     "class",
-    "flex space-x-5 p-5 overflow-x-auto bg-white"
+    "flex space-x-5 p- rounded-b-lg overflow-x-auto bg-white"
   );
 
   Object.keys(sponsoredProducts).forEach((item, i) => {
@@ -1019,7 +1464,7 @@ function renderSponsors(sponsoredProducts) {
       let titlePrice = document.createElement("div");
       titlePrice.setAttribute("class", "flex flex-col p-3");
       sponsoredProductsItemImg.setAttribute("class", "w-40 h-40");
-      sponsoredProductsItemTitle.setAttribute("class", "text-xl font-bold");
+      sponsoredProductsItemTitle.setAttribute("class", "");
       sponsoredProductsItemPrice.setAttribute("class", "text-gray-800");
       sponsoredProductsItemLink.setAttribute("class", "flex flex-col w-64");
       sponsoredProductsItemImg.src = sponsoredProducts[item].img;
@@ -1040,7 +1485,6 @@ function renderSponsors(sponsoredProducts) {
   sponsoredProductsContainer.appendChild(sponsoredProductsItems);
   main.appendChild(sponsoredProductsContainer);
 }
-
 renderSponsors(sponsoredProducts);
 
 let categories = [
@@ -1130,10 +1574,10 @@ phoneBudget.forEach((item) => {
   let phoneBudgetContainer = document.createElement("div");
   phoneBudgetContainer.setAttribute(
     "class",
-    "phone-budget rounded-lg bg-white mb-5"
+    "phone-budget p-2 rounded bg-white flex basis-1 mb-5"
   );
   let phoneBudgetImg = document.createElement("img");
-  phoneBudgetImg.setAttribute("class", "w-full h-full rounded-lg p-3");
+  phoneBudgetImg.setAttribute("class", "w-full h-full rounded");
   phoneBudgetImg.src = item.img;
 
   let phoneBudgetLink = document.createElement("a");
@@ -1154,7 +1598,7 @@ let savingBarContainer = document.createElement("div");
 savingBar.forEach((item) => {
   savingBarContainer.setAttribute(
     "class",
-    "saving-bar flex rounded-lg bg-white mb-5"
+    "saving-bar flex flex-wrap md:flex-nowrap rounded-lg bg-white mb-5"
   );
   let savingBarImg = document.createElement("img");
   savingBarImg.setAttribute("class", "w-full h-full rounded-lg p-3");
@@ -1210,19 +1654,19 @@ let shopNow = [
 let shopNowContainer = document.createElement("div");
 shopNowContainer.setAttribute(
   "class",
-  "shop-now flex mb-5 space-x-10 overflow-x-auto md:overflow-none"
+  "shop-now mb-5 overflow-x-auto flex md:overflow-none space-x-1"
 );
 shopNow.forEach((item) => {
   let shopHolder = document.createElement("div");
-  shopHolder.setAttribute("class", "shop-holder bg-white rounded-lg");
+  shopHolder.setAttribute("class", "shop-holder basis-1/2 flex");
 
-  shopHolder.innerHTML = `<div>
-  <a href="${item.link}"><div class="shop-img rounded-lg"><img src="${item.content.img}" alt=""></div>
-  <h3 class="shop-title font-bold pl-5 pt-5">${item.content.title}</h3>
-  <div class="shop-desc pl-5 py-5 text-sm">${item.content.desc}</div>
-  <div class="shop-action pb-5 text-rose-700 font-bold px-5 flex">${item.content.action}<span class="iconify self-center text-xs ml-2 mt-1" data-icon="dashicons:arrow-right-alt2"></span></div>
+  shopHolder.innerHTML = `
+  <a class="bg-white p-1 rounded-lg md:basis-" href="${item.link}"><div class="shop-img"><img src="${item.content.img}" alt=""></div>
+  <h3 class="shop-title font-bold pt-5">${item.content.title}</h3>
+  <div class="shop-desc py-5 text-sm">${item.content.desc}</div>
+  <div class="shop-action pb-5 text-rose-700 font-bold flex">${item.content.action}<span class="iconify self-center text-xs ml-2 mt-1" data-icon="dashicons:arrow-right-alt2"></span></div>
   </a>
-  </div>`;
+  `;
   shopNowContainer.appendChild(shopHolder);
   main.appendChild(shopNowContainer);
 });
@@ -1297,14 +1741,11 @@ partnersStoreContainer.setAttribute(
 );
 partnersStore.forEach((item) => {
   let partnersStoreHolder = document.createElement("div");
-  partnersStoreHolder.setAttribute("class", "partners-store-holder h-full");
+  partnersStoreHolder.setAttribute("class", "partners-store-holder basis-1/6");
   let partnersStoreLink = document.createElement("a");
-  partnersStoreLink.setAttribute("class", "partners-store-link");
   partnersStoreLink.href = item.link;
 
   let partnersStoreImg = document.createElement("img");
-  partnersStoreImg.setAttribute("class", "h-full hover:shadow-lg");
-  partnersStoreImg.setAttribute("style", "width: 218px");
   partnersStoreImg.src = item.img;
 
   partnersStoreLink.appendChild(partnersStoreImg);
@@ -1323,7 +1764,7 @@ let aboutKonga = [
 let aboutKongaContainer = document.createElement("div");
 aboutKongaContainer.setAttribute(
   "class",
-  "about-konga flex flex-wrap bg-white rounded-lg p-5 w-full justify-center mb-5"
+  "about-konga hidden md:flex flex-wrap bg-white rounded-lg p-5 w-full justify-center mb-5"
 );
 aboutKonga.forEach((item) => {
   let aboutKongaHolder = document.createElement("div");
@@ -1375,12 +1816,12 @@ let footerHead = [
 let footerHeadContainer = document.createElement("div");
 footerHeadContainer.setAttribute(
   "class",
-  "footer-head flex bg-gray-800 py-3 text-gray-400 justify-center text-sm space-x-2 flex-wrap md:flex-nowrap"
+  "footer-head flex flex-col md:flex-row bg-gray-800 py-3 px-5 text-gray-400 md:justify-center text-sm space-y-4 md:space-y-0 md:space-x-2 flex-wrap md:flex-nowrap"
 );
 let formEl = document.createElement("div");
 formEl.innerHTML = `
   
-  <form class="w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 mr-5 rounded-r-md text-white absolute right-0 " type="submit">Subscribe</button></form>
+  <form class="min-w-full m:w-full"><input class="text-black outline-none rounded-l-md h-12 p-2 w-full md:w-48" type="email" placeholder="Enter your email" /> <button class="bg-rose-500 h-12 p-2 mr-5 rounded-r-md text-white absolute right-0 " type="submit">Subscribe</button></form>
 
   `;
 footerHead.forEach((item) => {
