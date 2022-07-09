@@ -15,14 +15,15 @@ let headerContent = [
 ];
 
 let headerImages = document.createElement("ul");
-headerImages.setAttribute("class", "header-images flex space-x-10 py-3");
+headerImages.setAttribute("class", "header-images flex justify-between py-3");
 headerContent.forEach((image) => {
   let imagesList = document.createElement("li");
-  imagesList.setAttribute("class", "header-image w-24");
+  imagesList.setAttribute("class", "header-image basis-1/6");
   let imageLink = document.createElement("a");
   imageLink.setAttribute("href", "#");
   let imageElement = document.createElement("img");
   imageElement.setAttribute("src", image);
+  imageElement.setAttribute("class", "h w-24")
 
   imageLink.appendChild(imageElement);
   imagesList.appendChild(imageLink);
@@ -860,7 +861,7 @@ mobileSubNav.innerHTML = `<li class="flex flex-col"><span class="iconify self-ce
 subNav.appendChild(mobileSubNav);
 
 let subNavList = document.createElement("ul");
-subNavList.setAttribute("class", "sub-nav-list md:flex bg-rose-900 hidden");
+subNavList.setAttribute("class", "sub-nav-list px-4 md:flex bg-rose-900 hidden");
 
 let subNavSubMenuHtml = "";
 
@@ -874,7 +875,7 @@ categoryMenu.forEach((item) => {
   let subNavItem = document.createElement("li");
   subNavItem.setAttribute(
     "class",
-    "sub-nav-item md:flex align-center dropdown relative px-9 py-3 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
+    "sub-nav-item basis-1/2 text-xs md:flex justify-center  dropdown relative py-2 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer"
   );
   let subNavSpan = document.createElement("span");
   subNavSpan.setAttribute("class", "flex");
