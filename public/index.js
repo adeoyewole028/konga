@@ -1058,12 +1058,12 @@ sidesMenu.forEach((item, i) => {
 });
 
 let section = document.createElement("section");
-section.setAttribute("class", "banner-section flex flex-col md:flex-row");
+section.setAttribute("class", "banner-section flex flex-col md:flex-row md:pb-3");
 let bannerContainer = document.createElement("div");
 // display flex and flex col to position select buttons in the banner div
 bannerContainer.setAttribute(
   "class",
-  "banner-container flex-none flex-col flex items-center relative"
+  "banner-container flex-none flex-col flex items-center relative md:basis-9/12"
 );
 
 let bannerCarousel = [
@@ -1081,7 +1081,7 @@ carousel();
 
 function carousel() {
   let bannerEl = document.createElement("div");
-  bannerEl.setAttribute("class", "md:p-1 md:pr-3");
+  bannerEl.setAttribute("class", "md:pb md:pr-3");
   let previousBtn = document.createElement("button");
   let span = document.createElement("span");
   span.setAttribute("class", "iconify");
@@ -1107,7 +1107,7 @@ function carousel() {
   bannerImage.setAttribute("src", bannerCarousel[num]);
   bannerImage.setAttribute(
     "class",
-    "rounded-lg w-screen h-[170px] md:w-[920px] md:h-full"
+    "rounded-lg"
   );
   bannerEl.appendChild(bannerImage);
   bannerContainer.appendChild(bannerEl);
@@ -1179,7 +1179,7 @@ let bannerAd = [
 ];
 
 let bannerAdContainer = document.createElement("div");
-bannerAdContainer.setAttribute("class", "flex flex-wrap");
+bannerAdContainer.setAttribute("class", "flex flex-wrap md:basis-3/12");
 
 bannerAd.forEach((ad) => {
   //for each ad in the array
@@ -1187,7 +1187,7 @@ bannerAd.forEach((ad) => {
   adEl.setAttribute("class", "basis-1/2 p-1");
   let adImage = document.createElement("img");
   adImage.setAttribute("src", ad.image);
-  adImage.setAttribute("class", "rounded-md");
+  adImage.setAttribute("class", "rounded-md h-full");
   let adLink = document.createElement("a");
   adLink.setAttribute("href", ad.link);
   adLink.appendChild(adImage);
@@ -1231,13 +1231,13 @@ let otherServices = [
 
 function renderServices(services) {
   let container = document.createElement("div");
-  container.setAttribute("class", "md:flex flex-wrap hidden");
+  container.setAttribute("class", "md:flex flex-wrap hidden justify-between");
   services.forEach((service) => {
     let serviceEl = document.createElement("div");
-    serviceEl.setAttribute("class", "w-1/6 p-2");
+    serviceEl.setAttribute("class", "basis-1/6");
     let serviceImage = document.createElement("img");
     serviceImage.setAttribute("src", service.image);
-    serviceImage.setAttribute("class", "w-full rounded-md p-2 bg-white");
+    serviceImage.setAttribute("class", "w-52 rounded-md p-2 bg-white");
     let serviceLink = document.createElement("a");
     serviceLink.setAttribute("href", service.link);
     serviceLink.appendChild(serviceImage);
