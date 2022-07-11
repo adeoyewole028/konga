@@ -217,7 +217,7 @@ let categoryMenu = [
   },
   {
     name: "Computer and Accessories",
-    subMenu2: [
+    subMenu: [
       {
         id: "Laptops",
         link: [
@@ -296,7 +296,7 @@ let categoryMenu = [
   },
   {
     name: "Phones and Tablets",
-    subMenu3: [
+    subMenu: [
       {
         id: "Smartphones",
         link: [
@@ -353,7 +353,7 @@ let categoryMenu = [
   },
   {
     name: "Electronics",
-    subMenu4: [
+    subMenu: [
       {
         id: "Televisions",
         link: [
@@ -416,7 +416,7 @@ let categoryMenu = [
   },
   {
     name: "Konga Fashion",
-    subMenu5: [
+    subMenu: [
       {
         id: "Women's Wear",
         link: [
@@ -546,7 +546,7 @@ let categoryMenu = [
   },
   {
     name: "Home and Kitchen",
-    subMenu6: [
+    subMenu: [
       {
         id: "Large Appliances",
         link: [
@@ -629,7 +629,7 @@ let categoryMenu = [
   },
   {
     name: "Baby, Kids and Toys",
-    subMenu7: [
+    subMenu: [
       {
         id: "Fashion for Girls",
         link: [
@@ -735,7 +735,7 @@ let categoryMenu = [
   },
   {
     name: "Other Categories",
-    subMenu8: [
+    subMenu: [
       {
         id: "Beauty, Health & Personal Care",
         link: [
@@ -872,7 +872,7 @@ subNavList.setAttribute(
 let subNavSubMenuHtml = "";
 
 categoryMenu.forEach((item) => {
-  console.log(item.name);
+  console.log(item.subMenu);
 
   subNavSubMenuHtml += `<li class="sub-nav-sub-menu-item">
   <a href="#" class="text-white">${item.name}</a>
@@ -893,7 +893,10 @@ categoryMenu.forEach((item) => {
   subNavList.appendChild(subNavItem);
   subNav.appendChild(subNavList);
   let subNavSubMenuContainer = document.createElement("div");
-  subNavSubMenuContainer.setAttribute("class", "sub-nav-sub-menu-container w-[calc(100vw-6px)] absolute -left-5 top-9 z-50 hidden bg-black overflow-y-hidden");
+  subNavSubMenuContainer.setAttribute(
+    "class",
+    "sub-nav-sub-menu-container w-[calc(100vw-6px)] absolute -left-5 top-9 z-50 hidden bg-black overflow-y-hidden"
+  );
 
   if (item.subMenu1) {
     let subNavSubMenu = document.createElement("ul");
@@ -914,14 +917,47 @@ categoryMenu.forEach((item) => {
     subNavItem.appendChild(subNavSubMenuContainer);
   }
 
-  if (item.subMenu2) {
+  function showSubMenu() {
+    console.log(item.name);
     let subNavSubMenu = document.createElement("ul");
-    subNavSubMenu.setAttribute(
-      "class",
-      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute -left-[13.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
-    );
-    subNavSubMenu.style.width = "calc(100vw - 14px)";
-    item.subMenu2.forEach((subItem) => {
+    if (item.name === "Computer and Accessories") {
+      subNavSubMenu.setAttribute(
+        "class",
+        "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-14px)] -left-[13.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
+      );
+    } else if (item.name === "Phones and Tablets") {
+      subNavSubMenu.setAttribute(
+        "class",
+        "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-14px)] -left-[25.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
+      );
+    } else if (item.name === "Electronics") {
+      subNavSubMenu.setAttribute(
+        "class",
+        "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute  w-[calc(100vw-15px)] -left-[37.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
+      );
+    } else if (item.name === "Konga Fashion") {
+      subNavSubMenu.setAttribute(
+        "class",
+        "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-15px)] -left-[49.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
+      );
+    } else if (item.name === "Home and Kitchen") {
+      subNavSubMenu.setAttribute(
+        "class",
+        "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-16px)] -left-[61.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
+      );
+    } else if (item.name === "Baby, Kids and Toys") {
+      subNavSubMenu.setAttribute(
+        "class",
+        "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-17px)] -left-[73.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
+      );
+    } else if (item.name === "Other Categories") {
+      subNavSubMenu.setAttribute(
+        "class",
+        "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-17px)] -left-[85.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
+      );
+    }
+
+    item.subMenu.forEach((subItem) => {
       let subNavSubMenuList1 = document.createElement("li");
       let subNavSubMenuHead = document.createElement("h3");
       subNavSubMenuHead.setAttribute(
@@ -949,210 +985,22 @@ categoryMenu.forEach((item) => {
       });
     });
     subNavItem.appendChild(subNavSubMenu);
-  } else if (item.subMenu3) {
-    let subNavSubMenu = document.createElement("ul");
-    subNavSubMenu.setAttribute(
-      "class",
-      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-14px)] -left-[25.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
-    );
-    item.subMenu3.forEach((subItem) => {
-      let subNavSubMenuList1 = document.createElement("li");
-      let subNavSubMenuHead = document.createElement("h3");
-      subNavSubMenuHead.setAttribute(
-        "class",
-        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
-      );
-      subNavSubMenuList1.setAttribute(
-        "class",
-        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
-      );
+  }
 
-      subNavSubMenuHead.innerHTML = subItem.id;
-      subNavSubMenuList1.appendChild(subNavSubMenuHead);
-      subNavSubMenu.appendChild(subNavSubMenuList1);
-      let subNavSubMenuListSubList = document.createElement("ul");
-      subItem.link.forEach((subSubItem) => {
-        let subNavSubMenuList2 = document.createElement("li");
-        subNavSubMenuList2.setAttribute(
-          "class",
-          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
-        );
-        subNavSubMenuList2.innerHTML = subSubItem.name;
-        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
-        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
-      });
-    });
-    subNavItem.appendChild(subNavSubMenu);
-  } else if (item.subMenu4) {
-    let subNavSubMenu = document.createElement("ul");
-    subNavSubMenu.setAttribute(
-      "class",
-      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-15px)] -left-[37.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
-    );
-    item.subMenu4.forEach((subItem) => {
-      let subNavSubMenuList1 = document.createElement("li");
-      let subNavSubMenuHead = document.createElement("h3");
-      subNavSubMenuHead.setAttribute(
-        "class",
-        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
-      );
-      subNavSubMenuList1.setAttribute(
-        "class",
-        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
-      );
-
-      subNavSubMenuHead.innerHTML = subItem.id;
-      subNavSubMenuList1.appendChild(subNavSubMenuHead);
-      subNavSubMenu.appendChild(subNavSubMenuList1);
-      let subNavSubMenuListSubList = document.createElement("ul");
-      subItem.link.forEach((subSubItem) => {
-        let subNavSubMenuList2 = document.createElement("li");
-        subNavSubMenuList2.setAttribute(
-          "class",
-          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
-        );
-        subNavSubMenuList2.innerHTML = subSubItem.name;
-        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
-        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
-      });
-    });
-    subNavItem.appendChild(subNavSubMenu);
-  } else if (item.subMenu5) {
-    let subNavSubMenu = document.createElement("ul");
-    subNavSubMenu.setAttribute(
-      "class",
-      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-15px)] -left-[49.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
-    );
-    item.subMenu5.forEach((subItem) => {
-      let subNavSubMenuList1 = document.createElement("li");
-      let subNavSubMenuHead = document.createElement("h3");
-      subNavSubMenuHead.setAttribute(
-        "class",
-        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
-      );
-      subNavSubMenuList1.setAttribute(
-        "class",
-        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
-      );
-
-      subNavSubMenuHead.innerHTML = subItem.id;
-      subNavSubMenuList1.appendChild(subNavSubMenuHead);
-      subNavSubMenu.appendChild(subNavSubMenuList1);
-      let subNavSubMenuListSubList = document.createElement("ul");
-      subItem.link.forEach((subSubItem) => {
-        let subNavSubMenuList2 = document.createElement("li");
-        subNavSubMenuList2.setAttribute(
-          "class",
-          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
-        );
-        subNavSubMenuList2.innerHTML = subSubItem.name;
-        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
-        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
-      });
-    });
-    subNavItem.appendChild(subNavSubMenu);
-  } else if (item.subMenu6) {
-    let subNavSubMenu = document.createElement("ul");
-    subNavSubMenu.setAttribute(
-      "class",
-      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-16px)] -left-[61.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
-    );
-    item.subMenu6.forEach((subItem) => {
-      let subNavSubMenuList1 = document.createElement("li");
-      let subNavSubMenuHead = document.createElement("h3");
-      subNavSubMenuHead.setAttribute(
-        "class",
-        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
-      );
-      subNavSubMenuList1.setAttribute(
-        "class",
-        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
-      );
-
-      subNavSubMenuHead.innerHTML = subItem.id;
-      subNavSubMenuList1.appendChild(subNavSubMenuHead);
-      subNavSubMenu.appendChild(subNavSubMenuList1);
-      let subNavSubMenuListSubList = document.createElement("ul");
-      subItem.link.forEach((subSubItem) => {
-        let subNavSubMenuList2 = document.createElement("li");
-        subNavSubMenuList2.setAttribute(
-          "class",
-          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
-        );
-        subNavSubMenuList2.innerHTML = subSubItem.name;
-        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
-        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
-      });
-    });
-    subNavItem.appendChild(subNavSubMenu);
-  } else if (item.subMenu7) {
-    let subNavSubMenu = document.createElement("ul");
-    subNavSubMenu.setAttribute(
-      "class",
-      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-17px)] -left-[73.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
-    );
-    item.subMenu7.forEach((subItem) => {
-      let subNavSubMenuList1 = document.createElement("li");
-      let subNavSubMenuHead = document.createElement("h3");
-      subNavSubMenuHead.setAttribute(
-        "class",
-        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
-      );
-      subNavSubMenuList1.setAttribute(
-        "class",
-        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
-      );
-
-      subNavSubMenuHead.innerHTML = subItem.id;
-      subNavSubMenuList1.appendChild(subNavSubMenuHead);
-      subNavSubMenu.appendChild(subNavSubMenuList1);
-      let subNavSubMenuListSubList = document.createElement("ul");
-      subItem.link.forEach((subSubItem) => {
-        let subNavSubMenuList2 = document.createElement("li");
-        subNavSubMenuList2.setAttribute(
-          "class",
-          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
-        );
-        subNavSubMenuList2.innerHTML = subSubItem.name;
-        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
-        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
-      });
-    });
-    subNavItem.appendChild(subNavSubMenu);
-  } else if (item.subMenu8) {
-    let subNavSubMenu = document.createElement("ul");
-    subNavSubMenu.setAttribute(
-      "class",
-      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-17px)] -left-[85.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
-    );
-    item.subMenu8.forEach((subItem) => {
-      let subNavSubMenuList1 = document.createElement("li");
-      let subNavSubMenuHead = document.createElement("h3");
-      subNavSubMenuHead.setAttribute(
-        "class",
-        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
-      );
-      subNavSubMenuList1.setAttribute(
-        "class",
-        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
-      );
-
-      subNavSubMenuHead.innerHTML = subItem.id;
-      subNavSubMenuList1.appendChild(subNavSubMenuHead);
-      subNavSubMenu.appendChild(subNavSubMenuList1);
-      let subNavSubMenuListSubList = document.createElement("ul");
-      subItem.link.forEach((subSubItem) => {
-        let subNavSubMenuList2 = document.createElement("li");
-        subNavSubMenuList2.setAttribute(
-          "class",
-          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
-        );
-        subNavSubMenuList2.innerHTML = subSubItem.name;
-        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
-        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
-      });
-    });
-    subNavItem.appendChild(subNavSubMenu);
+  if (item.name === "Computer and Accessories") {
+    subNavItem.addEventListener("mouseenter", showSubMenu);
+  } else if (item.name === "Phones and Tablets") {
+    subNavItem.addEventListener("mouseenter", showSubMenu);
+  } else if (item.name === "Electronics") {
+    subNavItem.addEventListener("mouseenter", showSubMenu);
+  } else if (item.name === "Konga Fashion") {
+    subNavItem.addEventListener("mouseenter", showSubMenu);
+  } else if (item.name === "Home and Kitchen") {
+    subNavItem.addEventListener("mouseenter", showSubMenu);
+  } else if (item.name === "Baby, Kids and Toys") {
+    subNavItem.addEventListener("mouseenter", showSubMenu);
+  } else if (item.name === "Other Categories") {
+    subNavItem.addEventListener("mouseenter", showSubMenu);
   }
 });
 
