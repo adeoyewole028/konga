@@ -892,33 +892,32 @@ categoryMenu.forEach((item) => {
   subNavItem.appendChild(subNavSpan);
   subNavList.appendChild(subNavItem);
   subNav.appendChild(subNavList);
-  let subNavSubMenuContainer = document.createElement("div");
-  subNavSubMenuContainer.setAttribute(
+  let categoriesSubMenuContainer = document.createElement("div");
+  categoriesSubMenuContainer.setAttribute(
     "class",
-    "sub-nav-sub-menu-container w-[calc(100vw-6px)] absolute -left-5 top-9 z-50 hidden bg-black overflow-y-hidden"
+    "categories-sub-menu-container w-[calc(100vw-6px)] absolute -left-5 top-9 z-50 hidden bg-black overflow-y-hidden"
   );
 
   if (item.subMenu1) {
-    let subNavSubMenu = document.createElement("ul");
-    subNavSubMenu.setAttribute(
+    let categoriesSubMenu = document.createElement("ul");
+    categoriesSubMenu.setAttribute(
       "class",
-      "sub-nav-sub-menu dropdown-content flex flex-col w-64 bg-white relative left-5 transition hover:delay-0 duration-300 ease-in-out"
+      "categories-sub-menu dropdown-content flex flex-col w-64 bg-white relative left-5 transition hover:delay-0 duration-300 ease-in-out"
     );
     item.subMenu1.forEach((subItem) => {
-      let subNavSubMenuList = document.createElement("li");
-      subNavSubMenuList.setAttribute(
+      let categoriesList = document.createElement("li");
+      categoriesList.setAttribute(
         "class",
-        "sub-nav-sub-menu-item px-5 py-3 text-black hover:text-red-700 hover:bg-slate-200"
+        "all-categories-list px-5 py-3 text-black hover:text-red-700 hover:bg-slate-200"
       );
-      subNavSubMenuList.innerHTML = subItem.name;
-      subNavSubMenu.appendChild(subNavSubMenuList);
+      categoriesList.innerHTML = subItem.name;
+      categoriesSubMenu.appendChild(categoriesList);
     });
-    subNavSubMenuContainer.appendChild(subNavSubMenu);
-    subNavItem.appendChild(subNavSubMenuContainer);
+    categoriesSubMenuContainer.appendChild(categoriesSubMenu);
+    subNavItem.appendChild(categoriesSubMenuContainer);
   }
 
   function showSubMenu() {
-    console.log(item.name);
     let subNavSubMenu = document.createElement("ul");
     if (item.name === "Computer and Accessories") {
       subNavSubMenu.setAttribute(
