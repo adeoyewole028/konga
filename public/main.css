@@ -546,6 +546,186 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: 0px;
 }
 
+.top-9 {
+  top: 2.25rem;
+}
+
+.-left-0 {
+  left: -0px;
+}
+
+.-left-10 {
+  left: -2.5rem;
+}
+
+.-left-7 {
+  left: -1.75rem;
+}
+
+.left-10 {
+  left: 2.5rem;
+}
+
+.left-20 {
+  left: 5rem;
+}
+
+.left-5 {
+  left: 1.25rem;
+}
+
+.left-7 {
+  left: 1.75rem;
+}
+
+.-left-5 {
+  left: -1.25rem;
+}
+
+.left-\[\] {
+  left: ;
+}
+
+.left-\[100\] {
+  left: 100;
+}
+
+.left-\[100vw\] {
+  left: 100vw;
+}
+
+.left-\[100vw-\] {
+  left: 100vw - ;
+}
+
+.left-\[50vw\] {
+  left: 50vw;
+}
+
+.-left-\[50vw\] {
+  left: -50vw;
+}
+
+.-left-\[20vw\] {
+  left: -20vw;
+}
+
+.-left-\[10vw\] {
+  left: -10vw;
+}
+
+.-left-\[15vw\] {
+  left: -15vw;
+}
+
+.-left-\[12vw\] {
+  left: -12vw;
+}
+
+.-left-\[13vw\] {
+  left: -13vw;
+}
+
+.-left-\[13\.5vw\] {
+  left: -13.5vw;
+}
+
+.-left-\[28\.5vw\] {
+  left: -28.5vw;
+}
+
+.-left-\[26\.5vw\] {
+  left: -26.5vw;
+}
+
+.-left-\[25\.5vw\] {
+  left: -25.5vw;
+}
+
+.top-8 {
+  top: 2rem;
+}
+
+.-left-\[22\.5vw\] {
+  left: -22.5vw;
+}
+
+.-left-\[3\.5vw\] {
+  left: -3.5vw;
+}
+
+.-left-\[30\.5vw\] {
+  left: -30.5vw;
+}
+
+.-left-\[32\.5vw\] {
+  left: -32.5vw;
+}
+
+.-left-\[31\.5vw\] {
+  left: -31.5vw;
+}
+
+.-left-\[33\.5vw\] {
+  left: -33.5vw;
+}
+
+.-left-\[35\.5vw\] {
+  left: -35.5vw;
+}
+
+.-left-\[37\.5vw\] {
+  left: -37.5vw;
+}
+
+.-left-\[40\.5vw\] {
+  left: -40.5vw;
+}
+
+.-left-\[45\.5vw\] {
+  left: -45.5vw;
+}
+
+.-left-\[4\.5vw\] {
+  left: -4.5vw;
+}
+
+.-left-\[49\.5vw\] {
+  left: -49.5vw;
+}
+
+.-left-\[57\.5vw\] {
+  left: -57.5vw;
+}
+
+.-left-\[59\.5vw\] {
+  left: -59.5vw;
+}
+
+.-left-\[62\.5vw\] {
+  left: -62.5vw;
+}
+
+.-left-\[61\.5vw\] {
+  left: -61.5vw;
+}
+
+.-left-\[77\.5vw\] {
+  left: -77.5vw;
+}
+
+.-left-\[73\.5vw\] {
+  left: -73.5vw;
+}
+
+.-left-\[87\.5vw\] {
+  left: -87.5vw;
+}
+
+.-left-\[85\.5vw\] {
+  left: -85.5vw;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -734,6 +914,54 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 140px;
 }
 
+.w-\[100v\] {
+  width: 100v;
+}
+
+.w-\[100vw\] {
+  width: 100vw;
+}
+
+.w-\[calc\(100vw-7px\)\] {
+  width: calc(100vw - 7px);
+}
+
+.w-\[calc\(100vw-5px\)\] {
+  width: calc(100vw - 5px);
+}
+
+.w-\[calc\(100vw\)\] {
+  width: calc(100vw);
+}
+
+.w-\[calc\(100vw-6px\)\] {
+  width: calc(100vw - 6px);
+}
+
+.w-\[calc\(100\)\] {
+  width: calc(100);
+}
+
+.w-\[calc\(100vw-\)\] {
+  width: calc(100vw - );
+}
+
+.w-\[calc\(100vw-14px\)\] {
+  width: calc(100vw - 14px);
+}
+
+.w-\[calc\(100vw-15px\)\] {
+  width: calc(100vw - 15px);
+}
+
+.w-\[calc\(100vw-16px\)\] {
+  width: calc(100vw - 16px);
+}
+
+.w-\[calc\(100vw-17px\)\] {
+  width: calc(100vw - 17px);
+}
+
 .min-w-full {
   min-width: 100%;
 }
@@ -874,12 +1102,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   align-self: center;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .overflow-x-auto {
   overflow-x: auto;
 }
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden;
 }
 
 .rounded-full {

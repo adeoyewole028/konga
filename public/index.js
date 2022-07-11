@@ -15,7 +15,10 @@ let headerContent = [
 ];
 
 let headerImages = document.createElement("ul");
-headerImages.setAttribute("class", "header-images flex justify-between space-x-10 py-3");
+headerImages.setAttribute(
+  "class",
+  "header-images flex justify-between space-x-10 py-3"
+);
 headerContent.forEach((image) => {
   let imagesList = document.createElement("li");
   imagesList.setAttribute("class", "header-image basis-1/6");
@@ -23,7 +26,7 @@ headerContent.forEach((image) => {
   imageLink.setAttribute("href", "#");
   let imageElement = document.createElement("img");
   imageElement.setAttribute("src", image);
-  imageElement.setAttribute("class", "h w-24")
+  imageElement.setAttribute("class", "h w-24");
 
   imageLink.appendChild(imageElement);
   imagesList.appendChild(imageLink);
@@ -861,7 +864,10 @@ mobileSubNav.innerHTML = `<li class="flex flex-col"><span class="iconify self-ce
 subNav.appendChild(mobileSubNav);
 
 let subNavList = document.createElement("ul");
-subNavList.setAttribute("class", "sub-nav-list px-4 md:flex bg-rose-900 hidden");
+subNavList.setAttribute(
+  "class",
+  "sub-nav-list px-4 md:flex bg-rose-900 hidden"
+);
 
 let subNavSubMenuHtml = "";
 
@@ -886,12 +892,14 @@ categoryMenu.forEach((item) => {
   subNavItem.appendChild(subNavSpan);
   subNavList.appendChild(subNavItem);
   subNav.appendChild(subNavList);
+  let subNavSubMenuContainer = document.createElement("div");
+  subNavSubMenuContainer.setAttribute("class", "sub-nav-sub-menu-container w-[calc(100vw-6px)] absolute -left-5 top-9 z-50 hidden bg-black overflow-y-hidden");
 
   if (item.subMenu1) {
     let subNavSubMenu = document.createElement("ul");
     subNavSubMenu.setAttribute(
       "class",
-      "sub-nav-sub-menu dropdown-content z-50 hidden flex flex-col absolute left-0 top-10 w-64 bg-white transition hover:delay-0 duration-300 ease-in-out"
+      "sub-nav-sub-menu dropdown-content flex flex-col w-64 bg-white relative left-5 transition hover:delay-0 duration-300 ease-in-out"
     );
     item.subMenu1.forEach((subItem) => {
       let subNavSubMenuList = document.createElement("li");
@@ -902,14 +910,15 @@ categoryMenu.forEach((item) => {
       subNavSubMenuList.innerHTML = subItem.name;
       subNavSubMenu.appendChild(subNavSubMenuList);
     });
-    subNavItem.appendChild(subNavSubMenu);
+    subNavSubMenuContainer.appendChild(subNavSubMenu);
+    subNavItem.appendChild(subNavSubMenuContainer);
   }
 
   if (item.subMenu2) {
     let subNavSubMenu = document.createElement("ul");
     subNavSubMenu.setAttribute(
       "class",
-      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute -left-44  top-11 bg-white transition hover:delay-0 duration-300 ease-in-out"
+      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute -left-[13.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
     );
     subNavSubMenu.style.width = "calc(100vw - 14px)";
     item.subMenu2.forEach((subItem) => {
@@ -944,11 +953,7 @@ categoryMenu.forEach((item) => {
     let subNavSubMenu = document.createElement("ul");
     subNavSubMenu.setAttribute(
       "class",
-      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute  top-11 bg-white transition hover:delay-0 duration-300 ease-in-out"
-    );
-    subNavSubMenu.setAttribute(
-      "style",
-      "width: calc(100vw - 13px); left: calc(-28.5vw);"
+      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-14px)] -left-[25.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
     );
     item.subMenu3.forEach((subItem) => {
       let subNavSubMenuList1 = document.createElement("li");
@@ -982,13 +987,145 @@ categoryMenu.forEach((item) => {
     let subNavSubMenu = document.createElement("ul");
     subNavSubMenu.setAttribute(
       "class",
-      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute top-11 bg-white transition hover:delay-0 duration-300 ease-in-out"
-    );
-    subNavSubMenu.setAttribute(
-      "style",
-      "width: calc(100vw - 16px); left: calc(-41vw);"
+      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-15px)] -left-[37.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
     );
     item.subMenu4.forEach((subItem) => {
+      let subNavSubMenuList1 = document.createElement("li");
+      let subNavSubMenuHead = document.createElement("h3");
+      subNavSubMenuHead.setAttribute(
+        "class",
+        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
+      );
+      subNavSubMenuList1.setAttribute(
+        "class",
+        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
+      );
+
+      subNavSubMenuHead.innerHTML = subItem.id;
+      subNavSubMenuList1.appendChild(subNavSubMenuHead);
+      subNavSubMenu.appendChild(subNavSubMenuList1);
+      let subNavSubMenuListSubList = document.createElement("ul");
+      subItem.link.forEach((subSubItem) => {
+        let subNavSubMenuList2 = document.createElement("li");
+        subNavSubMenuList2.setAttribute(
+          "class",
+          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
+        );
+        subNavSubMenuList2.innerHTML = subSubItem.name;
+        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
+        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
+      });
+    });
+    subNavItem.appendChild(subNavSubMenu);
+  } else if (item.subMenu5) {
+    let subNavSubMenu = document.createElement("ul");
+    subNavSubMenu.setAttribute(
+      "class",
+      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-15px)] -left-[49.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
+    );
+    item.subMenu5.forEach((subItem) => {
+      let subNavSubMenuList1 = document.createElement("li");
+      let subNavSubMenuHead = document.createElement("h3");
+      subNavSubMenuHead.setAttribute(
+        "class",
+        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
+      );
+      subNavSubMenuList1.setAttribute(
+        "class",
+        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
+      );
+
+      subNavSubMenuHead.innerHTML = subItem.id;
+      subNavSubMenuList1.appendChild(subNavSubMenuHead);
+      subNavSubMenu.appendChild(subNavSubMenuList1);
+      let subNavSubMenuListSubList = document.createElement("ul");
+      subItem.link.forEach((subSubItem) => {
+        let subNavSubMenuList2 = document.createElement("li");
+        subNavSubMenuList2.setAttribute(
+          "class",
+          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
+        );
+        subNavSubMenuList2.innerHTML = subSubItem.name;
+        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
+        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
+      });
+    });
+    subNavItem.appendChild(subNavSubMenu);
+  } else if (item.subMenu6) {
+    let subNavSubMenu = document.createElement("ul");
+    subNavSubMenu.setAttribute(
+      "class",
+      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-16px)] -left-[61.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
+    );
+    item.subMenu6.forEach((subItem) => {
+      let subNavSubMenuList1 = document.createElement("li");
+      let subNavSubMenuHead = document.createElement("h3");
+      subNavSubMenuHead.setAttribute(
+        "class",
+        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
+      );
+      subNavSubMenuList1.setAttribute(
+        "class",
+        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
+      );
+
+      subNavSubMenuHead.innerHTML = subItem.id;
+      subNavSubMenuList1.appendChild(subNavSubMenuHead);
+      subNavSubMenu.appendChild(subNavSubMenuList1);
+      let subNavSubMenuListSubList = document.createElement("ul");
+      subItem.link.forEach((subSubItem) => {
+        let subNavSubMenuList2 = document.createElement("li");
+        subNavSubMenuList2.setAttribute(
+          "class",
+          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
+        );
+        subNavSubMenuList2.innerHTML = subSubItem.name;
+        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
+        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
+      });
+    });
+    subNavItem.appendChild(subNavSubMenu);
+  } else if (item.subMenu7) {
+    let subNavSubMenu = document.createElement("ul");
+    subNavSubMenu.setAttribute(
+      "class",
+      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-17px)] -left-[73.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
+    );
+    item.subMenu7.forEach((subItem) => {
+      let subNavSubMenuList1 = document.createElement("li");
+      let subNavSubMenuHead = document.createElement("h3");
+      subNavSubMenuHead.setAttribute(
+        "class",
+        "sub-nav-sub-menu-head text-black text-lg font-bold py-3"
+      );
+      subNavSubMenuList1.setAttribute(
+        "class",
+        "sub-nav-sub-menu-item px-5 py-3 w-64 text-black"
+      );
+
+      subNavSubMenuHead.innerHTML = subItem.id;
+      subNavSubMenuList1.appendChild(subNavSubMenuHead);
+      subNavSubMenu.appendChild(subNavSubMenuList1);
+      let subNavSubMenuListSubList = document.createElement("ul");
+      subItem.link.forEach((subSubItem) => {
+        let subNavSubMenuList2 = document.createElement("li");
+        subNavSubMenuList2.setAttribute(
+          "class",
+          "py-3 text-black hover:text-red-700 hover:bg-slate-200"
+        );
+        subNavSubMenuList2.innerHTML = subSubItem.name;
+        subNavSubMenuListSubList.appendChild(subNavSubMenuList2);
+        subNavSubMenuList1.appendChild(subNavSubMenuListSubList);
+      });
+    });
+    subNavItem.appendChild(subNavSubMenu);
+  } else if (item.subMenu8) {
+    let subNavSubMenu = document.createElement("ul");
+    subNavSubMenu.setAttribute(
+      "class",
+      "sub-nav-sub-menu overflow-y-auto h-96 dropdown-content z-50 hidden flex flex-wrap absolute w-[calc(100vw-17px)] -left-[85.5vw] top-9 bg-white transition hover:delay-0 duration-300 ease-in-out"
+    );
+    item.subMenu8.forEach((subItem) => {
       let subNavSubMenuList1 = document.createElement("li");
       let subNavSubMenuHead = document.createElement("h3");
       subNavSubMenuHead.setAttribute(
@@ -1059,7 +1196,10 @@ sidesMenu.forEach((item, i) => {
 });
 
 let section = document.createElement("section");
-section.setAttribute("class", "banner-section flex flex-col md:flex-row md:pb-3");
+section.setAttribute(
+  "class",
+  "banner-section flex flex-col md:flex-row md:pb-3"
+);
 let bannerContainer = document.createElement("div");
 // display flex and flex col to position select buttons in the banner div
 bannerContainer.setAttribute(
@@ -1106,10 +1246,7 @@ function carousel() {
 
   let bannerImage = document.createElement("img");
   bannerImage.setAttribute("src", bannerCarousel[num]);
-  bannerImage.setAttribute(
-    "class",
-    "rounded-lg"
-  );
+  bannerImage.setAttribute("class", "rounded-lg");
   bannerEl.appendChild(bannerImage);
   bannerContainer.appendChild(bannerEl);
   section.appendChild(bannerContainer);
