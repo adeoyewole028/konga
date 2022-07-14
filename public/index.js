@@ -1,3 +1,6 @@
+const pathToRegex = (path) =>
+  new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
+
 let header = document.querySelector("header");
 let nav = document.querySelector("nav");
 let main = document.querySelector("main");
@@ -37,22 +40,22 @@ headerContent.forEach((image) => {
 let topNavContent = [
   {
     name: "./images/logo.png",
-    link: "#",
+    link: "/",
   },
   {
     name: "Store Locator",
-    link: "#",
+    link: "/store-locator",
   },
   {
     name: "Sell on Konga",
-    link: "#",
+    link: "/sell-on-konga",
   },
   {
     name: "form",
   },
   {
     name: "Help",
-    link: "#",
+    link: "",
 
     subMenu: [
       { name: "FAQ", link: "#" },
@@ -69,6 +72,136 @@ let topNavContent = [
     link: "#",
   },
 ];
+
+function userLogin() {
+  let loginContainer = document.createElement("div");
+  loginContainer.setAttribute(
+    "class",
+    "flex bg-[rgba(0,0,0,.85)] fixed top-0 left-0 right-0 bottom-0 z-50"
+  );
+
+  let loginPage = document.createElement("div");
+  loginPage.setAttribute(
+    "class",
+    "flex flex-col p-5 absolute top-0 right-0 w-96 h-screen bg-white"
+  );
+  let heading = document.createElement("div");
+  heading.setAttribute(
+    "class",
+    "flex justify-between content-center pb-3 text-2xl font-bold"
+  );
+  let header = document.createElement("h1");
+  header.innerHTML = "Login";
+  let close = document.createElement("div");
+  close.setAttribute(
+    "class",
+    "border rounded-md text-gray-400 text-xs font-normal px-5 cursor-pointer relative pt-1 pr-2"
+  );
+  close.innerHTML = "Close";
+  let closeIcon = document.createElement("span");
+  closeIcon.setAttribute("class", "iconify left-0 top-1.5 ml-1 absolute");
+  closeIcon.setAttribute("data-icon", "dashicons:no");
+  heading.appendChild(header);
+  close.appendChild(closeIcon);
+  heading.appendChild(close);
+
+  close.addEventListener("click", () => {
+    console.log("close");
+    loginContainer.classList.toggle("hidden");
+  });
+
+  let loginForm = document.createElement("form");
+  loginForm.setAttribute("class", "flex flex-col");
+  let emailLabel = document.createElement("label");
+  emailLabel.setAttribute("class", "text-xs pb-2");
+  emailLabel.innerHTML = "Email Address or Phone Number";
+  let email = document.createElement("input");
+  email.setAttribute("type", "email");
+  email.setAttribute("placeholder", "Email Address OR Phone Number");
+  email.setAttribute("class", "text-xs w-full p-2 outline outline-1 mb-2");
+  let passwordLabel = document.createElement("label");
+  passwordLabel.setAttribute("class", "text-xs py-2 flex justify-between");
+  passwordLabel.innerHTML = "Password";
+  let forgetPassword = document.createElement("a");
+  forgetPassword.setAttribute("href", "#");
+  forgetPassword.setAttribute("class", "text-red-600  underline");
+  forgetPassword.innerHTML = "Forgot Password?";
+  passwordLabel.appendChild(forgetPassword);
+  let passwordContainer = document.createElement("div");
+  passwordContainer.setAttribute("class", "relative");
+  let password = document.createElement("input");
+  password.setAttribute("type", "password");
+  password.setAttribute("placeholder", "Enter Password");
+  password.setAttribute("class", "text-xs w-full p-2 outline outline-1 mb-4");
+  let showHidePassword = document.createElement("small");
+  showHidePassword.setAttribute(
+    "class",
+    "absolute right-4 top-1 cursor-pointer text-gray-400"
+  );
+  showHidePassword.innerHTML = "show";
+  let loginButton = document.createElement("button");
+  loginButton.setAttribute(
+    "class",
+    "w-full p-2 bg-green-600 text-white font-bold"
+  );
+  loginButton.innerHTML = "Login";
+  loginForm.appendChild(emailLabel);
+  loginForm.appendChild(email);
+  loginForm.appendChild(passwordLabel);
+  passwordContainer.appendChild(password);
+  passwordContainer.appendChild(showHidePassword);
+  loginForm.appendChild(passwordContainer);
+  loginForm.appendChild(loginButton);
+
+  showHidePassword.addEventListener("click", () => {
+    if (password.type === "password") {
+      password.type = "text";
+      showHidePassword.innerText = "hide";
+    } else {
+      password.type = "password";
+      showHidePassword.innerText = "show";
+    }
+  });
+
+  let divider = document.createElement("div");
+  divider.setAttribute("class", "w-full border-t border-gray-200");
+  let or = document.createElement("div");
+  or.setAttribute("class", "text-center text-xs py-10");
+  or.innerHTML = `<span class="border rounded-full p-1 ">OR</span>`;
+  let socialMedia = document.createElement("div");
+  socialMedia.setAttribute("class", "flex justify-evenly text-xs");
+  let facebook = document.createElement("a");
+  facebook.setAttribute("href", "#");
+  facebook.setAttribute("class", "text-blue-600 border");
+  facebook.innerHTML = `<span class="flex py-1 px-10">Login with <span class="iconify self-center ml-2" data-icon="fa:facebook-f"</span></span>`;
+  let google = document.createElement("a");
+  google.setAttribute("href", "#");
+  google.setAttribute("class", "text-red-600 border");
+  google.innerHTML = `<span class="flex py-1 px-10">Login with <span class="iconify self-center ml-2" data-icon="fa:google"></span></span>`;
+
+  socialMedia.appendChild(facebook);
+  socialMedia.appendChild(google);
+
+  let signUp = document.createElement("div");
+  signUp.setAttribute(
+    "class",
+    "text-center bg-gray-100 py-3 bottom-0 absolute w-full"
+  );
+  let signUpLink = document.createElement("a");
+  signUpLink.setAttribute("href", "#");
+  signUpLink.setAttribute("class", "text-red-600 font-bold");
+  signUpLink.innerHTML = "Don't have an account? Sign Up";
+  signUp.appendChild(signUpLink);
+
+  loginPage.appendChild(heading);
+  loginPage.appendChild(loginForm);
+  loginPage.appendChild(divider);
+  loginPage.appendChild(or);
+  loginPage.appendChild(socialMedia);
+  loginPage.appendChild(signUp);
+  loginContainer.appendChild(loginPage);
+  main.appendChild(loginContainer);
+}
 
 let topNav = document.createElement("ul");
 topNav.setAttribute(
@@ -101,6 +234,10 @@ topNavContent.forEach((item) => {
     "class",
     "top-nav-item px-4 w-32 py-4 hover:text-red-700 hover:bg-white transition hover:delay-0 duration-300 ease-in-out cursor-pointer hidden md:block"
   );
+  topNavList.setAttribute("data-link", "");
+  if (item.name === "Login/Sign Up") {
+    topNavList.addEventListener("click", userLogin);
+  }
   let topNavLink = document.createElement("a");
 
   if (item.name === "./images/logo.png") {
@@ -200,6 +337,53 @@ topNavContent.forEach((item) => {
   }
 });
 nav.appendChild(topNav);
+
+const router = async () => {
+  const routes = [
+    { path: "/" },
+    { path: "/store-locator" },
+    { path: "/sell-on-konga" },
+  ];
+
+  const potentialMatches = routes.map((route) => {
+    return {
+      route,
+      result: location.pathname.match(pathToRegex(route.path)),
+    };
+  });
+
+  let match = potentialMatches.find(
+    (potentialMatch) => potentialMatch.result !== null
+  );
+
+  /* Route not found - return first route OR a specific "not-found" route */
+  if (!match) {
+    match = {
+      route: routes[0],
+      result: [location.pathname],
+    };
+  }
+  console.log(match);
+};
+
+const navigateTo = (url) => {
+  history.pushState(null, null, url);
+  router();
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.addEventListener("click", (e) => {
+      if (e.target.matches("[data-link]")) {
+        e.preventDefault();
+        navigateTo(e.target.href);
+      }
+    });
+
+    /* Document has loaded -  run the router! */
+    router();
+  });
+
+  window.addEventListener("popstate", router);
+};
 
 // categories dropdown and second nav menu array
 let categoryMenu = [
@@ -869,15 +1053,7 @@ subNavList.setAttribute(
   "sub-nav-list px-4 md:flex bg-rose-900 hidden"
 );
 
-let subNavSubMenuHtml = "";
-
 categoryMenu.forEach((item) => {
-  console.log(item.subMenu);
-
-  subNavSubMenuHtml += `<li class="sub-nav-sub-menu-item">
-  <a href="#" class="text-white">${item.name}</a>
-  <ul class="sub-nav-sub-menu-list">`;
-
   let subNavItem = document.createElement("li");
   subNavItem.setAttribute(
     "class",
@@ -892,33 +1068,32 @@ categoryMenu.forEach((item) => {
   subNavItem.appendChild(subNavSpan);
   subNavList.appendChild(subNavItem);
   subNav.appendChild(subNavList);
-  let subNavSubMenuContainer = document.createElement("div");
-  subNavSubMenuContainer.setAttribute(
+  let categoriesSubMenuContainer = document.createElement("div");
+  categoriesSubMenuContainer.setAttribute(
     "class",
-    "sub-nav-sub-menu-container w-[calc(100vw-6px)] absolute -left-5 top-9 z-50 hidden bg-black overflow-y-hidden"
+    "categories-sub-menu-container w-[calc(100vw-6px)] absolute -left-5 top-9 z-50 hidden bg-black overflow-y-hidden"
   );
 
   if (item.subMenu1) {
-    let subNavSubMenu = document.createElement("ul");
-    subNavSubMenu.setAttribute(
+    let categoriesSubMenu = document.createElement("ul");
+    categoriesSubMenu.setAttribute(
       "class",
-      "sub-nav-sub-menu dropdown-content flex flex-col w-64 bg-white relative left-5 transition hover:delay-0 duration-300 ease-in-out"
+      "categories-sub-menu dropdown-content flex flex-col w-64 bg-white relative left-5 transition hover:delay-0 duration-300 ease-in-out"
     );
     item.subMenu1.forEach((subItem) => {
-      let subNavSubMenuList = document.createElement("li");
-      subNavSubMenuList.setAttribute(
+      let categoriesList = document.createElement("li");
+      categoriesList.setAttribute(
         "class",
-        "sub-nav-sub-menu-item px-5 py-3 text-black hover:text-red-700 hover:bg-slate-200"
+        "all-categories-list px-5 py-3 text-black hover:text-red-700 hover:bg-slate-200"
       );
-      subNavSubMenuList.innerHTML = subItem.name;
-      subNavSubMenu.appendChild(subNavSubMenuList);
+      categoriesList.innerHTML = subItem.name;
+      categoriesSubMenu.appendChild(categoriesList);
     });
-    subNavSubMenuContainer.appendChild(subNavSubMenu);
-    subNavItem.appendChild(subNavSubMenuContainer);
+    categoriesSubMenuContainer.appendChild(categoriesSubMenu);
+    subNavItem.appendChild(categoriesSubMenuContainer);
   }
 
   function showSubMenu() {
-    console.log(item.name);
     let subNavSubMenu = document.createElement("ul");
     if (item.name === "Computer and Accessories") {
       subNavSubMenu.setAttribute(
